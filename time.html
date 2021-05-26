@@ -184,9 +184,6 @@
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script>
         $(function(){
-
-            
-
             $('button').click(function(){
                 let timeS = $('.sec input').val();
                 let timeM = $('.min input').val();
@@ -227,7 +224,27 @@
                 $('.hou input').val(getHours);
                 $('button').click();
             }, 1000);
-        })
+        });
+        $(document).ready(function(){
+            function setScale() {
+                var wrap = $(document).find('.timeContent');
+                var wrapWidth = wrap[0].clientWidth;
+                var wrapHeight = wrap[0].clientHeight;
+                var windowWidth = window.innerWidth;
+                var windowHeight = window.innerHeight;
+                var hRatio = windowWidth / wrapWidth;
+                var vRatio = windowHeight / wrapHeight;
+                var ratio = hRatio > vRatio ? vRatio : hRatio;
+                var wrapLeft = windowWidth / 2 - (wrapWidth / 2) * ratio;
+                var wrapTop = windowHeight / 2 - (wrapHeight / 2) * ratio;
+                window.scaleValue = ratio;
+                
+                $(wrap).attr('style', "transform: scale("+ratio+"); -webkit-transform: scale("+ratio+"); transform-origin: 0% 0%; -webkit-transform-origin: 0% 0%; left:"+wrapLeft+"px; top:"+wrapTop+"px;");
+            }
+
+            setScale()
+            window.addEventListener('resize', setScale, true);
+        });
     </script>
     <div class="timeBox">
         <div class="hou">
