@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //lotto.js
+        $(function(){
+            $('button').click(function(){
+                // 구매횟수 입력
+                // let test = $('input').val();
+                // for (let a = 1; a <= test; a++) {           //로또번호가 총 5번 나오도록 하는 for문
+
+                // let Num = [];                           //중복되지 않은 1에서 45의 숫자들이 6개 들어감
+
+                // for (let j = 0; j < 999; j++)           //중복된 숫자가 나올 수 있으므로 넉넉하게 999번 반복
+                // {
+                // let randomNum = Math.floor(Math.random()* 45) + 1;  //1부터 45의 랜덤한 숫자가 생성됨
+                // {
+                // if(Num.indexOf(randomNum) == -1)      //num에 들어간 숫자중에 randomNum의 숫자와 다른지 확인
+
+                //     Num.push(randomNum);                //다르다면 num배열에 randomNum을 넣는다
+                //     if (Num.length == 6)             
+                //     {
+                //     break;                            //num의 길이가 6이 되면 멈춤
+                //     } 
+                // }
+                // }
+
+
+                // function sortNum(a,b)  //로또 숫자들을 오름차순으로 정렬 해주는 함수
+                // {
+                // return a - b;
+                // }
+
+                // Num.sort(sortNum);     //로또 번호들이 오름차순으로 나온다
+
+                // $('ul').append(`<li><p>${a}번째 로또 번호는 ${Num}입니다.</p></li>`);
+                //     if(Num.join()=='8,10,29,27,30,43'){
+                //         alert('1st')
+                //     }
+                // }
+
+                //맞출때까지
+                let test = $('input').val();
+                let test2 = test/1000;
+                for (let a = 1; a <= test2; a++) {           //로또번호가 총 5번 나오도록 하는 for문
+
+                let Num = [];                           //중복되지 않은 1에서 45의 숫자들이 6개 들어감
+
+                for (let j = 0; j < 999; j++)           //중복된 숫자가 나올 수 있으므로 넉넉하게 999번 반복
+                {
+                let randomNum = Math.floor(Math.random()* 45) + 1;  //1부터 45의 랜덤한 숫자가 생성됨
+                {
+                if(Num.indexOf(randomNum) == -1)      //num에 들어간 숫자중에 randomNum의 숫자와 다른지 확인
+
+                    Num.push(randomNum);                //다르다면 num배열에 randomNum을 넣는다
+                    if (Num.length == 6)             
+                    {
+                    break;                            //num의 길이가 6이 되면 멈춤
+                    } 
+                }
+                }
+
+
+                function sortNum(a,b)  //로또 숫자들을 오름차순으로 정렬 해주는 함수
+                {
+                return a - b;
+                }
+
+                Num.sort(sortNum);     //로또 번호들이 오름차순으로 나온다
+
+                $('ul').append(`<li><p>${a}번째 로또 번호는 ${Num}입니다.</p></li>`);
+                    if(Num.join()=='8,12,19,23,34,42'){
+                        alert('1st')
+                    }
+                }
+            })
+        })
+    </script>
+    <input type="text">
+    <button>구매</button>
+    <ul>
+    </ul>
+</body>
+</html>

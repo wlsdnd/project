@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Lotto</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="bootstrap-social.css">
+    <style type="text/css">
+        body{
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+    </style>    
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-51448530-10"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-51448530-10');
+</script>
+
+	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script type="text/javascript" src="vue.js"></script>
+
+    <script type="text/javascript">
+        $(function(){          
+
+        $('#reloadWinBtn').on('click',function(){
+            for(var i = 1 ; i <= 7 ; i ++){
+                    $("#win"+i).val("");
+            }
+        });
+
+        $('#resetBtn').on('click',function(){
+            location.reload();
+        });
+
+        $('#reloadWinBtn').click();
+        });
+
+        Array.prototype.contains = function(element) {
+            for (var i = 0; i < this.length; i++) {
+                if (this[i] == element) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        
+        function copyToClipboard() {
+          var el = document.createElement('textarea');  // Create a <textarea> element
+          el.value = 'https://parkminkyu.github.io/newLotto/lottoWin.html'; // Set its value to the string that you want copied
+          el.setAttribute('readonly', '');                // Make it readonly to be tamper-proof
+          el.style.position = 'absolute';                 
+          el.style.left = '-9999px';                      // Move outside the screen to make it invisible
+          document.body.appendChild(el);                  // Append the <textarea> element to the HTML document
+          var selected =            
+            document.getSelection().rangeCount > 0        // Check if there is any content selected previously
+              ? document.getSelection().getRangeAt(0)     // Store selection if found
+              : false;                                    // Mark as false to know no selection existed before
+          el.select();                                    // Select the <textarea> content
+          document.execCommand('copy');                   // Copy - only works as a result of a user action (e.g. click events)
+          document.body.removeChild(el);                  // Remove the <textarea> element
+          if (selected) {                                 // If a selection existed before copying
+            document.getSelection().removeAllRanges();    // Unselect everything on the HTML document
+            document.getSelection().addRange(selected);   // Restore the original selection           
+          }
+          alert("주소가 복사되었습니다.");
+        };
+    </script>
+</head>
+<body>
+
+<div class="container" id="lottoGame">
+    <h3>재미로 보는 로또 확률 계산기</h3>
+<div class="btn-group">
+    <button v-on:click="gameStart" class="btn btn-primary btn-sm">시작</button>
+    <button v-on:click="gameStop" class="btn btn-default btn-sm">정지</button>
+    <button id="resetBtn" class="btn btn-default btn-sm">초기화</button>
+</div>
+<table class="table table-bordered">
+    <colgroup>
+        <col width="22%">
+        <col width="25%">
+        <col width="*">
+    </colgroup>
+    <tr>
+        <td colspan="3">1등 번호 : {{printWinNums()}} <button v-on:click="createWinNums()" class="btn btn-default btn-sm">1등자동생성</button></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            게임수 : {{gameCount}}<br>
+            1주5장구매 : {{gameYear}}<br>
+            생성 번호<br>{{userNums}}
+        </td>
+        <td>
+            투자금: {{allMoney}}<br>
+            수익금: {{getMoney}} <br>
+            순이익: {{loseMoney}}<br>
+            소요시간: {{gameTime}}
+        </td>
+    </tr>
+    <tr>
+     <td colspan="2">           
+            <select v-model="gameSpeed" class="form-control">
+                <option value="1">게임속도*1</option>                                
+                <option value="5">게임속도*5</option>                
+                <option value="10">게임속도*10</option>                
+                <option value="20">게임속도*20</option>                
+                <option value="50">게임속도*50</option>                
+                <option value="100">게임속도*100</option>              
+                <option value="1000">게임속도*1000</option>              
+                <option value="10000">게임속도*10000</option>                
+            </select>
+        </td>
+        <td>            
+            <select v-model="endCount" class="form-control">
+                <option value="0">무제한</option>
+                <option value="1000">1000게임정지</option>
+                <option value="5000">5000게임정지</option>
+                <option value="10000">10000게임정지</option>
+                <option value="50000">50000게임정지</option>
+                <option value="100000">100000게임정지</option>
+                <option value="500000">500000게임정지</option>
+	    	    <option value="1000000">1000000게임정지</option>
+                <option value="5000000">5000000게임정지</option>
+            </select>
+        </td>
+    </td>
+    <tr v-if="!isStart" id="randHold">
+        <td>
+            고정번호 선택
+        </td>
+        <td colspan="2">
+            <div class="form-group has-success has-feedback">
+                <div class="input-group">
+                    <select id="hold1" v-model="userGameNum1" class="form-control">
+                        <option value="0">고정 번호1</option>
+                        <option v-for="num in lottoNums" :value="num">
+                        	{{num}}
+                        </option>
+                    </select>
+                    <select id="hold2" v-model="userGameNum2" class="form-control">
+                        <option value="0">고정 번호2</option>
+                        <option v-for="num in lottoNums" :value="num">
+                        	{{num}}
+                        </option>
+                    </select>
+                    <select id="hold3" v-model="userGameNum3" class="form-control">
+                        <option value="0">고정 번호3</option>
+                        <option v-for="num in lottoNums" :value="num">
+                        	{{num}}
+                        </option>
+                    </select>
+                    <select id="hold4" v-model="userGameNum4" class="form-control">
+                        <option value="0">고정 번호4</option>
+                        <option v-for="num in lottoNums" :value="num">
+                        	{{num}}
+                        </option>
+                    </select>
+                    <select id="hold5" v-model="userGameNum5" class="form-control">
+                        <option value="0">고정 번호5</option>
+                        <option v-for="num in lottoNums" :value="num">
+                        	{{num}}
+                        </option>
+                    </select>
+                    <select id="hold6" v-model="userGameNum6" class="form-control">
+                        <option value="0">고정 번호6</option>
+                        <option v-for="num in lottoNums" :value="num">
+                        	{{num}}
+                        </option>
+                    </select>
+                    </div>
+                </div>
+        </td>
+    </tr>        
+    <tr>
+        <td>등수<br>(당첨수)</td>
+        <td>현재 확률<br>(공식 확률)</td>
+        <td>최근당첨번호</td>
+    </tr>
+    <tr>
+        <td>1등<br>({{oneCount}})</td>
+        <td>
+            {{onePer}}%<br>
+            <span class="label label-default"> 1 / 8,145,060 </span><br>
+            <span class="label label-default">( 0.000012 % )</span>
+        </td>
+        <td>{{oneText}}</td>
+    </tr>
+    <tr>
+        <td>2등<br>({{twoCount}})</td>
+        <td>
+            {{twoPer}}%<br>
+            <span class="label label-default"> 1 / 1,357,510 </span><br>
+            <span class="label label-default">( 0.000073 % )</span>
+        </td>
+        <td>{{twoText}}</td>
+    </tr>
+    <tr>
+        <td>3등<br>({{threeCount}})</td>
+        <td>
+            {{threePer}}%<br>
+            <span class="label label-default"> 1 / 35,724 </span><br>
+            <span class="label label-default">( 0.002799 % )</span>
+        </td>
+        <td>{{threeText}}</td>
+    </tr>
+    <tr>
+        <td>4등<br>({{fourCount}})</td>
+        <td>
+            {{fourPer}}%<br>
+            <span class="label label-default"> 1 / 733 </span><br>
+            <span class="label label-default">( 0.136425 % )</span>
+        </td>
+        <td>{{fourText}}</td>
+    </tr>
+    <tr>
+        <td>5등<br>({{fiveCount}})</td>
+        <td>
+            {{fivePer}}%<br>
+            <span class="label label-default"> 1 / 45 </span><br>
+            <span class="label label-default">( 2.222222 % )</span>
+        </td>
+        <td>{{fiveText}}</td>
+    </tr>
+    <tr>
+        <td>꽝<br>({{noCount}})</td>
+        <td>{{noPer}}%</td>
+        <td></td>
+    </tr>
+</table>
+</div>
+<script>
+var app = new Vue({
+	  el: '#lottoGame',
+	  data: {
+		lottoNums : [
+		             1,2,3,4,5,6,7,8,9,10,
+		             11,12,13,14,15,16,17,18,19,20,
+		             21,22,23,24,25,26,27,28,29,30,
+		             31,32,33,34,35,36,37,38,39,40,
+		             41,42,43,44,45
+		            ],
+	    winNums : [1,2,3,4,5,6,999],
+	    userGameNum1 : 0,
+	    userGameNum2 : 0,
+	    userGameNum3 : 0,
+	    userGameNum4 : 0,
+	    userGameNum5 : 0,
+	    userGameNum6 : 0,
+	    userNums : [0,0,0,0,0,0],
+	    endCount : 0,
+	    gameCount : 0,
+	    oneCount : 0,
+	    twoCount : 0,
+	    threeCount : 0,
+	    fourCount : 0,
+	    fiveCount : 0,
+	    noCount : 0,
+	    onePer : 0,
+	    twoPer : 0,
+	    threePer : 0,
+	    fourPer : 0,
+	    fivePer : 0,
+	    noPer : 0,
+	    oneText :  [0,0,0,0,0,0],
+	    twoText :  [0,0,0,0,0,0],
+	    threeText :  [0,0,0,0,0,0],
+	    fourText :  [0,0,0,0,0,0],
+	    fiveText :  [0,0,0,0,0,0],
+	    allMoney : 0,
+	    gameYear : "",
+	    getMoney : 0,
+	    loseMoney : 0,
+	    gameTime : "00:00:00",
+	    isStart : false,
+	    gameInterval : null,
+	    timeInterval : null,
+	    gameSpeed : 1,
+	    timeCount : 0
+	  },
+	  beforeMount(){
+		  this.createWinNums();
+		  this.startTimer();
+	  },
+	  methods: {
+		startTimer:function(){
+			var self = this;
+			setTimeout(function(){
+				if(self.isStart){
+					self.timeCount++;
+					var minutes = parseInt(self.timeCount / 60, 10);
+					var hours = parseInt(minutes / 60, 10);
+					var seconds = self.timeCount%60;
+					minutes %= 60;
+
+					self.gameTime = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+				}
+				self.startTimer();
+			},1000);
+		},
+	    gameStart:function () {
+			var self = this;
+			var i = 0;
+			if(this.isStart == false){
+				this.isStart = true;
+				self.gameInterval = setInterval( function(){
+					if(!self.isStart){
+						clearInterval(self.gameInterval);
+					}
+					for(var j = 0 ; j < self.gameSpeed ; j ++){
+						if(!self.isStart){
+							break;
+						}
+						self.gameCount++;
+						self.checkGameData();
+						self.createUserNums();
+						self.checkEndGame();
+					}
+				});
+			}
+	    },
+	    checkEndGame: function(){
+            if(this.gameCount >= this.endCount && 0 != this.endCount){
+            	this.isStart = false;
+                alert('게임이 끝났습니다.');
+            }
+        },
+	    checkGameData: function(){
+	    	this.gameYear = '약 '+ (Math.round( (this.gameCount/(4*5)/12) )).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '년'
+	    	this.allMoney = (this.gameCount * 1000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' 원'
+	    	this.checkGameNums();
+	    	this.moneyCheck();
+	    },
+	    checkGameNums: function(){
+	    	var matchCount = 0;
+	    	for(var i = 0 ; i < this.winNums.length - 1 ; i ++){
+				if(this.userNums.contains(this.winNums[i])){
+					matchCount++;
+				}
+			}
+	    	
+	    	switch (matchCount){
+	            case 3:
+	                ++this.fiveCount;
+	                this.copyArrays(this.fiveText,this.userNums);
+	                break;
+	            case 4:
+	            	++this.fourCount;
+	            	this.copyArrays(this.fourText,this.userNums);
+	                break;
+	            case 5:
+	                if(this.userNums.contains(this.winNums[6])){
+	                	++this.twoCount;
+	                	this.copyArrays(this.twoText,this.userNums);
+	                }
+	                else{
+	                	++this.threeCount;
+	                	this.copyArrays(this.threeText,this.userNums);
+	                }
+	                break;
+	            case 6:
+	            	this.isStart = false;
+	            	++this.oneCount;
+	            	this.copyArrays(this.oneText,this.userNums);
+	            	alert('축하합니다. 1등에 당첨되셨습니다.');
+	                break;
+	            default :
+	                ++this.noCount;
+	                break;
+	        }
+	    	
+			this.fivePer = (this.fiveCount/this.gameCount * 100).toFixed(6);
+			this.fourPer = (this.fourCount/this.gameCount * 100).toFixed(6);
+			this.threePer = (this.threeCount/this.gameCount * 100).toFixed(6);
+			this.twoPer = (this.twoCount/this.gameCount * 100).toFixed(6);
+			this.onePer = (this.oneCount/this.gameCount * 100).toFixed(6);
+			this.noPer = (this.noCount/this.gameCount * 100).toFixed(6);
+	    	
+	    },
+	    copyArrays:function(tar,arr){
+	    	tar[0] = arr[0];
+	    	tar[1] = arr[1];
+	    	tar[2] = arr[2];
+	    	tar[3] = arr[3];
+	    	tar[4] = arr[4];
+	    	tar[5] = arr[5];
+	    },
+	    moneyCheck: function(){
+	    	var five = this.fiveCount * 5000;
+            var four = this.fourCount * 50000;
+            var three = this.threeCount* 1000000;
+            var two = this.twoCount* 50000000;
+            var one = this.oneCount* 2000000000;
+            var total = five + four + three + two + one;
+
+            this.getMoney = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " 원";
+            this.loseMoney = (((this.gameCount * 1000) - total) * -1).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " 원";
+	    },
+	    gameStop:function(){
+	    	this.isStart = false;
+	    },
+	    createRandomNum: function(){
+            return parseInt((Math.random() *45)+1);
+        },
+        createUserNums: function(){
+        	var i = 0;
+        	this.userNums[0] = this.userGameNum1; 
+            this.userNums[1] = this.userGameNum2; 
+            this.userNums[2] = this.userGameNum3; 
+            this.userNums[3] = this.userGameNum4; 
+            this.userNums[4] = this.userGameNum5; 
+            this.userNums[5] = this.userGameNum6; 
+            
+            while(i < 6){
+            	if(this.userNums[i] != 0){
+            		i++;
+            		continue;
+            	}
+                var num = this.createRandomNum();
+                while(this.userNums.contains(num)){
+                    num = this.createRandomNum();
+                }
+                this.userNums[i++] = num;
+            }
+            this.userNums.sort(function(a,b){return a - b;});
+        },
+        createWinNums: function(){
+        	this.winNums = [1,2,3,4,5,6,999];
+        	var i = 0;
+            while(i < 6){
+                var num = this.createRandomNum();
+                while(this.winNums.contains(num)){
+                    num = this.createRandomNum();
+                }
+                this.winNums[i++] = num;
+            }
+            this.winNums.sort(function(a,b){return a - b;});
+            while(this.winNums[6] == 999){
+                var num = this.createRandomNum();
+                while(this.winNums.contains(num)){
+                    num = this.createRandomNum();
+                }
+                this.winNums[i++] = num;
+            }
+
+            this.printWinNums();
+        },
+        printWinNums:function(){
+        	var text = this.winNums.join(", ");
+        	return text.substr(0,text.lastIndexOf(',')) + " 보너스 : " + text.substr(text.lastIndexOf(', ')+1); 
+    	    //printWinNumsText : "1, 2, 3, 4, 5, 6 보너스 : 7"
+        }
+	  }
+	})
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>login</title>
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+    </head>
+    <body>
+        <div>
+            <form id="answer_form" action="submit">
+                <input type="text" autocomplete="off" id="userid">
+                <input type="password" id="userpw">
+                <button type="button" id="submin">Login</button>
+            </form>
+        </div>
+        <script>
+            $(function () {
+                var userId = 'wlsdnddp';
+                var userpw = '1234';
+                var answer_form = $('#answer_form')
+
+                $('#submin').click(function(){
+                    loginSection()
+                });
+                $("#userpw").keydown(function(key) {
+                    if (key.keyCode == 13) {
+                        //경고창을 출력한다.
+                        loginSection()
+                    }
+                });
+                function loginSection(){
+                    if($('#userid').val()==userId && $('#userpw').val()==userpw){
+                        alert('로그인 성공')
+                    }else if($('#userid').val()!==userId){
+                        alert('아이디를 확인')
+                    }else if($('#userpw').val()!==userpw){
+                        alert('패스워드를 확인')
+                    }else if($('#userid').val()==''){
+                        alert('아이디를 입력')
+                    }else if($('#userpw').val()==''){
+                        alert('패스워드를 입력')
+                    }
+                }
+
+            })
+        </script>
+    </body>
+</html>
