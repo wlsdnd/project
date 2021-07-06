@@ -1,0 +1,62 @@
+﻿{
+  "info": {
+    "title": "pdf(firstphonics+reading100)",
+    "creator": "HP",
+    "format": "text/html",
+    "identifier": "5cc45b0f-3ab5-4f06-bfa5-d4e636e631b7",
+    "width": "1218",
+    "height": "1584",
+    "totalpage": "8",
+    "language": "ko",
+    "base_url": "",
+    "regtime": "2021-07-06 11:59:15"
+  },
+  "toc": [],
+  "pages": [
+    {
+      "idx": "0",
+      "url": "\\/index.php\\/viewer\\/blank\\/",
+      "thumbnail": ""
+    },
+    {
+      "idx": "1",
+      "url": "p001.xhtml",
+      "thumbnail": "001.jpg"
+    },
+    {
+      "idx": "2",
+      "url": "p002.xhtml",
+      "thumbnail": "002.jpg"
+    },
+    {
+      "idx": "3",
+      "url": "p003.xhtml",
+      "thumbnail": "003.jpg"
+    },
+    {
+      "idx": "4",
+      "url": "p004.xhtml",
+      "thumbnail": "004.jpg"
+    },
+    {
+      "idx": "5",
+      "url": "p005.xhtml",
+      "thumbnail": "005.jpg"
+    },
+    {
+      "idx": "6",
+      "url": "p006.xhtml",
+      "thumbnail": "006.jpg"
+    },
+    {
+      "idx": "7",
+      "url": "p007.xhtml",
+      "thumbnail": "007.jpg"
+    },
+    {
+      "idx": "8",
+      "url": "p008.xhtml",
+      "thumbnail": "008.jpg"
+    }
+  ]
+}

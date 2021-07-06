@@ -1,0 +1,643 @@
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+*{
+    word-break: keep-all;
+    font-family: Nanum Gothic,"Nanum Gothic";
+    font-weight: 700;
+}
+html{
+    width: 100%;
+    height: 100%;
+}
+body{
+    background-color: #1e2026;
+    margin: 0;
+    background: #fff url('../img/bg.png') center center no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+}
+
+button{
+    border: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+button:focus{
+    outline: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.loading{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff url('../img/bg.png') center center no-repeat;
+    background-size: 100% 100%;
+    z-index: 1;
+    display: none;
+}
+
+.ir{
+    display: block;
+    text-indent: -9999px;
+    position: absolute;
+}
+
+
+#container{
+	width: 1200px;
+	height: 800px;
+	position: relative;
+    margin: 0;
+    overflow: hidden;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -400px;
+    margin-left: -600px;
+    overflow: hidden;
+}
+
+#container .title{
+    width: 258px;
+    height: 50px;
+    background: url('../img/title.png') 0 0 no-repeat;
+    position: absolute;
+    top: 15px;
+    left: 1px;
+    margin: 0;
+    z-index: 1;
+}
+
+.leftcon{
+    width: 625px;
+    height: 774px;
+    float: left;
+    margin-top: 14px;
+    margin-left: 79px;
+    position: relative;
+    z-index: 1
+}
+
+.rightcon{
+    width: 396px;
+    height: 750px;
+    background: url('../img/right/bg.png') 0px 0px repeat-x;
+    background-size: 100% 100%;
+    float: left;
+    margin-top: 32px;
+    margin-left: 15px;
+    position: relative;
+    transition: 1000ms ease;
+    overflow: hidden;
+}
+
+.rightcon .earthbg{
+    width: 396px;
+    height: 774px;
+    background:url('../img/right/earth.png') 0px 0px repeat-x;
+}
+
+.earth{
+    width: 128px;
+    height: 128px;
+    background:url('../img/left/earth.png') 1px 0 no-repeat;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -64px;
+    margin-left: -64px;
+}
+
+.circle{
+    width: 400px;
+    height: 400px;
+    background: url('../img/left/circle.png') 3px 3px no-repeat;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -200px;
+}
+
+.rmoon{
+    width: 47px;
+    height: 49px;
+    background: url('../img/left/center.png') 0 0 no-repeat;
+    position: absolute;
+    background-size: 100% 100%;
+    top: 50%;
+    left: 50%;
+    margin-top: -24px;
+    margin-left: -24px;
+    animation: rot 25s infinite linear;
+}
+
+@keyframes rot {
+    0% { transform: rotate(0deg) translate(200px) rotate(0deg); }
+    100% { transform: rotate(-360deg) translate(200px) rotate(360deg); }
+}
+
+.moonbg{
+    width: 591px;
+    height: 587px;
+    background: url('../img/left/moonbg.png') 0 0 no-repeat;
+    position: absolute;
+    top: 102px;
+    left: 17px;
+}
+
+.moon1{
+    width: 45px;
+    height: 45px;
+    background: url('../img/left/moon1.png') 0 0 no-repeat;
+    position: absolute;
+    top: 196px;
+    left: 492px;
+}
+
+.moon2{
+    width: 45px;
+    height: 45px;
+    background: url('../img/left/moon2.png') 0 0 no-repeat;
+    position: absolute;
+    top: 373px;
+    left: 563px;
+}
+
+.moon3{
+    width: 45px;
+    height: 45px;
+    background: url('../img/left/moon3.png') 0 0 no-repeat;
+    position: absolute;
+    top: 560px;
+    left: 492px;
+}
+
+.moon4{
+    width: 45px;
+    height: 45px;
+    background: url('../img/left/moon4.png') 0 0 no-repeat;
+    position: absolute;
+    top: 648px;
+    left: 296px;
+}
+
+.moon5{
+    width: 45px;
+    height: 45px;
+    background: url('../img/left/moon5.png') 0 0 no-repeat;
+    position: absolute;
+    top: 562px;
+    left: 87px;
+}
+
+.moon6{
+    width: 45px;
+    height: 45px;
+    background: url('../img/left/moon6.png') 0 0 no-repeat;
+    position: absolute;
+    top: 374px;
+    left: 17px;
+}
+
+.moon7{
+    width: 45px;
+    height: 45px;
+    background: url('../img/left/moon7.png') 0 0 no-repeat;
+    position: absolute;
+    top: 197px;
+    left: 80px;
+}
+
+.moon8{
+    width: 45px;
+    height: 45px;
+    background: url('../img/left/moon8.png') 0 0 no-repeat;
+    position: absolute;
+    top: 102px;
+    left: 293px;
+}
+
+.moonbtn{
+    cursor: pointer;
+}
+
+.moonbtn.on:before{
+    display: block;
+    content: "";
+    width: 58px;
+    height: 59px;
+    background: url('../img/left/border.png') 0 0 no-repeat;
+    position: absolute;
+    top: -8px;
+    left: -7px;
+    background-size: 100% 100%;
+}
+
+.moon8.moonbtn button{
+    top: 60px;
+    left: -4px;
+}
+
+.moon1.moonbtn button{
+    top: 50px;
+    left: -38px;
+}
+
+.moon2.moonbtn button{
+    top: 0px;
+    left: -68px;
+}
+
+.moon3.moonbtn button{
+    top: -38px;
+    left: -57px;
+}
+
+.moon4.moonbtn button{
+    top: -68px;
+    left: -5px;
+}
+
+.moon5.moonbtn button{
+    top: -54px;
+    left: 32px;
+}
+
+.moon6.moonbtn button{
+    top: 0px;
+    left: 60px;
+}
+.moon7.moonbtn button{
+    top: 40px;
+    left: 42px;
+}
+
+.rightcon .text{
+    color: #fff;
+    font-size: 1.5em;
+    text-align: center;
+    line-height: 36px;
+    height: 36px;
+    width: 36px;
+    border-radius: 30px;
+    background-color: #30363d;
+    position: absolute;
+}
+
+.rightcon .text1{
+    top: 576px;
+    left: 20px;
+}
+
+.rightcon .text2{
+    top: 552px;
+    left: 187px;
+}
+
+.rightcon .text3{
+    top: 576px;
+    left: 342px;
+}
+
+.rmoonbg{
+    width: 396px;
+    height: 237px;
+    position: absolute;
+    top: 136px;
+    left: 1px;
+    z-index: 10;
+}
+
+.dotbg{
+    display: none;
+    width: 307px;
+    height: 6px;
+    position: absolute;
+    background: url('../img/right/dot.png') 0 0 no-repeat;
+    top: 257px;
+    left: 47px;
+}
+
+.moonwrap{
+    width: 394px;
+    height: 280px;
+    overflow: hidden;
+    position: relative;
+    margin-top: -35px;
+}
+
+.moonwrap ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 3168px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.moonwrap ul li{
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 396px;
+    height: 260px;
+}
+
+.moonwrap ul li p{
+    color: #ddc500;
+    font-size: 2.4em;
+    letter-spacing: -1px;
+    margin-top: 0px;
+    text-align: center;
+}
+
+.moonwrap ul li.rmoon1{
+    background: url('../img/right/moon1.png') 100px 60px no-repeat;
+    background-size: 200px 200px;
+}
+
+.moonwrap ul li.rmoon2{
+    background: url('../img/right/moon2.png') 100px 60px no-repeat;
+    background-size: 200px 200px;
+}
+
+.moonwrap ul li.rmoon3{
+    background: url('../img/right/moon3.png') 100px 60px no-repeat;
+    background-size: 200px 200px;
+}
+
+.moonwrap ul li.rmoon4{
+    background: url('../img/right/moon4.png') 100px 60px no-repeat;
+    background-size: 200px 200px;
+}
+
+.moonwrap ul li.rmoon5{
+    background: url('../img/right/moon5.png') 100px 60px no-repeat;
+    background-size: 200px 200px;
+}
+
+.moonwrap ul li.rmoon6{
+    background: url('../img/right/moon6.png') 100px 60px no-repeat;
+    background-size: 200px 200px;
+}
+
+.moonwrap ul li.rmoon7{
+    background: url('../img/right/moon7.png') 100px 60px no-repeat;
+    background-size: 200px 200px;
+}
+
+.moonwrap ul li.rmoon8{
+    background: url('../img/right/moon8.png') 100px 60px no-repeat;
+    background-size: 200px 200px;
+}
+
+.moonwrap ul:after{
+    display: block;
+    content: "";
+    clear: both;
+}
+
+.rightcon button{
+    position: absolute;
+    width: 63px;
+    height: 64px;
+    z-index: 11;
+}
+
+.rightcon button.left{
+    background: url('../img/right/l_btn.png') 0 0 no-repeat;
+    top: 235px;
+    left: 25px;
+}
+
+.rightcon button.left:hover{
+    background: url('../img/right/l_btn_h.png') 0 0 no-repeat;
+}
+
+.rightcon button.right{
+    background: url('../img/right/r_btn.png') -1px 5px no-repeat;
+    top: 235px;
+    right: 20px;
+}
+
+.rightcon button.right:hover{
+    background: url('../img/right/r_btn_h.png') -1px 5px no-repeat;
+}
+
+.popbtn1{
+    display: block;
+    width: 123px;
+    height: 123px;
+    background: url('../img/pop/tab_02.png') 0 0 no-repeat;   
+    position: absolute;
+    top: 669px;
+    left: 76px;
+    z-index: 2;
+}
+
+.popbtn1:hover{
+    background: url('../img/pop/tab_02_h.png') 0 0 no-repeat;   
+}
+
+.popbg{
+    background: rgba(0,0,0,0.8);
+    width: 100%;
+    height: 100%;
+    z-index: 12;
+    position: absolute;
+    display: none;
+}
+
+.popcon.popcon1{
+    width: 1008px;
+    height: 592px;
+    background: url('../img/pop/popup2_bg.png') 0 0 no-repeat;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -297px;
+    margin-left: -504px;
+
+}
+
+.popcon .content{
+    margin-left: 171px;
+    position: relative;
+}
+
+.popcon .content p{
+    display: inline-block;
+    margin: 0;
+    vertical-align: top;
+    font-size: 24px;
+    line-height: 34px;
+    color: #333;
+}
+
+.popcon .content p sup{
+    line-height: 0;
+}
+
+.popcon .content p.num{
+    background-color: #1f466b;
+    color: #fff;
+    padding: 0 20px;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.popcon .content > ul{
+    margin-top: 80px;
+}
+
+.popcon .content > ul > li{
+    margin-top: 40px;
+}
+
+.popcon .content > ul > li:first-child{
+    margin-top: 0;
+}
+
+.popcon.popcon1 .content > ul{
+    margin-top: 30px;
+}
+
+.popcon.popcon1 .content > ul > li{
+    margin-top: 20px;
+}
+
+.popcon .content p.text{
+    margin: 10px 0 0 20px;
+}
+
+.popcon.popcon1 .roundnum{
+    margin: 20px 0 0 55px;
+    width: 320px;
+}
+
+.popcon.popcon1 .roundnum li{
+    font-size: 20px;
+    color: #333;
+    margin-top: 20px;
+}
+
+.popcon.popcon1 .roundnum li:first-child{
+    margin-top: 0;
+}
+
+.roundnum{
+    counter-reset: my-badass-counter;
+
+}
+
+.roundnum li{
+    position: relative;
+}
+
+.roundnum li:before{
+    display: block;
+    content: counter(my-badass-counter);
+    counter-increment: my-badass-counter;
+    position: absolute;
+    left: -30px;
+    width: 22px;
+    height: 22px;
+    line-height: 23px;
+    font-size: 20px;
+    border: 2px solid #9bb6c6;
+    border-radius: 30px;
+    background-color: #fff;
+    text-align: center;
+    top: -2px;
+
+}
+
+.capture{
+    width: 436px;
+    height: 331px;
+    position: absolute;
+    background: url('../img/pop/popup2_obj.png') 0 0 no-repeat;   
+    right: 10px;
+    top: 150px;
+}
+
+.capture .obj1{
+    width: 77px;
+    height: 72px;
+    background: url('../img/pop/obj_01.png') 0 0 no-repeat;   
+    position: absolute;
+    top: 63px;
+    left: 22px;
+}
+
+.capture .obj2{
+    width: 162px;
+    height: 324px;
+    background: url('../img/pop/obj_02.png') 0 0 no-repeat;   
+    position: absolute;
+    top: -5px;
+    left: 264px;
+}
+
+.close{
+    width: 58px;
+    height: 58px;
+    position: absolute;
+    top: -11px;
+    right: -13px;
+    background: url('../img/pop/pop_close.png') 0 0 no-repeat;
+    cursor: pointer;
+}
+
+.close:hover{
+    background: url('../img/pop/pop_close_h.png') 0 0 no-repeat;
+}
+
+.effect{
+    width: 400px;
+    height: 800px;
+    background: url('../img/spritesheet.png') 0 0 no-repeat;
+    position: absolute;
+    
+}
+
+.effect.right{
+    top: -15px;
+    right: -65px;
+    background: url('../img/sun.png') 0 0 no-repeat;
+}
+
+.effect.left{
+    left: 355px;
+    top: 10px;
+    z-index: 0;
+    animation: effect 1.5s steps(25) infinite reverse;
+}
+
+@keyframes effect {
+  0% {background-position: 0px 0px}
+  100% {background-position: -10000px 0px}
+}
+
+@keyframes effect {
+  0% {background-position: 0px 0px}
+  100% {background-position: -10000px 0px}
+}

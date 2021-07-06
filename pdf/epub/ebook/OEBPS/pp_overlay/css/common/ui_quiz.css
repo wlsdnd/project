@@ -1,0 +1,194 @@
+@charset "utf-8";
+
+/* ------------------------------------------------------------------------------------------------------------- */
+/* button */
+[class*="btn"], [class*="Btn"]			{cursor:pointer; display:inline-block; -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none; -webkit-tap-highlight-color:transparent}
+
+[class*="btn_wrap"]						{display:inline-block; cursor:default; z-index:1}
+[class*="btn_wrap"]:after				{display:block; height:0; clear:both; content:'';}
+.btn_wrap								{position:absolute; line-height:0; text-align:right;}
+.inner_btn_wrap							{position:absolute; vertical-align:middle; margin-left:10px;}
+
+/* 버튼 명칭 통일 */
+.btn_wrap [class*="btn"] + .toastContent,
+.btn_wrap [class*="btn"] + [class*="btn"],
+.btn_wrap .toastContent + [class*="btn"],
+.btn_wrap .toastContent + .toastContent	{margin-left:10px;}
+.btn_wrap .toastContent					{float:left;}
+
+
+
+
+/* ------------------------------------------------------------------------------------------------------------- */
+/* quiz - common */
+.answerCorrect{display:none}
+.hintMessage{position:relative; display:none;}
+.hintMessage:after{}
+
+/* quiz - common - feedBack */
+.feedMessage{position:absolute; display:none; font-size:0;}
+.feedMessage .feedMessage_txt{display:none; font-size:0;}
+
+.input_txt{color:#3333ff;}
+.answer_txt{position:absolute; display:none; color:#fb261f;}
+
+.check_radio, .check_multi{display:none;}
+
+/* quiz - common - quizMarking */
+.quizMarking{}
+.quizMarking.correct{}
+.quizMarking.wrong{}
+
+/* ------------------------------------------------------------------------------------------------------------- */
+/* quiz - commmon - align */
+.quizType{display:block; line-height:1.5; outline:1px solid rgba(0,0,0,0.1);}
+.title[data-bullet] + .quizType{}
+
+/* ------------------------------------------------------------------------------------------------------------- */
+/* quiz - quiz_multiple */
+.quiz_multiple{}
+.quiz_multiple > li{margin-bottom:5px;}
+.quiz_multiple > li .check_num{display:inline-block; float:left; min-width:20px; cursor:pointer;}
+.quiz_multiple > li .check_text{display:inline-block; width:calc(100% - 20px); cursor:pointer;}
+.quiz_multiple > li:after{display:block; height:0; clear:both; content:'';}
+
+/* quiz - quiz_multiple - 사용자 선택 */
+.quiz_multiple > li.on .check_num{color:#3333ff;}
+.quiz_multiple > li.on .check_num:after{position:absolute; content:''; display:inline-block; top:-10px; left:-4px; width:64px; height:64px; background:url('../../common/images/quiz/quiz_check_s.png') no-repeat;}
+.quiz_multiple > li.on .check_text{color:#3333ff;}
+
+/* quiz - quiz_multiple - 정답 */
+.quiz_multiple > li.answer .check_num{}
+.quiz_multiple > li.answer .check_text{color:#fb261f;}
+.quiz_multiple > li.answer .check_num:after{position:absolute; content:''; display:inline-block; top:-10px; left:-4px; width:64px; height:64px; background:url('../../common/images/quiz/quiz_check_a.png') no-repeat;}
+.quiz_multiple > li .check_img{display:inline-block; vertical-align:top; cursor:pointer}
+
+/* quiz - quiz_multiple - 나열형 */
+.quiz_multiple[data-layout='flow'] > li{display:inline;}
+.quiz_multiple[data-layout='flow'] > li .check_num{position:relative; float:none; color:#222;}
+.quiz_multiple[data-layout='flow'] > li.on .check_num:before{position:absolute; display:inline-block; content:''; top:0px; left:0px; width:100%; height:64px; background:url('../../common/images/quiz/quiz_check_s.png') center center no-repeat;}
+.quiz_multiple[data-layout='flow'] > li.answer .check_num:after{position:absolute; display:inline-block; content:''; top:0px; left:0px; width:100%; height:64px; background:url('../../common/images/quiz/quiz_check_a.png') center center no-repeat;}
+.quiz_multiple[data-layout='flow'] > li:after{display:none;}
+
+/* quiz - quiz_multiple - trueFalse */
+.quizType[data-response-type='trueFalse'] .quiz_multiple > li{display:inline-block; float:left;}
+.quizType[data-response-type='trueFalse'] .quiz_multiple > li.check_text{position:relative; width:calc(100% - 160px);}
+.quizType[data-response-type='trueFalse'] .quiz_multiple > li .check_num{width:80px;}
+
+/* ------------------------------------------------------------------------------------------------------------- */
+/* input_wrap */
+.input_wrap{position:relative; display:inline-block; background:none; margin:0px 5px; line-height:0;}
+.input_wrap .input_txt{width:100%; border:none;}
+.input_wrap .answer_txt{top:100%; left:0px; margin-top:3px; width:100%; height:100%; line-height:1; text-align:center;}
+.input_wrap input.input_txt{border-bottom:1px solid #333;}
+.input_wrap textarea.input_txt{padding:0px; background:url('../../images/common/background/textarea_background.png') 0px -1px repeat-y; background-attachment:local; line-height:20px; border:none; box-shadow:none;}
+.input_wrap textarea.input_txt + .answer_txt{line-height:30px; padding:0px 0px;}
+.input_wrap sup{position:absolute; display:inline-block; top:-10px; left:0px;}
+
+.input_wrap textarea[rows='2']{height:30px;}
+.input_wrap textarea[rows='3']{height:60px;}
+.input_wrap textarea[rows='4']{height:90px;}
+.input_wrap textarea[rows='5']{height:120px;}
+.input_wrap textarea[rows='6']{height:150px;}
+
+/* quiz - quiz_essay - 주관식 */
+.quiz_essay{line-height:2.5;}
+
+/* ------------------------------------------------------------------------------------------------------------- */
+/* quiz - line */
+.draw_set{display:block; line-height:0;}
+
+.draw_set .draw_leave{position:relative; width:100%;}
+.draw_set .draw_leave > li {position:relative; display:inline-block; float:left; text-align:center;}
+.draw_set .draw_leave > li:after{display:block; height:0; clear:both; content:'';}
+
+.draw_set .draw_arrival{position:relative; width:100%;}
+.draw_set .draw_arrival > li{position:relative; display:inline-block; float:left; text-align:center;}
+.draw_set .draw_arrival > li:nth-child(1){margin-left:0px;}
+
+.draw_set .draw_canvas{position:relative; display:inline-block;}
+.draw_set .draw_canvas .dot{width:14px; height:14px; background:#035da5; border-radius:50%; cursor:pointer; z-index:1; z-index:9999999 !important;}
+.draw_set .draw_canvas .startWrap > li{position:absolute; display:inline-block;}
+.draw_set .draw_canvas .goalWrap > li{position:absolute; display:inline-block;}
+
+.draw_set[data-layout='vert'] .draw_leave,
+.draw_set[data-layout='vert'] .draw_canvas,
+.draw_set[data-layout='vert'] .draw_arrival{display:inline-block;}
+.draw_set[data-layout='vert'] .startWrap > li{top:5px;}
+.draw_set[data-layout='vert'] .goalWrap > li{bottom:5px;}
+
+.draw_set[data-layout='hori'] .draw_leave,
+.draw_set[data-layout='hori'] .draw_arrival,
+.draw_set[data-layout='hori'] .draw_canvas{display:inline-block; float:left;}
+.draw_set[data-layout='hori'] .draw_leave > li,
+.draw_set[data-layout='hori'] .draw_arrival > li{display:block; float:none; margin-bottom:10px;}
+.draw_set[data-layout='hori'] .startWrap > li{left:5px;}
+
+/* ------------------------------------------------------------------------------------------------------------- */
+/* quiz - drag */
+.drag_set{display:inline-block; line-height:0;}
+
+.drag_set .drop_container{position:absolute; display:inline-block;}
+
+.drag_set .drag_container{position:absolute; display:inline-block;}
+.drag_set .drag_container .dragBox{position:absolute; cursor:pointer; user-select:none; -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none;}
+.drag_set .drag_container .dragBox.clone {position:absolute; opacity:0.5;}
+.drag_set .drag_container .dragBox.offDrag {opacity:1;}
+.drag_set .drag_container .dropBox.answer {opacity:1;}
+.drag_set .drag_container .inner{position:absolute;}
+
+.drag_set .drag_container.drag_blue_box{display:inline-block; background:#466cd8; border-radius:10px; padding:10px; box-shadow:1px 8px 8px rgba(100, 100, 100, 0.35); outline:1px solid rgba(0,0,0,0.1)}
+
+/* 2018.12.21 왕예나 추가 */
+.dragBox.offDrag img {position: relative; margin-left: 50%;}
+/* ------------------------------------------------------------------------------------------------------------- */
+/* quiz - layerQuiz */
+.layer_check > li{position:relative;}
+.layer_check .layer_input_wrap{position:absolute; display:inline-block; right:0px; top:0px;}
+.layer_check .layer_input_wrap .answer_list{width:30px; height:30px; cursor:pointer; background:#ffffff; border:1px solid #f99c16;} /* 레이어 선택형 입력 박스 */
+.layer_check .layer_input_wrap .answer_txt{width:30px; height:30px;} /* 레이어 선택형 정답 */
+.layer_check .layer_input_wrap .btn_each{}
+
+.layer_example{
+	position:absolute; display:none; top:0px; min-width:50px; min-height:10px; background:#fff6e3; border-radius:12px; text-align:center; padding:10px 0px; 
+	box-shadow:inset 0px -4px 0px #dcdcdc, 0px 0px 10px rgba(0,0,0,0.05), 2px 4px 10px rgba(0,0,0,0.3); z-index:100;
+} /* 레이어 선택형 보기  */
+.layer_example .txt{margin:0px 0px; cursor:pointer;} /* 레이어 선택형 보기 - 버튼 */
+
+/* ------------------------------------------------------------------------------------------------------------- */
+/* check - common */
+.chk_list{position:relative; cursor:pointer; line-height:0;}
+.chk_list input{position:absolute; width:1px; height:1px; opacity:0;}
+.chk_list input + .ico{position:relative; display:inline-block; content:''; width:18px; height:18px; vertical-align:middle; background:#ffffff; border:1px solid #f99c16; cursor:pointer;} /* check list - off */
+.chk_list input:checked + .ico{}
+.chk_list input:checked + .ico:after{position:absolute; display:inline-block; top:-13px; left:-2px; width:28px; height:32px; background:url('../../images/common/quiz/check_marking_01.png') no-repeat; background-size:28px auto; content:''; z-index:10;} /* check list - on */
+.chk_list input + .ico .answerMark{} /* check list - answer */
+
+.check_wrap{display:inline-block; line-height:1.5;}
+.check_wrap[data-layout='check']{}
+.check_wrap[data-layout='check'] > li{margin-bottom:10px;}
+.check_wrap[data-layout='check'] input + .ico{position:absolute; margin-top:4px;}
+.check_wrap[data-layout='check'] .chk_list + p{display:inline-block; vertical-align:text-top; padding-left:30px;}
+
+.check_wrap[data-layout='smile']  > li{display:inline-block;}
+.check_wrap[data-layout='smile'] .chk_list input[type=radio] + .ico{width:60px; height:60px; float:left; content:''; border:none;}
+.check_wrap[data-layout='smile'] .chk_list input[type=radio]:checked + .ico{}
+.check_wrap[data-layout='smile'] .chk_list input[type=radio]:checked + .ico:after{position:relative; display:inline-block; top:0px; left:0px; width:60px; height:60px;}
+
+.check_wrap[data-layout='smile'] > li .chk_list input[type=radio] + .ico,
+.check_wrap[data-layout='smile'] > li .chk_list input[type=radio]:checked + .ico:after{background:url('../../images/common/quiz/selfcheck_smile.png') 0px 0px no-repeat; background-size:180px 120px;}
+.check_wrap[data-layout='smile'] > li:nth-child(1) .chk_list input[type=radio] + .ico{background-position:-120px 0px}
+.check_wrap[data-layout='smile'] > li:nth-child(2) .chk_list input[type=radio] + .ico{background-position:-60px 0px}
+.check_wrap[data-layout='smile'] > li:nth-child(3) .chk_list input[type=radio] + .ico{background-position:0px 0px}
+.check_wrap[data-layout='smile'] > li:nth-child(1) .chk_list input[type=radio]:checked + .ico:after{background-position:-120px -60px;}
+.check_wrap[data-layout='smile'] > li:nth-child(2) .chk_list input[type=radio]:checked + .ico:after{background-position:-60px -60px;}
+.check_wrap[data-layout='smile'] > li:nth-child(3) .chk_list input[type=radio]:checked + .ico:after{background-position:0px -60px;}
+
+.check_wrap[data-layout='boolean'] > li{display:inline-block; vertical-align:top; float:left;}
+.check_wrap[data-layout='boolean'] > li:first-child{clear:both;}
+.check_wrap[data-layout='boolean'] > li.check_text{width:550px; margin:0px 30px 5px 5px;}
+.check_wrap[data-layout='boolean'] > li.checkItem{position:relative; font-size:0; margin:5px 5px 0px 5px;}
+.check_wrap[data-layout='boolean']:nth-of-type(1){padding-top:20px;}
+.check_wrap[data-layout='boolean']:nth-of-type(1) > li.checkItem:after{position:absolute; display:inline-block; width:18px; top:-30px; left:0px; font-size:20px; text-align:center;}
+.check_wrap[data-layout='boolean']:nth-of-type(1) > li:nth-child(3):after{content:'T';}
+.check_wrap[data-layout='boolean']:nth-of-type(1) > li:nth-child(4):after{content:'F';}

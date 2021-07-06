@@ -1,0 +1,405 @@
+@charset "utf-8";
+
+#bottom{
+	position: absolute;
+	bottom: 20px;
+	width: 100%;
+	height: 74px;
+	background: url('../../img/bottom/bottom.png') 0 0 no-repeat;
+}
+
+#bottom.bottom2{
+	background: url('../../img/bottom/bottom2.png') 0 0 no-repeat;
+}
+
+#bottom .videoGroup{
+	position: absolute;
+	left: 24px;
+	top: 11px;
+}
+#bottom .videoGroup .btn{
+	width: 45px;
+	height: 50px;
+	float: left;
+}
+
+#bottom .videoGroup .btn a{
+	width: 100%;
+	height: 100%;
+}
+
+#bottom .videoGroup .btn.playBtn a.play{
+	background: url('../../img/bottom/play.png') 50% 80% no-repeat;
+}
+
+#bottom .videoGroup .btn.playBtn a.play:hover{
+	background: url('../../img/bottom/play_o.png') 50% 80% no-repeat;
+}
+
+#bottom .videoGroup .btn.playBtn a.pause{
+	background: url('../../img/bottom/pause.png') 50% 80% no-repeat;
+}
+
+#bottom .videoGroup .btn.playBtn a.pause:hover{
+	background: url('../../img/bottom/pause_o.png') 50% 80% no-repeat;
+}
+
+#bottom .videoGroup .btn.rePlayBtn a.replay{
+	background: url('../../img/bottom/stop.png') 50% 80% no-repeat;
+}
+
+#bottom .videoGroup .btn.rePlayBtn a.replay:hover{
+	background: url('../../img/bottom/stop_o.png') 50% 80% no-repeat;
+}
+
+#bottom .videoGroup .btn.backwardBtn a.backward{
+	background: url('../../img/bottom/bwd_n_btn.png') 50% 80% no-repeat;
+}
+
+#bottom .videoGroup .btn.backwardBtn a.backward:hover{
+	background: url('../../img/bottom/bwd_o_btn.png') 50% 80% no-repeat;
+}
+
+#bottom .videoGroup .btn.forwardBtn a.forward{
+	background: url('../../img/bottom/fwd_n_btn.png') 50% 80% no-repeat;
+}
+
+#bottom .videoGroup .btn.forwardBtn a.forward:hover{
+	background: url('../../img/bottom/fwd_o_btn.png') 50% 80% no-repeat;
+}
+
+#bottom .soundGroup .btn.soundBtn a.sound{
+	background: url('../../img/bottom/sound_o.png') 50% 70% no-repeat;
+}
+
+#bottom .soundGroup .btn.soundBtn a.sound:hover{
+	background: url('../../img/bottom/sound_o.png') 50% 70% no-repeat;
+}
+
+#bottom .soundGroup .btn.soundBtn a.mute{
+	background: url('../../img/bottom/sound_x.png') 50% 70% no-repeat;
+}
+
+#bottom .soundGroup .btn.soundBtn a.mute:hover{
+	background: url('../../img/bottom/sound_x.png') 50% 70% no-repeat;
+}
+
+#bottom .soundGroup{
+	position: absolute;
+	top: 14px;
+	right: 333px;
+}
+
+#bottom .soundGroup .btn{
+	width: 30px;
+	height: 50px;
+	float: left;
+}
+
+#bottom .soundGroup .btn a{
+	width: 100%;
+	height: 100%;
+}
+
+#bottom .soundGroup .soundbar{
+	float: left;
+	width: 96px;
+	height: 50px;
+	background: url('../../img/bottom/sound_bar.png') 0 8px no-repeat;
+	position: relative;
+	margin-left: -5px;
+}
+
+#bottom .soundGroup .soundbar .volume{
+	position:absolute;
+	cursor:pointer;
+	float: left;
+	width:69%;
+	height:4px;
+	top: 23px;
+    left: 15px;
+}
+
+#bottom .soundGroup .soundbar .volume .volumeBar{
+	position:relative;
+	display:block;
+	height:100%;
+	top:4px;
+	left:0px;
+	background-color:#9545d2;
+	z-index:10;
+	border-radius: 10px;
+}
+
+#bottom .soundGroup .soundbar .volume .volumeBar .volumBar-jog{
+	width: 45px;
+	height: 45px;
+	background: url('../../img/bottom/vol_dot.png') 0 0px no-repeat;
+	position: absolute;
+	right: -27px;
+	top: -14.7px;
+	cursor: pointer;
+}
+
+#bottom .progressGroup{
+	position: absolute;
+	left: 220px;
+	top: 14px;
+}
+
+#bottom .progressGroup div{
+	float: left;
+}
+
+#bottom .progressGroup div:first-child{
+	margin-left: 0;
+}
+
+
+#bottom .progressGroup .progressbg{
+	position: relative;
+	top:3px;
+	width: 160px;
+	height: 50px;
+	background: url('../../img/bottom/control_bar.png') 0 6px no-repeat;
+	margin-right: 2px;
+}
+
+#bottom .progressGroup .progress{
+	position: absolute;
+    top: 0px;
+    left: 15px;
+    width: 131px;
+    height: 50px;
+    border-radius: 10px;
+	cursor: pointer;
+}
+
+#bottom .progressGroup .progress .progress-bar{
+	float: left;
+	top: 23px;
+	width: 0%;
+	height: 4px;
+	font-size: 12px;
+	line-height: 20px;
+	color: #fff;
+	text-align: center;
+	background-color: #28b1e4;
+	border-radius: 10px;
+	position: relative;
+	cursor: pointer;
+}
+
+#bottom .progressGroup .progress .progress-bar-jog{
+	width: 45px;
+	height: 45px;
+	background: url('../../img/bottom/dot.png') 0 0px no-repeat;
+	position: absolute;
+	right: -27px;
+	top: -14.7px;
+	cursor: pointer;
+	z-index: 10;
+}
+
+#bottom .progressGroup .progress .repeat-bar{
+    display: none;
+    position: absolute;
+	top: 23px;
+    height: 4px;
+    background: #ff45c0;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+#bottom .progressGroup .time {
+	width:120px;
+}
+
+#bottom .progressGroup .time span{
+	font-size: 20px;
+	letter-spacing: -0.5px;
+	line-height: 50px;
+}
+
+#bottom .progressGroup .time span.currentTime{
+	color: #666;
+}
+
+#bottom .trackBtn{
+	position: absolute;
+	width: 38px;
+	height: 50px;
+	top: 12px;
+	right: 306px;
+	text-align: center;
+}
+
+#bottom .trackBtn a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: url('../../img/bottom/track.png') 70% 70% no-repeat;
+}
+
+#bottom .trackBtn a:hover,
+#bottom .trackBtn a.on{
+	background: url('../../img/bottom/track_o.png') 70% 70% no-repeat;
+}
+
+#bottom .rateGroup{
+	position: absolute;
+	right: 62px;
+	top: 19.5px;
+}
+
+#bottom .rateGroup span,
+#bottom .rateGroup .btn{
+	float: left;
+	display: block;
+}
+
+#bottom .rateGroup > div{
+	width: 38px;
+	height: 44px;
+}
+
+#bottom .rateGroup .plus a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: url('../../img/bottom/plus.png') 46% 50% no-repeat;
+}
+
+#bottom .rateGroup .plus a:hover{
+	background: url('../../img/bottom/plus_o.png') 50% 50% no-repeat !important;
+}
+
+#bottom .rateGroup .minus a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: url('../../img/bottom/minus.png') 50% 50% no-repeat;
+}
+
+#bottom .rateGroup .minus a:hover{
+	background: url('../../img/bottom/minus_o.png') 50% 50% no-repeat !important;
+}
+
+#bottom .rateGroup span{
+	display: block;
+	line-height: 40px;
+	width: 66px;
+	text-align: center;
+	float: left;
+	margin-right:-2.2px;
+	margin-left:-1px;
+	font-size: 	18px;
+	background: url('../../img/bottom/speed.png') 82% 85% no-repeat;
+}
+
+#bottom .repeatBtn{
+	position: absolute;
+	width: 58px;
+	height: 55px;
+	top: 12px;
+	right: 220px;
+	text-align: center;
+}
+
+#bottom .repeatBtn a{
+	display: none;
+	width: 100%;
+	height: 100%;
+}
+
+#bottom .repeatBtn a.repeat{
+	display: block;
+	background: url('../../img/bottom/rep.png') 50% 50% no-repeat;
+}
+
+#bottom .repeatBtn a.repeatA{
+	background: url('../../img/bottom/rep_a.png') 50% 50% no-repeat;
+}
+
+#bottom .repeatBtn a.repeatAB{
+	background: url('../../img/bottom/rep_ab.png') 50% 50% no-repeat;
+}
+
+#display{
+	display: none;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	font-size: 32px;
+	line-height: 52px;
+	color: #fff;
+	background-color: #000;
+	padding-top: 8%;
+}
+
+#display .scrollBox {
+	position: relative;
+	width: 90%;
+	max-width: 95%;
+	max-height: 600px;
+	height: 600px;
+	font-size: 32px;
+	line-height: 52px;
+	text-align: left;
+	color: #fff;
+	margin: 20px auto;
+	
+}
+
+#display .scrollBox #scriptBox{
+	width: 100%;
+	height: 100%;
+	font-size: 32px;
+	line-height: 52px;
+	text-align: left;
+	color: #fff;
+	/*margin-top: -8px;
+	padding-top:50px;*/
+}
+
+#display .scrollBox #scriptBox span.stand{
+	color: #fff;
+}
+
+#display .scrollBox #scriptBox span.active{
+	color: blue !important;
+	font-weight: bold;
+}
+
+#display .scrollBox .scriptClose{
+	position: fixed;
+	top: 30px;
+	right: 30px;
+	width: 31px;
+	height: 31px;
+	background: url('../../img/bottom/close.png') 0 0 no-repeat;
+	background-size: 100% 100%;
+	cursor:pointer;
+}
+
+.mCSB_scrollTools{
+	opacity: 1 !important;
+}
+
+.mCSB_dragger_bar{
+	background-color: #fff;
+	animation: none !important;
+	-webkit-animation: none !important;
+	transition: none !important;
+	-webkit-transition: none !important;
+}
+
+.mCSB_1_dragger_vertical{
+	background-color: #fff !important;
+	animation: none !important;
+	-webkit-animation: none !important;
+	transition: none !important;
+	-webkit-transition: none !important;
+}

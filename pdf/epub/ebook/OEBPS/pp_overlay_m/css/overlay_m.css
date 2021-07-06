@@ -1,0 +1,157 @@
+quizArea {
+    position: absolute;
+}
+quizArea .correctWindow {
+    position: absolute;
+    background: none;
+}
+quizArea .correctWindow.correct {
+    position: absolute;
+    background: url("../img/img_correct.png") no-repeat;
+    background-size:contain;
+    z-index: 1;
+}
+quizArea .correctWindow.wrong {
+    position: absolute;
+    background: url("../img/img_correct.png") no-repeat;
+    background-size:contain;
+    z-index: 1;
+}
+quizArea .qWrap {
+    position: absolute;
+}
+.qWrap input.numberInput {
+    position: absolute;
+    background: transparent;
+    border: none;
+    text-align: center;
+    font-size: 26px;
+    ime-mode: disabled;
+}
+.qWrap input.stringInput {
+    position: absolute;
+    background: transparent;
+    border: none;
+    text-align: center;
+    font-size: 26px;
+    ime-mode: auto;
+}
+quizArea .exArea {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+.exArea div {
+    position: absolute;
+    cursor: pointer;
+}
+.exArea div .on {
+    background: url("../img/img_chk.png") no-repeat;
+    background-size:contain;
+    width: 36px;
+    height: 37px;
+}
+correctResponse {
+    position: absolute;
+    display: none;
+    color: red;
+    font-size: 26px;
+    text-align: center;
+}
+textarea {
+    background: transparent;
+    border: none;
+    resize: none;
+    font-size: 30px;
+    line-height: 56px;
+}
+.essayCorrectBtn {
+    position: absolute;
+    background: url("../img/btn_correct.png") no-repeat;
+    width: 120px;
+    height: 48px;
+    border: none;
+    cursor: pointer;
+}
+.essayWrongBtn {
+    position: absolute;
+    background: url("../img/btn_wrong.png") no-repeat;
+    width: 120px;
+    height: 48px;
+    border: none;
+    cursor: pointer;
+}
+img.essayAnswer {
+    position: absolute;
+    border: none;
+}
+.answerBtn {
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    border: none;
+    cursor: pointer;
+}
+.answerBtn.showAnswer {
+    background: url("../img/btn_chk_answer.png") no-repeat;
+	background-size:contain;
+}
+.answerBtn.showAnswer:hover {opacity:0.5;}
+
+.answerBtn.replay{
+    background: url("../img/btn_replay.png") no-repeat;
+	background-size:contain;
+    margin-left:20px;
+    z-index: 99;
+}
+.answerBtn.replay:hover {opacity:0.5;}
+
+.answerBtn.btn_script {
+	background:url("../img/btn_script.png") no-repeat;
+	background-size:contain;
+}
+.popupBackground {
+    position: fixed;
+    background: rgba(128,128,128,0.3);
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+.popupBackground .solveAlert {
+    position: absolute;
+    background: url("../img/bg_solve_alert_pop.png") no-repeat;
+	background-size:contain;
+    width: 614px;
+    height: 488px;
+}
+.popupBackground .solveAlert .okBtn {
+    position: absolute;
+    background: url("../img/btn_ok.png") no-repeat;
+	background-size:contain;
+    width: 150px;
+    height: 54px;
+    top: 316px;
+    left: 248px;
+}
+
+selectArea {
+    position: absolute;
+}
+selectArea div.select {
+    position: absolute;
+    cursor: pointer;
+}
+selectArea div.select.on {
+    background: url("../img/img_select.png") no-repeat;
+    background-size:contain;
+}
+
+/* ------- 2018-11-12 김영진 ------- */
+.btnReplay.resetDrag{
+	width:75px;
+	height:75px;
+    background: url("../img/btn_replay.png") no-repeat;
+	background-size:contain;
+}
+/* ------- 2018-11-12 김영진 ------- */

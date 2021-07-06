@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width">
+<title></title>
+	<link rel="stylesheet" href="./inc/css/common.css" />
+	<link rel="stylesheet" href="./inc/css/body.css" />
+	<link rel="stylesheet" href="./inc/css/jquery.mCustomScrollbar.css" />
+	<link rel="stylesheet" href="./inc/css/bottom.css" />
+	<script src="./inc/js/jquery-1.11.2.js"></script>
+	<script src="./inc/js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="./inc/js/script.js"></script>
+	<script src="./inc/js/body.js"></script>
+</head>
+<script>
+	$(document).ready(function(){
+		$(".videobg").hide();
+	});
+	$(window).load(function(){
+		$(".videobg").show();
+	});
+
+	function pause() {
+		if (video[0]) {
+			
+		} else {
+			alert(video[0]);
+		}
+		if (video[0].paused || video[0].ended)
+		{
+		} else {
+			playpause();
+		}
+	}
+</script>
+<body style="margin: 0 auto;">
+<div style="padding:25px 0 0 0;">
+</div>
+	<div id="container">
+		<div class="videoBg b720480">
+			<div class="nav">
+				<div class="title"></div>
+				<div class="helpItems"></div>
+			</div>
+			<div class="videobox">
+				<audio id="video" controls autoplay>
+					<source id="mediasrc" src="" type="audio/mpeg">
+					<track id="track" label="" src="" kind="metadata" srclang="ko" default>
+				</audio>
+			</div>
+		</div>
+	</div>
+	<!-- 자막 -->
+	<div id="display">
+		<div class="scrollBox">
+			<div id="scriptBox"></div>
+			<div class="scriptClose"></div>
+		</div>
+	</div>
+	<!-- Bottom -->
+	<div id="bottom">
+		<div class="progressGroup">
+			<div class="progressbg">
+				<div class="progress">
+					 <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+					 	<div class="progress-bar-jog"></div>
+					 </div>
+					 <div class="repeat-bar"></div>
+				</div>
+			</div>
+			<div class="time" style="margin-top:3px;margin-left:3px;">
+				<span class="currentTime">00:00</span>
+				<span>/</span>
+				<span class="duration">00:00</span>
+			</div>
+		</div>
+		<div class="videoGroup">
+			<div class="btn playBtn" style="margin-top:2px;">
+				<a title="재생" class="play ir">재생</a>
+				<a title="일시정지" class="pause ir dn">일시정지</a>
+			</div>
+			<div class="btn rePlayBtn">
+				<a title="정지" class="replay ir">정지</a>
+			</div>
+			<div class="btn backwardBtn">
+				<a title="10초전" class="backward ir">10초전</a>
+			</div>
+			<div class="btn forwardBtn">
+				<a title="10초후" class="forward ir">10초후</a>
+			</div>
+		</div>
+		<div class="soundGroup" style="margin-right: 23px;margin-top: -2px;">
+			<div class="btn soundBtn">
+				<a title="소리끄기" class="sound ir">소리끄기</a>
+				<a title="소리켜기" class="mute ir dn">소리켜기</a>
+			</div>
+			<div class="soundbar">
+				<a class="volume" title="볼륨">
+					<span class="volumeBar">
+						<span class="volumBar-jog"></span>
+					</span>
+				</a>
+			</div>
+		</div>
+        <div class="trackBtn">
+            <a title="자막" class="track ir">자막</a>
+        </div>
+		<div class="btn repeatBtn">
+			<a title="반복" class="repeat ir">반복</a>
+			<a title="반복설정" class="repeatA ir">반복설정</a>
+			<a title="반복취소" class="repeatAB ir">반복취소</a>
+		</div>
+		<div class="rateGroup">
+			<div class="minus btn ir">
+				<a title="속도감소">1.0</a>
+			</div>
+			<span class="speed" rate=1.0>100%</span>
+			<div class="plus btn ir">
+				<a title="속도증가">0.5</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

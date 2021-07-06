@@ -1,0 +1,132 @@
+@charset "utf-8";
+
+audio{
+	display: none;
+}
+
+#aod{
+	width: 0px;
+	height: 0px;
+}
+
+#aodbg{
+	width: 450px;
+    height: 37px;
+    background: url('../../img/content/aod/aodbg.png') 0 0 no-repeat;
+    padding: 4px 10px 0;
+    background-size: 100% 100%;
+}
+
+#aodbg > div, #aodbg > a{
+	float: left;
+}
+
+#aodbg > a{
+	margin-left: 5px;
+}
+
+#aodbg > a.aodplay{
+}
+
+#aodbg .aodplay{
+	width: 33px;
+	height: 33px;
+	background: url('../../img/content/aod/aodplay_n.png') 0 0 no-repeat;
+}
+
+#aodbg .aodplay:hover{
+	background: url('../../img/content/aod/aodplay_o.png') 0 0 no-repeat;	
+}
+
+#aodbg .aodpause{
+	width: 33px;
+	height: 33px;
+	background: url('../../img/content/aod/aodpause_n.png') 0 0 no-repeat;
+}
+
+#aodbg .aodpause:hover{
+	background: url('../../img/content/aod/aodpause_o.png') 0 0 no-repeat;	
+}
+
+#aodbg .aodstop{
+	width: 33px;
+	height: 33px;
+	background: url('../../img/content/aod/aodstop_n.png') 0 0 no-repeat;
+}
+
+#aodbg .aodstop:hover{
+	background: url('../../img/content/aod/aodstop_o.png') 0 0 no-repeat;	
+}
+
+#aodbg .aodsound{
+	width: 33px;
+	height: 33px;
+	background: url('../../img/content/aod/aodspeak_n.png') 0 0 no-repeat;
+}
+
+#aodbg .aodsound:hover{
+	background: url('../../img/content/aod/aodspeak_o.png') 0 0 no-repeat;	
+}
+
+#aodbg .aodsound.muted{
+	background: url('../../img/content/aod/aodmuted_n.png') 0 0 no-repeat;	
+}
+
+#aodbg .aodsound.mute:hover{
+	background: url('../../img/content/aod/aodmuted_o.png') 0 0 no-repeat;	
+}
+
+#aodbg .aodprogress{
+	width: 165px;
+	height: 4px;
+	background-color: #7c7c7c;
+    margin: 15px 10px 0;
+}
+
+.aodtime{
+	height: 33px;
+    line-height: 33px;
+    font-size: 14px;
+    font-family: "nanumgothic";
+}
+
+#aodbg .aodprogress .aod-progress-bar{
+	-webkit-transition: width 0s ease;
+	-o-transition: width 0s ease;
+	transition: width 0s ease;
+	
+	float: left;
+	width: 50%;
+	height: 100%;
+	font-size: 12px;
+	line-height: 20px;
+	color: #fff;
+	text-align: center;
+	background-color: #fff;
+}
+
+#aodbg .aodsoundbar{
+	float: left;
+	width: 48px;
+	margin: 15px 10px 0;
+}
+
+#aodbg .aodsoundbar .aodvolume{
+	position:relative;
+	cursor:pointer;
+	float: left;
+	width:100%;
+	height:2px;
+	background-color: #7c7c7c;
+}
+
+#aodbg .aodsoundbar .aodvolume .aodvolumeBar{
+	position:relative;
+	display:block;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:0;
+	background-color:#fff;
+	z-index:10;
+}

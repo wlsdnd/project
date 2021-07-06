@@ -1,0 +1,280 @@
+@charset "utf-8";
+
+#top{
+	width: 100%;
+	height: 65px;
+	background: url('../../img/top/topbg.png') 0 0 no-repeat;
+}
+
+#container{
+	width: 100%;
+	height: 0px;
+	position: relative;
+}
+
+#container .videoBg.b720480{
+	width: 100%;
+	height: 100%;
+
+}
+
+#container .videoBg.b800450{
+	width: 100%;
+	height: 100%;
+
+}
+
+#container .videoBg.b960540{
+	width: 100%;
+	height: 100%;
+
+}
+
+#container .videoBg.b1280720{
+	width: 100%;
+	height: 100%;
+
+}
+
+.videoBg.b720480 .videobox{
+	width: 0px;
+	height: 0px;
+	position: absolute;
+	top: 159px;
+	left: 140px;
+}
+
+.videoBg.b800450 .videobox{
+	width: 0px;
+	height: 0px;
+	position: absolute;
+	top: 174px;
+	left: 240px;
+}
+
+.videoBg.b960540 .videobox{
+	width: 0px;
+    height: 0px;
+    position: absolute;
+    top: 129px;
+    left: 160px;
+}
+
+.videoBg.b1280720 .videobox{
+	width: 0px;
+	height: 0px;
+	position: absolute;
+	top: 45px;
+	left: 0px;
+}
+
+video{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#container .nav .title{
+    font-size: 20px;
+    float: left;
+    margin-top: 16px;
+    margin-left: 31px;
+    letter-spacing: -1px;
+}	
+
+#container .nav .title .lesson-number{
+	font-weight: bold;
+	color: #38def2;
+}
+#container .nav .title .lesson-name{
+	color: #ffffff;
+}
+
+#container .nav .helpItems{
+	float: right;
+}
+
+#container .nav .helpItems div{
+	width: 148px;
+	height: 49px;
+	float: left;
+}
+
+#container .nav .helpItems div a{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+#container .nav .helpItems div.bookdown a{
+	background: url('../../img/top/fdown_n_btn.png') 0 0 no-repeat;	
+}
+
+#container .nav .helpItems div.bookdown a:hover{
+	background: url('../../img/top/fdown_o_btn.png') 0 0 no-repeat;	
+}
+
+#container .nav .helpItems div.mp3down a{
+	background: url('../../img/top/mp3down_n_btn.png') 0 0 no-repeat;	
+}
+
+#container .nav .helpItems div.mp3down a:hover{
+	background: url('../../img/top/mp3down_o_btn.png') 0 0 no-repeat;	
+}
+
+#container .nav .helpItems div.help a{
+	background: url('../../img/top/help_n_btn.png') 0 0 no-repeat;	
+}
+
+#container .nav .helpItems div.help a:hover{
+	background: url('../../img/top/help_o_btn.png') 0 0 no-repeat;	
+}
+
+/* 인트로 */
+
+#Intro{
+	width: 100%;
+	height: 880px;
+	background: url('../../img/intro/bg.png') 0 0 no-repeat;
+	position: relative;
+	overflow: hidden;
+}
+
+.obj{
+	position: absolute;
+}
+
+.obj1{
+	width: 241px;
+	height: 36px;
+	background: url('../../img/intro/obj_1.png') 0 0 no-repeat;
+	top: 134px;
+	left: 351px;
+}
+
+.obj6{
+	width: 320px;
+	height: 39px;
+	background: url('../../img/intro/obj_5.png') 0 0 no-repeat;
+    top: 176px;
+    left: 352px;
+    animation-delay: 0.5s;
+}
+
+.obj2{
+	width: 406px;
+	height: 316px;
+	background: url('../../img/intro/obj_2.png') 0 0 no-repeat;
+    top: 228px;
+    left: 346px;
+}
+
+.obj3{
+	width: 141px;
+	height: 24px;
+	background: url('../../img/intro/obj_3.png') 0 0 no-repeat;
+    top: 403px;
+    left: 768px;
+}
+
+.obj4{
+	width: 565px;
+	height: 95px;
+	background: url('../../img/intro/obj_4.png') 0 0 no-repeat;
+    top: 432px;
+    left: 462px;
+}
+
+.obj5{
+	width: 559px;
+	height: 1224px;
+	background: url('../../img/intro/teacher.png') 0 0 no-repeat;
+    right: 6px;
+    bottom: -395px;
+}
+
+.obj7{
+	top: 545px;
+    left: 350px;
+}
+
+#Intro .btn{
+    width: 160px;
+    height: 160px;
+    top: 620px;
+    left: 466px;
+}
+
+#Intro .btn a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: url('../../img/intro/start_n.png') 0 0 no-repeat;
+}
+
+#Intro .btn a:hover, 
+#Intro .btn a:focus{
+	background: url('../../img/intro/start_o.png') 0 0 no-repeat;	
+}
+#Intro .bottom-btn{
+    left: 220px;
+    bottom: 17px;
+}
+
+#Intro .bottom-btn a{
+	display: block;
+	float: left;
+}
+
+#Intro .bottom-btn a.bookdown{
+	width: 169px;
+	height: 55px;
+	background: url('../../img/intro/fdown_n_btn.png') 0 0 no-repeat;	
+}
+
+#Intro .bottom-btn a.bookdown:hover,
+#Intro .bottom-btn a.bookdown:focus{
+	background: url('../../img/intro/fdown_o_btn.png') 0 0 no-repeat;	
+}
+
+#Intro .bottom-btn a.mp3down{
+	width: 171px;
+	height: 55px;
+}
+
+#Intro .bottom-btn a.mp3down{
+	background: url('../../img/intro/mp3down_n_btn.png') 0 0 no-repeat;	
+}
+
+#Intro .bottom-btn a.mp3down:hover,
+#Intro .bottom-btn a.mp3down:focus{
+	background: url('../../img/intro/mp3down_o_btn.png') 0 0 no-repeat;	
+}
+
+#Intro .lesson_title{
+    font-size: 31px;
+    color: #fff;
+    letter-spacing: -2px;
+}
+
+#Intro .lesson_title span{
+	color: #38def2;
+}
+
+/* mobilePlayBtn */
+.mobilePlayBtn{
+    z-index: 9999;
+}
+
+.mobilePlayBtn .playImg{
+	width: 103px;
+	height: 103px;
+	background: url('../../img/playbtn.png') 0 0 no-repeat;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -50px;
+	margin-top: -50px;
+}

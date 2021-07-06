@@ -1,0 +1,64 @@
+﻿<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="BookID" version="3.0" prefix="cc: http://creativecommons.org/ns# rendition: http://www.idpf.org/vocab/rendition/#" xml:lang="en" dir="ltr" id="package">
+	<metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+		<dc:title id="t1">pdf(firstphonics+reading100)</dc:title>
+		<meta refines="#t1" property="title-type">main</meta>
+		<dc:creator>HP</dc:creator>
+		<meta property="dcterms:modified">2021-07-06T11:59:15Z</meta>
+		<dc:format>text/html</dc:format>
+		<dc:identifier id="BookID">3d819c77-a253-4f29-a30a-f3e55a3a8266</dc:identifier>
+		<dc:language>ko</dc:language>
+		<dc:width>1218</dc:width>
+		<dc:height>1584</dc:height>
+		<dc:source>1</dc:source>
+		<meta name="cover" content="CoverDesign"/>
+		<meta property="rendition:orientation">auto</meta>
+		<meta property="rendition:spread">auto</meta>
+		<meta property="rendition:layout">pre-paginated</meta>
+	</metadata>
+	<manifest>
+<item id="htmltoc" properties="nav" media-type="application/xhtml+xml" href="toc.xhtml"/>
+<item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
+<item id="_001.jpg_" href="pp_bg/001.jpg" media-type="image/png"/>
+<item id="_002.jpg_" href="pp_bg/002.jpg" media-type="image/png"/>
+<item id="_003.jpg_" href="pp_bg/003.jpg" media-type="image/png"/>
+<item id="_004.jpg_" href="pp_bg/004.jpg" media-type="image/png"/>
+<item id="_005.jpg_" href="pp_bg/005.jpg" media-type="image/png"/>
+<item id="_006.jpg_" href="pp_bg/006.jpg" media-type="image/png"/>
+<item id="_007.jpg_" href="pp_bg/007.jpg" media-type="image/png"/>
+<item id="_008.jpg_" href="pp_bg/008.jpg" media-type="image/png"/>
+<item href="pp_sdata/001.svg" id="p001.svg" media-type="image/svg+xml"/>
+<item href="pp_sdata/002.svg" id="p002.svg" media-type="image/svg+xml"/>
+<item href="pp_sdata/003.svg" id="p003.svg" media-type="image/svg+xml"/>
+<item href="pp_sdata/004.svg" id="p004.svg" media-type="image/svg+xml"/>
+<item href="pp_sdata/005.svg" id="p005.svg" media-type="image/svg+xml"/>
+<item href="pp_sdata/006.svg" id="p006.svg" media-type="image/svg+xml"/>
+<item href="pp_sdata/007.svg" id="p007.svg" media-type="image/svg+xml"/>
+<item href="pp_sdata/008.svg" id="p008.svg" media-type="image/svg+xml"/>
+<item id="p001.xhtml" properties="scripted" href="p001.xhtml" media-type="application/xhtml+xml"/>
+<item id="p002.xhtml" properties="scripted" href="p002.xhtml" media-type="application/xhtml+xml"/>
+<item id="p003.xhtml" properties="scripted" href="p003.xhtml" media-type="application/xhtml+xml"/>
+<item id="p004.xhtml" properties="scripted" href="p004.xhtml" media-type="application/xhtml+xml"/>
+<item id="p005.xhtml" properties="scripted" href="p005.xhtml" media-type="application/xhtml+xml"/>
+<item id="p006.xhtml" properties="scripted" href="p006.xhtml" media-type="application/xhtml+xml"/>
+<item id="p007.xhtml" properties="scripted" href="p007.xhtml" media-type="application/xhtml+xml"/>
+<item id="p008.xhtml" properties="scripted" href="p008.xhtml" media-type="application/xhtml+xml"/>
+<item href='pp_content/001_s.svg' id='pc001.svg' media-type='image/svg+xml'/>
+<item href='pp_content/002_s.svg' id='pc002.svg' media-type='image/svg+xml'/>
+<item href='pp_content/003_s.svg' id='pc003.svg' media-type='image/svg+xml'/>
+<item href='pp_content/004_s.svg' id='pc004.svg' media-type='image/svg+xml'/>
+<item href='pp_content/005_s.svg' id='pc005.svg' media-type='image/svg+xml'/>
+<item href='pp_content/006_s.svg' id='pc006.svg' media-type='image/svg+xml'/>
+<item href='pp_content/007_s.svg' id='pc007.svg' media-type='image/svg+xml'/>
+<item href='pp_content/008_s.svg' id='pc008.svg' media-type='image/svg+xml'/>
+</manifest>
+<spine page-progression-direction="ltr" toc="ncx">
+<itemref idref="p001.xhtml" linear="yes"/>
+<itemref idref="p002.xhtml" linear="yes"/>
+<itemref idref="p003.xhtml" linear="yes"/>
+<itemref idref="p004.xhtml" linear="yes"/>
+<itemref idref="p005.xhtml" linear="yes"/>
+<itemref idref="p006.xhtml" linear="yes"/>
+<itemref idref="p007.xhtml" linear="yes"/>
+<itemref idref="p008.xhtml" linear="yes"/>
+</spine>
+</package>
