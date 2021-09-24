@@ -5,10 +5,88 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
-        <title>Local_Project</title>
-        <script src="jquery.min.js"></script>
+        <title>title</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+            html, body{
+                padding: 0;
+                margin: 0;
+                width: 100%;
+                height: 100%;
+                position: relative;
+            }
+            a:link{color: #000;}
+            a:visited{color: #000;}
+            #wrap{position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
+            #ppt{
+                transform: scale(0.4)
+            }
+            #ppt a{
+                font-family: 'Noto Sans KR', sans-serif;
+                background: url(pdf_icon.png) no-repeat;
+                background-size: 60px auto;
+                text-decoration: none;
+                padding-left: 80px;
+                font-size: 28px;
+                display: inline-block;
+                height: 60px;
+                line-height: 60px;
+                transition: all 0.3s;
+                transform: scale(1);
+                width: 510px;
+                box-sizing: border-box;
+            }
+            #ppt a:hover{
+                background: url(pdf_icon_hover.png) no-repeat;
+                background-size: 60px auto;
+                transition: all 0.3s;
+                transform: scale(1.05);
+            }
+            
+            #ppt a p{display: inline-block; margin: 0;}
+            #ppt a span{
+                text-indent: -9999px;
+                display: inline-block;
+            }
+        </style>
     </head>
     <body>
-        
+        <div id="wrap">
+            <div id="ppt">
+                <a href="pdf.pdf" download="[교보문고]CX 기획 지원자_김수빈_포트폴리오_202109" title="웹/앱 서비스 기획자 신입사원 김수빈">
+                    <span>Freepik</span><p>웹/앱 서비스 기획자 신입사원 김수빈</p>
+                </a>
+            </div>
+        </div>
+        <script src="jquery-3.6.0.min.js"></script>
+        <script>
+            $(function(){
+            function setScale() {
+                var wrap = $(document).find('#wrap');
+                var wrapWidth = wrap[0].clientWidth;
+                var wrapHeight = wrap[0].clientHeight;
+                var windowWidth = window.innerWidth;
+                var windowHeight = window.innerHeight;
+                var hRatio = windowWidth / wrapWidth;
+                var vRatio = windowHeight / wrapHeight;
+                var ratio = hRatio > vRatio ? vRatio : hRatio;
+                var wrapLeft = windowWidth / 2 - (wrapWidth / 2) * ratio;
+                var wrapTop = windowHeight / 2 - (wrapHeight / 2) * ratio;
+                window.scaleValue = ratio;
+                
+                $(wrap).attr('style', "transform: scale("+ratio+"); -webkit-transform: scale("+ratio+"); transform-origin: 0% 0%; -webkit-transform-origin: 0% 0%; left:"+wrapLeft+"px; top:"+wrapTop+"px;");
+            }
+
+            setScale()
+            window.addEventListener('resize', setScale, true);
+
+            $('#ppt a p').mouseover(function(){
+                $(this).text('[교보문고]CX 기획 지원자_김수빈_포트폴리오.PDF').css('font-size', '20px')
+            })
+            $('#ppt a p').mouseout(function(){
+                $(this).text('웹/앱 서비스 기획자 신입사원 김수빈').css('font-size', '28px')
+            })
+        });
+        </script>
     </body>
 </html>
