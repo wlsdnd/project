@@ -181,9 +181,9 @@
             </div>
         </div>
     </div>
-    <script src="/jquery-3.6.0.min.js"></script>
+    <script src="jquery-3.6.0.min.js"></script>
     <script>
-        jQuery(document).ready(function(){
+        $(function(){
             $('button').click(function(){
                 let timeS = $('.sec input').val();
                 let timeM = $('.min input').val();
@@ -224,7 +224,8 @@
                 $('.hou input').val(getHours);
                 $('button').click();
             }, 1000);
-
+        });
+        $(document).ready(function(){
             function setScale() {
                 var wrap = $(document).find('.timeContent');
                 var wrapWidth = wrap[0].clientWidth;
@@ -245,5 +246,18 @@
             window.addEventListener('resize', setScale, true);
         });
     </script>
+    <div class="timeBox">
+        <div class="hou">
+            <input type="text">
+        </div>
+        <div class="min">
+            <input type="text">
+        </div>
+        <div class="sec">
+            <input type="text">
+        </div>
+        <button>클릭</button>
+        <p></p>
+    </div>
 </body>
 </html>
