@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes, target-densitydpi=medium-dpi">
+    <link rel="stylesheet" type="text/css" href="lotto.css">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <title>Create</title>
+</head>
+<body>
+    <div id="wrap">
+        <div class="container">
+            <div class="header">
+                <h1>
+                    <img src="logo.png" alt="Lotto Logo">
+                </h1>
+                <button>nav</button>
+            </div>
+            <div class="holdPoint">
+                <h2 class="pointTitle">보유포인트</h2>
+                <div class="money">
+                    <strong>100,000</strong><span>P</span>
+                    <a href="#" class="grayBtn">충전하기</a>
+                </div>
+            </div>
+            <div class="contentArea">
+                <section class="content">
+                    <p class="account">입금계좌 : 하나은행 26791050203107 (김명현)</p>
+                    <div class="formBox pageForm">
+                        <input type="number" placeholder="충전하실 금액을 입력해주세요">
+                        <button class="greenBtn chargeBtn">충전 요청하기</button>
+                    </div>
+                    <div class="userUnit">
+                        <span>유의사항</span>
+                        <ul class="notice">
+                            <li>한번 충전된 금액은 환불이 되지 않습니다.</li>
+                            <li>충전금액 입금확인 후 포인트가 충전됩니다. <br>(최소 3분 ~ 최대 24시간 소요)</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+            <div id="chargePopup" class="layerPupop">
+                <div class="layerContainer">
+                    <div class="layerContent">
+                        <p>
+                            <strong>50,000</strong> 포인트<br>
+                            충전 요청이 완료되었습니다.
+                        </p>
+                        <span>입금확인 후 충전이 완료됩니다.</span>
+                        <div class="formBox">
+                            <button class="greenBtn ok">확 인</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function(){
+        $('.chargeBtn').click(function(){
+            $('#chargePopup').show()
+        })
+        $('.ok').click(function(){
+            $('.layerPupop').hide()
+        })
+    })
+</script>
+</html>

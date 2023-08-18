@@ -1,0 +1,280 @@
+@charset 'utf-8';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600;900&display=swap');
+        html {
+            overflow-y: auto;
+            height: 100%;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            font-size:18px;
+            color:#222;
+            margin:0;
+            padding:0;
+            position:relative;
+            height: 100%;
+        }
+        a {
+            text-decoration:none
+        }
+        a:hover,
+        a:focus{
+            text-decoration:none;
+        }
+        div {
+            word-break: break-word;
+        }
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+	    }
+        strong{font-weight: 600;}
+        input, 
+        button {
+            border: none;
+            box-sizing: border-box;
+        }
+        h1, h2, h3, p {
+            margin: 0;
+        }
+        #wrap {
+            height: 100%;
+            background-color: #f4f4f4;
+        }
+        .title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .container {
+            position: relative; 
+            max-width: 500px;
+            margin: 0 auto; 
+            height: 100%; 
+        }
+        .container .contentArea {
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            left: 0;
+            padding: 30px;
+            box-sizing: border-box;
+            transform: translateY(-50%);
+        }
+        .formBox input,
+        .formBox button {
+            display: block; 
+            width: 100%;
+            border-radius: 12px;
+            font-size: 18px;
+        }
+        .formBox input {
+            margin-bottom: 10px;
+            box-shadow: 0px 4px 4px 0px rgba(170, 170, 170, 0.25);
+            padding: 20px 30px;
+        }
+        .formBox input::placeholder {
+            color: #999;
+            font-weight: normal;
+        }
+        .formBox.createForm {
+            display: flex;
+        }
+        .formBox.createForm select {
+            position: relative;
+            flex: 1;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0px 4px 4px 0px rgba(170, 170, 170, 0.25);
+            padding: 10px;
+            box-sizing: border-box;
+            /*-webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;*/
+        }
+        .formBox.createForm button {
+            margin-top: 0;
+            flex: 3;
+            margin-left: 15px;
+        }
+        .formBox.duble {
+            display: flex;
+            margin-top: 20px;
+        }
+        .formBox.duble button:first-child {
+            flex: 1;
+        }
+        .formBox.duble button:last-child {
+            flex: 2;
+            margin-left: 15px;
+        }
+        .formBox button {
+            font-weight: 600;
+            padding: 15px;
+        }
+        .formBox.pageForm input:last-child {
+            margin-bottom: 0;
+        }
+        .formBox.pageForm button {
+            margin-top: 20px;
+        }
+        .greenBtn {
+            background-color: #1CA162; 
+            color: #fff;
+            box-shadow: 0px 4px 4px 0px rgba(20, 153, 49, 0.25);
+        }
+        .grayBtn {
+            background-color: #c3c3c3; 
+            color: #fff;
+            box-shadow: 0px 4px 4px 0px rgba(64, 64, 64, 0.25);
+        }
+        .userUnit {
+            margin-top: 30px;
+        }
+        .userUnit span {
+            font-size: 14px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 15px;
+        }
+        .userUnit p {
+            text-align: right;
+            font-size: 14px;
+            color: #666;
+        }
+        .userUnit a {
+            font-weight: bold;
+            color: #1CA162;
+        }
+        .userUnit .notice li {
+            position: relative;
+            padding-left: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-left: 5px;
+            margin-bottom: 5px;
+        }
+        .userUnit .notice li::before {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 0;
+            background-color: #222;
+            width: 4px;
+            height: 4px;
+            border-radius: 100%;
+        }
+        .userUnit .unit {
+            display: flex;
+            justify-content: center;
+        }
+        .userUnit .unit li:first-child {
+            padding-right: 10px;
+            margin-right: 8px;
+            position: relative;
+        }
+        .userUnit .unit li:first-child::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 50%;
+            background-color: #666;
+        }
+        .userUnit .unit li a {
+            color: #666;
+            font-size: 14px;
+            font-weight: normal;
+        }
+        .layerPupop {
+            display: none;
+            position: absolute; 
+            top: 0; 
+            left: 0;
+            width: 100%; 
+            height: 100%;
+            background-color: rgba(0, 0, 0, .4);
+        }
+        .layerContainer {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .layerContent {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: calc(100% - 60px);
+            background-color: #fff;
+            padding: 30px 20px 20px;
+            box-sizing: border-box;
+            text-align: center;
+            border-radius: 15px;
+        }
+        .layerContent p {
+            line-height: 1.4;
+            font-size: 22px;
+        }
+        .layerContent strong {
+            color: #1CA162;
+        }
+        .layerContent span {
+            font-weight: bold;
+            display: block;
+            padding-top: 15px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .holdPoint {
+            padding: 110px 30px 30px;
+        }
+        .holdPoint .pointTitle {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .holdPoint .money {
+            color: #1CA162;
+            line-height: 24px;
+            display: flex;
+        }
+        .holdPoint .money strong{
+            font-size: 26px;
+        }
+        .holdPoint .money span{
+            display: inline-block;
+            background-color: #fff;
+            width: 24px;
+            height: 24px;
+            text-align: center;
+            border-radius: 100%;
+            box-shadow: 0px 4px 4px 0px rgba(170, 170, 170, 0.25);
+            font-weight: 900;
+            margin: 0 10px 0 5px;
+        }
+        .holdPoint .money a {
+            border-radius: 14px;
+            font-size: 12px;
+            padding: 0 10px;
+            background-color: #b0b0b0;
+        }
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+        }
+        .header h1 img {
+            display: block;
+            width: 80px;
+        }
+        .account{
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
