@@ -3,6 +3,7 @@
         html {
             overflow-y: auto;
             height: 100%;
+            background-color: #f4f4f4;
         }
         body {
             font-family: 'Inter', sans-serif;
@@ -34,12 +35,14 @@
             border: none;
             box-sizing: border-box;
         }
+        button {
+            cursor: pointer;
+        }
         h1, h2, h3, p {
             margin: 0;
         }
         #wrap {
             height: 100%;
-            background-color: #f4f4f4;
         }
         .title {
             text-align: center;
@@ -59,6 +62,9 @@
             padding: 30px;
             box-sizing: border-box;
             transform: translateY(-50%);
+        }
+        .container .contentArea.pt90 {
+            padding-top: 90px;
         }
         .formBox input,
         .formBox button {
