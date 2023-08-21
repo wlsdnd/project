@@ -236,6 +236,9 @@
         .layerContent strong {
             color: #1CA162;
         }
+        .layerContent em {
+            font-style: normal;
+        }
         .layerContent span {
             font-weight: bold;
             display: block;
@@ -299,8 +302,8 @@
             position: absolute;
             height: 100vh;
             width: 100%;
-            pointer-events: none;
             z-index: 100;
+            pointer-events: none;
           }
           #nav-container .bg {
             position: absolute;
@@ -313,7 +316,10 @@
             transition: .3s;
             background: #000;
           }
-          #nav-container:focus-within .bg {
+          #nav-container.active {
+            pointer-events: initial;
+          }
+          #nav-container.active .bg {
             visibility: visible;
             opacity: .6;
           }
@@ -335,6 +341,7 @@
             width: 100%;
             height: 100%;
             transform: translateX(100%);
+            transition: .3s;
           }
           .button {
             position: absolute;
@@ -361,24 +368,20 @@
           .icon-bar + .icon-bar {
             margin-top: 5px;
           }
-          #nav-container:focus-within .icon-bar {
+          #nav-container.active .icon-bar {
             background: #fff;
           }
-          #nav-container:focus-within .innerbtn::before {
+          #nav-container.active .innerbtn::before {
             background-color: #1CA162;
             transform: none;
-            transition: .3s;
           }
-          #nav-container:focus-within .button {
-            pointer-events: none;
-          }
-          #nav-container:focus-within .icon-bar:nth-of-type(1) {
+          #nav-container.active .icon-bar:nth-of-type(1) {
             transform: translate3d(0,8px,0) rotate(45deg);
           }
-          #nav-container:focus-within .icon-bar:nth-of-type(2) {
+          #nav-container.active .icon-bar:nth-of-type(2) {
             opacity: 0;
           }
-          #nav-container:focus-within .icon-bar:nth-of-type(3) {
+          #nav-container.active .icon-bar:nth-of-type(3) {
             transform: translate3d(0,-8px,0) rotate(-45deg);
           }
           
@@ -435,6 +438,6 @@
             margin-left: 15px;
           }
           
-          #nav-container:focus-within #nav-content {
+          #nav-container #nav-content.show {
             transform: none;
           }

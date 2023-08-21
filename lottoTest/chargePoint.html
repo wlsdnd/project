@@ -47,7 +47,7 @@
                 <section class="content">
                     <p class="account">입금계좌 : 하나은행 26791050203107 (김명현)</p>
                     <div class="formBox pageForm">
-                        <input type="text" placeholder="충전하실 금액을 입력해주세요">
+                        <input id="priceText" type="text" placeholder="충전하실 금액을 입력해주세요">
                         <button class="greenBtn chargeBtn">충전 요청하기</button>
                     </div>
                     <div class="userUnit">
@@ -63,7 +63,7 @@
                 <div class="layerContainer">
                     <div class="layerContent">
                         <p>
-                            <strong>50,000</strong> 포인트<br>
+                            <strong id="price"></strong> 포인트<br>
                             충전 요청이 완료되었습니다.
                         </p>
                         <span>입금확인 후 충전이 완료됩니다.</span>
@@ -78,8 +78,28 @@
 </body>
 <script>
     $(function(){
+        $('.button').click(function(){
+            $('#nav-container').toggleClass('active')
+            $('#nav-content').toggleClass('show')
+        })
+        $('.bg').click(function(){
+            $('#nav-container').toggleClass('active')
+            $('#nav-content').toggleClass('show')
+        })
+
         $('.chargeBtn').click(function(){
-            $('#chargePopup').show()
+            var price = $('#priceText').val()
+            if(price > 999){
+                price = price.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                $('#price').text(price)
+                $('#chargePopup').show()
+            }else if(price <= 99){
+                alert('100 포인트 이상부터 충전가능합니다.')
+            }
+            else{
+                $('#price').text(price)
+                $('#chargePopup').show()
+            }
         })
         $('.ok').click(function(){
             $('.layerPupop').hide()

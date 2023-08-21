@@ -19,13 +19,13 @@
             <div id="nav-container">
                 <div class="bg"></div>
                 <div class="innerbtn">
-                    <div class="button" tabindex="0">
+                    <div class="button">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </div>
                 </div>
-                <div id="nav-content" tabindex="0">
+                <div id="nav-content">
                     <ul>
                     <li><a href="login.html">login</a></li>
                     <li><a href="memberJoin.html">member join</a></li>
@@ -60,8 +60,8 @@
                 <div class="layerContainer">
                     <div class="layerContent">
                         <p>
-                            5줄을 보시려면<br>
-                            <strong>500</strong> 포인트가 사용됩니다.
+                            <em id="ea"></em>줄을 보시려면<br>
+                            <strong id="point">500</strong> 포인트가 사용됩니다.
                         </p>
                         <div class="formBox duble">
                             <button class="grayBtn close">닫기</button>
@@ -75,7 +75,18 @@
 </body>
 <script>
     $(function(){
+        $('.button').click(function(){
+            $('#nav-container').toggleClass('active')
+            $('#nav-content').toggleClass('show')
+        })
+        $('.bg').click(function(){
+            $('#nav-container').toggleClass('active')
+            $('#nav-content').toggleClass('show')
+        })
+        
         $('.createBtn').click(function(){
+            $('#ea').text($("select").val())
+            $('#point').text($("select").val()+'00')
             $('#buyPopup').show()
         });
         
