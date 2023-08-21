@@ -103,6 +103,7 @@
             -webkit-appearance: none;
             -moz-appearance: none; 
             appearance: none;
+            color: #222;
             background: url(select_arrow.png) #fff no-repeat center right 20px;
         }
         
