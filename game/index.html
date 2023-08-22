@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes, target-densitydpi=medium-dpi">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="common.css">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    <title>game</title>
+</head>
+<body>
+    <div id="wrap">
+        <div class="container">
+            <div class="content">
+                <h1 class="title">로또 추첨</h1>
+                <ul class="result"></ul>
+                <button class="create">Create</button>
+                <button class="btn">Create</button>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        $(function(){
+            function getColor(number){
+                let color = "#fbc400"; // 10 미만
+                if(number >=10 && number < 20){
+                    color = "#69c8f2"
+                }else if(number >=20 && number < 30){
+                    color = "#ff7272"
+                }else if(number >=30 && number < 40){
+                    color = "#aaa"
+                }else if(number >=40 && number < 50){
+                    color = "#b0d840"
+                }
+                return color;
+            }
+            // 숫자 여섯개 당구공을 생성하여 문서에 뿌려준다!
+            function displayNumbers(lotto){
+                // 원래 보이던 당구공들은 제거하고 시작!
+                $(".result").empty();
+                for(let i =0; i < 6; i++){
+                    const li = $("<li></li>") // 제이쿼리판 createElement
+                    $(li).text(`${lotto[i]}`)
+                    $(li).hide(); // 안 보이는 상태에서 추가하기
+                    $(li).css("background-color", getColor(lotto[i]))
+                    $(".result").append(li)
+                }
+                $(".result > li").fadeIn(1000); // 1초 동안 스르륵 등장!
+            }
+            // 1부터 45 사이의 숫자 중 여섯개로 골라줘라!(무작위로)
+            function createNumbers(){
+                const lottoNumbers = []
+                const lottoNumbers2 = ['1','9','16','23','24','38'];
+                // 로또번호 여섯개가 다 안뽑혔다면 게속해라!
+                while(lottoNumbers.length < 6){
+                    const randomNumber = Math.floor(Math.random() *45) + 1
+                    // 배열.indexOf(x) : x가 배열의 몇번 인덱스에 있는지 알려준다! 단, 없다면 -1을 반환
+                        for(var i=0; i<=6; i++){
+                            if(lottoNumbers2[i] == randomNumber){
+                                alert(randomNumber + ' 이거 저번주 번호임')
+                            }else{
+                                if(lottoNumbers.indexOf(randomNumber) === -1){
+                                    lottoNumbers.push(randomNumber)
+                                }
+                            }
+                        }
+
+                    //오름차순으로 숫자 정렬
+                    lottoNumbers.sort(function(a,b){
+                        return a - b;
+                    });
+                }
+                displayNumbers(lottoNumbers)
+            }
+            $(".create").click(function(){
+                createNumbers()
+            })
+        })
+
+
+    </script>
+</body>
+</html>
