@@ -94,8 +94,40 @@ select {
     font-size: 20px;
     padding: 10px 20px;
     border-radius: 12px;
-    background-color: #7cecac;
-    border: 1px solid #8dcd93;
+    background-color: #0a857e;
+    border: 1px solid #0a857e;
     display: flex;
     margin: 20px auto;
+    color: #fff;
+}
+.btn{
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 12px;
+    background-color: #0a857e;
+    border: 1px solid #0a857e;
+    display: flex;
+    margin: 20px auto;
+    color: #fff;
+}
+
+input.text{
+    display: block; 
+    width: 100%;
+    border-radius: 12px;
+    font-size: 18px;
+}
+input.text {
+    margin-bottom: 10px;
+    box-shadow: 0px 4px 4px 0px rgba(170, 170, 170, 0.25);
+    padding: 20px 30px;
+}
+input.text::placeholder {
+    color: #999;
+    font-weight: normal;
+}
+span{
+    font-size: 16px;
+    text-align: center;
+    display: block;
 }

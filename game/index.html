@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes, target-densitydpi=medium-dpi">
     <meta name="format-detection" content="telephone=no">
     <link rel="stylesheet" type="text/css" href="common.css">
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    <!-- <script src="http://code.jquery.com/jquery-latest.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>game</title>
 </head>
 <body>
@@ -17,7 +17,12 @@
                 <h1 class="title">로또 추첨</h1>
                 <ul class="result"></ul>
                 <button class="create">Create</button>
-                <button class="btn">Create</button>
+                <input class="text text1" type="text">
+                <span>저번주 당첨 번호를 , 구분으로 입력하세요.</span>
+                <button class="btn type1">Last week</button>
+                <input class="text text2" type="text">
+                <span>2주전 당첨 번호를 , 구분으로 입력하세요.</span>
+                <button class="btn type2">2 weeks ago</button>
             </div>
         </div>
     </div>
@@ -50,24 +55,60 @@
                 }
                 $(".result > li").fadeIn(1000); // 1초 동안 스르륵 등장!
             }
+
+            var weeks1
+            var weeks2
+            var weeks3
+            var weeks4
+            var weeks5
+            var weeks6
+
+            var weeks7
+            var weeks8
+            var weeks9
+            var weeks10
+            var weeks11
+            var weeks12
             // 1부터 45 사이의 숫자 중 여섯개로 골라줘라!(무작위로)
             function createNumbers(){
                 const lottoNumbers = []
-                const lottoNumbers2 = ['1','9','16','23','24','38'];
                 // 로또번호 여섯개가 다 안뽑혔다면 게속해라!
                 while(lottoNumbers.length < 6){
-                    const randomNumber = Math.floor(Math.random() *45) + 1
-                    // 배열.indexOf(x) : x가 배열의 몇번 인덱스에 있는지 알려준다! 단, 없다면 -1을 반환
-                        for(var i=0; i<=6; i++){
-                            if(lottoNumbers2[i] == randomNumber){
-                                alert(randomNumber + ' 이거 저번주 번호임')
-                            }else{
-                                if(lottoNumbers.indexOf(randomNumber) === -1){
-                                    lottoNumbers.push(randomNumber)
-                                }
+                    var randomNumber = Math.floor(Math.random() * 45) + 1
+                    if(lottoNumbers.indexOf(randomNumber) === -1){
+                        if(Math.floor(Math.random() * 3) + 1 == 1) {
+                            if(randomNumber != weeks1
+                            && randomNumber != weeks2
+                            && randomNumber != weeks3
+                            && randomNumber != weeks4
+                            && randomNumber != weeks5
+                            && randomNumber != weeks6){
+                            lottoNumbers.push(randomNumber)
+                            console.log('50% 확률로 입력한 번호 안나옴', randomNumber)
                             }
+                        }else if(Math.floor(Math.random() * 10) + 1 == 1){
+                            if(randomNumber != weeks7
+                            && randomNumber != weeks8
+                            && randomNumber != weeks9
+                            && randomNumber != weeks10
+                            && randomNumber != weeks11
+                            && randomNumber != weeks12){
+                            lottoNumbers.push(randomNumber)
+                            console.log('10% 확률로 입력한 번호 안나옴', randomNumber)
+                            }
+                        }else{
+                            lottoNumbers.push(randomNumber)
+                            console.log('확률 false 떠서 나옴', randomNumber)
                         }
-
+                    }
+                    // if(lottoNumbers.indexOf(randomNumber) === -1 && randomNumber != weeks1
+                    // && randomNumber != weeks2
+                    // && randomNumber != weeks3
+                    // && randomNumber != weeks4
+                    // && randomNumber != weeks5
+                    // && randomNumber != weeks6){
+                    //     lottoNumbers.push(randomNumber)
+                    // }
                     //오름차순으로 숫자 정렬
                     lottoNumbers.sort(function(a,b){
                         return a - b;
@@ -77,6 +118,26 @@
             }
             $(".create").click(function(){
                 createNumbers()
+            })
+            $(".btn.type1").click(function(){
+                var str = $('.text.text1').val()
+                var words = str.split(',');
+                weeks1 = words[0]
+                weeks2 = words[1]
+                weeks3 = words[2]
+                weeks4 = words[3]
+                weeks5 = words[4]
+                weeks6 = words[5]
+            })
+            $(".btn.type2").click(function(){
+                var str2 = $('.text.text2').val()
+                var words2 = str2.split(',');
+                weeks7 = words2[0]
+                weeks8 = words2[1]
+                weeks9 = words2[2]
+                weeks10 = words2[3]
+                weeks11 = words2[4]
+                weeks12 = words2[5]
             })
         })
 
