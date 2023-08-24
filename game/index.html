@@ -17,130 +17,158 @@
                 <h1 class="title">로또 추첨</h1>
                 <ul class="result"></ul>
                 <button class="create">Create</button>
-                <input class="text text1" type="text">
-                <span>저번주 당첨 번호를 , 구분으로 입력하세요.</span>
-                <button class="btn type1">Last week</button>
-                <input class="text text2" type="text">
-                <span>2주전 당첨 번호를 , 구분으로 입력하세요.</span>
-                <button class="btn type2">2 weeks ago</button>
+                <p class="subText">클릭하면 저번주 당첨 번호가 33% 확률로 추첨</p>
+                <button class="btn type1">Last week 33%</button>
+                <p  class="subText">클릭하면 저저번주 당첨 번호가 10% 확률로 추첨</p>
+                <button class="btn type2">2 weeks ago 10%</button>
+                <p class="lastWeeksNo">저번주 1등 당첨 번호 (<span class="drawNo"></span>회)</p>
+                <ul class="lastWeeksList"></ul>
+                <p class="tip">자동 : <span class="first"></span>, 수동 : <span class="last"></span></p>
             </div>
         </div>
     </div>
     <script>
+        var weeks1
+        var weeks2
+        var weeks3
+        var weeks4
+        var weeks5
+        var weeks6
 
-        $(function(){
-            function getColor(number){
-                let color = "#fbc400"; // 10 미만
-                if(number >=10 && number < 20){
-                    color = "#69c8f2"
-                }else if(number >=20 && number < 30){
-                    color = "#ff7272"
-                }else if(number >=30 && number < 40){
-                    color = "#aaa"
-                }else if(number >=40 && number < 50){
-                    color = "#b0d840"
+        var weeks7
+        var weeks8
+        var weeks9
+        var weeks10
+        var weeks11
+        var weeks12
+        $.ajax({
+            method: 'GET',                             // HTTP 요청 방식(GET, POST)
+            url: 'https://smok95.github.io/lotto/results/latest.json',   // 서버의 URL 주소
+            dataType: 'json'                             // 서버에서 보내줄 데이터의 타입
+        }).done(function (data) {       // HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
+            console.log(data);
+            let weekColor = '#fbc400'
+            for(let s=0; s<data.numbers.length; s++){
+                if(data.numbers[s] >=10 && data.numbers[s] < 20){
+                    weekColor = '#69c8f2'
+                }else if(data.numbers[s] >=20 && data.numbers[s] < 30){
+                    weekColor = '#ff7272'
+                }else if(data.numbers[s] >=30 && data.numbers[s] < 40){
+                    weekColor = '#aaa'
+                }else if(data.numbers[s] >=40 && data.numbers[s] < 50){
+                    weekColor = '#b0d840'
                 }
-                return color;
+                $('.lastWeeksList').append(`<li class="lastWeeks${[s]}" style="background-color:${weekColor}">${data.numbers[s]}</li>`)
+                $('.drawNo').text(data.draw_no)
+                $('.tip .first').text(data.winners_combination.auto)
+                $('.tip .last').text(data.winners_combination.manual)
             }
-            // 숫자 여섯개 당구공을 생성하여 문서에 뿌려준다!
-            function displayNumbers(lotto){
-                // 원래 보이던 당구공들은 제거하고 시작!
-                $(".result").empty();
-                for(let i =0; i < 6; i++){
-                    const li = $("<li></li>") // 제이쿼리판 createElement
-                    $(li).text(`${lotto[i]}`)
-                    $(li).hide(); // 안 보이는 상태에서 추가하기
-                    $(li).css("background-color", getColor(lotto[i]))
-                    $(".result").append(li)
-                }
-                $(".result > li").fadeIn(1000); // 1초 동안 스르륵 등장!
+                $(".btn.type1").click(function(){
+                    weeks1 = data.numbers[0]
+                    weeks2 = data.numbers[1]
+                    weeks3 = data.numbers[2]
+                    weeks4 = data.numbers[3]
+                    weeks5 = data.numbers[4]
+                    weeks6 = data.numbers[5]
+                    alert('저번주 당첨번호의 추첨 확률이 적용되었습니다.')
+                })
+            // $.each(data, function (i, item) {  //each(매개변수, 함수)
+            //     $('#result').append(`<h3>${item.title}</h3><p>${item.body}</p>`)
+            // });
+        });
+        function getColor(number){
+            let color = "#fbc400"; // 10 미만
+            if(number >=10 && number < 20){
+                color = "#69c8f2"
+            }else if(number >=20 && number < 30){
+                color = "#ff7272"
+            }else if(number >=30 && number < 40){
+                color = "#aaa"
+            }else if(number >=40 && number < 50){
+                color = "#b0d840"
             }
+            return color;
+        }
+        // 숫자 여섯개 당구공을 생성하여 문서에 뿌려준다!
+        function displayNumbers(lotto){
+            // 원래 보이던 당구공들은 제거하고 시작!
+            $(".result").empty();
+            for(let i =0; i < 6; i++){
+                const li = $("<li></li>") // 제이쿼리판 createElement
+                $(li).text(`${lotto[i]}`)
+                $(li).hide(); // 안 보이는 상태에서 추가하기
+                $(li).css("background-color", getColor(lotto[i]))
+                $(".result").append(li)
+            }
+            $(".result > li").fadeIn(1000); // 1초 동안 스르륵 등장!
+        }
 
-            var weeks1
-            var weeks2
-            var weeks3
-            var weeks4
-            var weeks5
-            var weeks6
-
-            var weeks7
-            var weeks8
-            var weeks9
-            var weeks10
-            var weeks11
-            var weeks12
-            // 1부터 45 사이의 숫자 중 여섯개로 골라줘라!(무작위로)
-            function createNumbers(){
-                const lottoNumbers = []
-                // 로또번호 여섯개가 다 안뽑혔다면 게속해라!
-                while(lottoNumbers.length < 6){
-                    var randomNumber = Math.floor(Math.random() * 45) + 1
-                    if(lottoNumbers.indexOf(randomNumber) === -1){
-                        if(Math.floor(Math.random() * 3) + 1 == 1) {
-                            if(randomNumber != weeks1
-                            && randomNumber != weeks2
-                            && randomNumber != weeks3
-                            && randomNumber != weeks4
-                            && randomNumber != weeks5
-                            && randomNumber != weeks6){
-                            lottoNumbers.push(randomNumber)
-                            console.log('50% 확률로 입력한 번호 안나옴', randomNumber)
-                            }
-                        }else if(Math.floor(Math.random() * 10) + 1 == 1){
-                            if(randomNumber != weeks7
-                            && randomNumber != weeks8
-                            && randomNumber != weeks9
-                            && randomNumber != weeks10
-                            && randomNumber != weeks11
-                            && randomNumber != weeks12){
-                            lottoNumbers.push(randomNumber)
-                            console.log('10% 확률로 입력한 번호 안나옴', randomNumber)
-                            }
-                        }else{
-                            lottoNumbers.push(randomNumber)
-                            console.log('확률 false 떠서 나옴', randomNumber)
+        // 1부터 45 사이의 숫자 중 여섯개로 골라줘라!(무작위로)
+        function createNumbers(){
+            const lottoNumbers = []
+            // 로또번호 여섯개가 다 안뽑혔다면 게속해라!
+            while(lottoNumbers.length < 6){
+                var randomNumber = Math.floor(Math.random() * 45) + 1
+                if(lottoNumbers.indexOf(randomNumber) === -1){
+                    if(Math.floor(Math.random() * 3) + 1 == 1) {
+                        if(randomNumber != weeks1
+                        && randomNumber != weeks2
+                        && randomNumber != weeks3
+                        && randomNumber != weeks4
+                        && randomNumber != weeks5
+                        && randomNumber != weeks6){
+                        lottoNumbers.push(randomNumber)
+                        console.log('50% 확률로 입력한 번호 안나옴', randomNumber)
                         }
+                    }else if(Math.floor(Math.random() * 10) + 1 == 1){
+                        if(randomNumber != weeks7
+                        && randomNumber != weeks8
+                        && randomNumber != weeks9
+                        && randomNumber != weeks10
+                        && randomNumber != weeks11
+                        && randomNumber != weeks12){
+                        lottoNumbers.push(randomNumber)
+                        console.log('10% 확률로 입력한 번호 안나옴', randomNumber)
+                        }
+                    }else{
+                        lottoNumbers.push(randomNumber)
+                        console.log('확률 false 떠서 나옴', randomNumber)
                     }
-                    // if(lottoNumbers.indexOf(randomNumber) === -1 && randomNumber != weeks1
-                    // && randomNumber != weeks2
-                    // && randomNumber != weeks3
-                    // && randomNumber != weeks4
-                    // && randomNumber != weeks5
-                    // && randomNumber != weeks6){
-                    //     lottoNumbers.push(randomNumber)
-                    // }
-                    //오름차순으로 숫자 정렬
-                    lottoNumbers.sort(function(a,b){
-                        return a - b;
-                    });
                 }
-                displayNumbers(lottoNumbers)
+                // if(lottoNumbers.indexOf(randomNumber) === -1 && randomNumber != weeks1
+                // && randomNumber != weeks2
+                // && randomNumber != weeks3
+                // && randomNumber != weeks4
+                // && randomNumber != weeks5
+                // && randomNumber != weeks6){
+                //     lottoNumbers.push(randomNumber)
+                // }
+                //오름차순으로 숫자 정렬
+                lottoNumbers.sort(function(a,b){
+                    return a - b;
+                });
             }
-            $(".create").click(function(){
-                createNumbers()
-            })
-            $(".btn.type1").click(function(){
-                var str = $('.text.text1').val()
-                var words = str.split(',');
-                weeks1 = words[0]
-                weeks2 = words[1]
-                weeks3 = words[2]
-                weeks4 = words[3]
-                weeks5 = words[4]
-                weeks6 = words[5]
-            })
-            $(".btn.type2").click(function(){
-                var str2 = $('.text.text2').val()
-                var words2 = str2.split(',');
-                weeks7 = words2[0]
-                weeks8 = words2[1]
-                weeks9 = words2[2]
-                weeks10 = words2[3]
-                weeks11 = words2[4]
-                weeks12 = words2[5]
-            })
+            displayNumbers(lottoNumbers)
+        }
+        $(".create").click(function(){
+            createNumbers()
         })
-
+        $('.btn.type2').click(function(){
+            $.ajax({
+            method: 'GET',                             // HTTP 요청 방식(GET, POST)
+            url: 'https://smok95.github.io/lotto/results/1080.json',   // 서버의 URL 주소
+            dataType: 'json'                             // 서버에서 보내줄 데이터의 타입
+            }).done(function (data) {       // HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
+                console.log(data, weeks7);
+                weeks7 = data.numbers[0]
+                weeks8 = data.numbers[1]
+                weeks9 = data.numbers[2]
+                weeks10 = data.numbers[3]
+                weeks11 = data.numbers[4]
+                weeks12 = data.numbers[5]
+            });
+            alert('저저번주 당첨번호의 추첨 확률이 적용되었습니다.')
+        })
 
     </script>
 </body>

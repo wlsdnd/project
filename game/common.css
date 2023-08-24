@@ -76,10 +76,14 @@ select {
     padding: 20px 0;
     text-align: center;
 }
-.result {
+.lastWeeksList{
+    margin-top: 10px;
+}
+.result, .lastWeeksList {
     display: flex;
     justify-content: center;
 }
+.lastWeeksList li,
 .result li {
     width: 40px;
     height: 40px;
@@ -126,8 +130,17 @@ input.text::placeholder {
     color: #999;
     font-weight: normal;
 }
-span{
+.subText{
     font-size: 16px;
     text-align: center;
-    display: block;
+}
+.tip{
+    font-size: 16px;
+    text-align: center;
+    margin-top: 10px;
+}
+.lastWeeksNo{
+    font-size: 18px;
+    text-align: center;
+    margin-top: 40px;
 }
