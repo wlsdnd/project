@@ -73,7 +73,7 @@ select {
 }
 .title {
     font-size: 24px;
-    padding: 20px 0;
+    margin: 20px 0;
     text-align: center;
 }
 .lastWeeksList{
@@ -104,14 +104,22 @@ select {
     margin: 20px auto;
     color: #fff;
 }
+.btnFlex{
+    display: flex;
+    justify-content: space-between;
+}
+.btnFlex li{
+    width: 48%;
+}
+
 .btn{
+    text-align: center;
+    width: 100%;
     font-size: 20px;
     padding: 10px 20px;
     border-radius: 12px;
     background-color: #0a857e;
     border: 1px solid #0a857e;
-    display: flex;
-    margin: 20px auto;
     color: #fff;
 }
 
@@ -131,7 +139,8 @@ input.text::placeholder {
     font-weight: normal;
 }
 .subText{
-    font-size: 16px;
+    margin-top: 15px;
+    font-size: 14px;
     text-align: center;
 }
 .tip{
@@ -183,6 +192,7 @@ input.text::placeholder {
     border: 1px solid #0a857e;
     color: #fff;
     border-radius: 12px;
+    font-size: 18px;
 }
 .layerPupop{
     background: rgba(0, 0, 0, 0.4);
@@ -223,10 +233,13 @@ input.text::placeholder {
     display: block;
     width: 100%;    
     box-shadow: 0px 4px 4px 0px rgba(170, 170, 170, 0.25);
-    padding: 20px 30px;
+    padding: 10px 15px;
     border-radius: 4px;
     margin-top: 20px;
+    font-size: 18px;
+    text-align: center;
 }.searchBox .search{
+    font-size: 18px;
     padding: 10px 20px;
     background-color: #08857e;
     border: 1px solid #0a857e;
@@ -258,29 +271,32 @@ input.text::placeholder {
     display: flex;
 }
 .resultList li > ul li{
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     background-color: gray;
     color: #fff;
     border-radius: 100%;
     text-align: center;
-    line-height: 30px;
+    line-height: 25px;
     margin-right: 3px;
+    font-size: 14px;
 }
 .resultList li > ul li:last-child{margin-right: 0;}
 .resultList strong{
+    font-size: 16px;
 }
 .resultList span{
 }
 .resultList .bonusNo span{
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     background-color: gray;
     color: #fff;
     border-radius: 100%;
     text-align: center;
-    line-height: 30px;
+    line-height: 25px;
     display: block;
+    font-size: 14px;
 }
 .version{
     position: absolute;

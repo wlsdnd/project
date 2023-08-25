@@ -17,10 +17,20 @@
                 <h1 class="title">로또 추첨</h1>
                 <ul class="result"></ul>
                 <button class="create">Create</button>
-                <p class="subText">클릭하면 저번주 당첨 번호가 33% 확률로 추첨</p>
-                <button class="btn type1">Last week 33%</button>
-                <p  class="subText">클릭하면 저저번주 당첨 번호가 10% 확률로 추첨</p>
-                <button class="btn type2">2 weeks ago 10%</button>
+                
+                <ul class="btnFlex">
+                    <li>
+                        <button class="btn type1">Last week <br>33%</button>
+                        <p class="subText">클릭하면 저번주 당첨 번호가 33% 확률로 추첨</p>
+                    </li>
+                    <li>
+                        <button class="btn type2">2 weeks ago <br>10%</button>
+                        <p class="subText">클릭하면 저저번주 당첨 번호가 10% 확률로 추첨</p>
+                    </li>
+                </ul>
+                
+                
+                
                 <p class="lastWeeksNo">저번주 1등 당첨 번호 (<span class="drawNo"></span>회)</p>
                 <ul class="lastWeeksList"></ul>
                 <p class="tip">자동 : <span class="first"></span>, 수동 : <span class="last"></span></p>
@@ -68,10 +78,11 @@
                     </div>
                 </div>
             </div>
-            <span class="version">v0.1 developer woong</span>
+            <span class="version">v0.2 developer woong</span>
         </div>
     </div>
     <script>
+        $('.result').hide()
         let lastWeeks = []
         let last2Weeks = []
         let lastDrawNo
@@ -172,6 +183,7 @@
                 });
             }
             displayNumbers(lottoNumbers)
+        $('.result').fadeIn()
         }
         $(".create").click(function(){
             createNumbers()
@@ -192,6 +204,7 @@
             last2Weeks = []
             $('.percent33').hide()
             $('.percent10').hide()
+            $('.result').hide()
         })
         $('.drawSearch').click(function(){
             $('.layerPupop').fadeIn()
