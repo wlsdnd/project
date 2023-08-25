@@ -24,23 +24,57 @@
                 <p class="lastWeeksNo">저번주 1등 당첨 번호 (<span class="drawNo"></span>회)</p>
                 <ul class="lastWeeksList"></ul>
                 <p class="tip">자동 : <span class="first"></span>, 수동 : <span class="last"></span></p>
+                <ul class="percent">
+                    <li class="percent33">33% 적용중</li>
+                    <li class="percent10">10% 적용중</li>
+                </ul>
+                <button class="reset" title="확률 초기화"></button>
+                <button class="drawSearch">회차별 조회하기</button>
             </div>
+            <div class="layerPupop">
+                <div class="layerContainer">
+                    <div class="layerContent">
+                        <div class="resultBox">
+                            <h2></h2>
+                            <ul class="resultList">
+                                <li class="numbers">
+                                    <strong>1등 당첨 번호</strong>
+                                    <ul></ul>
+                                </li>
+                                <li class="bonusNo">
+                                    <strong>보너스 번호</strong>
+                                    <span></span>
+                                </li>
+                                <li class="divisionsP">
+                                    <strong>당첨금액</strong>
+                                    <span></span>
+                                </li>
+                                <li class="divisionsW">
+                                    <strong>당첨게임 수</strong>
+                                    <span></span>
+                                </li>
+                                <li class="combination">
+                                    <strong>비고</strong>
+                                    <span></span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="searchBox">
+                            <h2>회차별 조회하기</h2>
+                            <input class="drawForm" type="text" title="회차를 입력하세요." placeholder="검색하실 회차를 입력하세요.">
+                            <button class="search">검색</button>
+                        </div>
+                        <button class="close" title="닫기"></button>
+                    </div>
+                </div>
+            </div>
+            <span class="version">v0.1 developer woong</span>
         </div>
     </div>
     <script>
-        var weeks1
-        var weeks2
-        var weeks3
-        var weeks4
-        var weeks5
-        var weeks6
-
-        var weeks7
-        var weeks8
-        var weeks9
-        var weeks10
-        var weeks11
-        var weeks12
+        let lastWeeks = []
+        let last2Weeks = []
+        let lastDrawNo
         $.ajax({
             method: 'GET',                             // HTTP 요청 방식(GET, POST)
             url: 'https://smok95.github.io/lotto/results/latest.json',   // 서버의 URL 주소
@@ -62,15 +96,12 @@
                 $('.drawNo').text(data.draw_no)
                 $('.tip .first').text(data.winners_combination.auto)
                 $('.tip .last').text(data.winners_combination.manual)
+                lastDrawNo = data.draw_no
             }
                 $(".btn.type1").click(function(){
-                    weeks1 = data.numbers[0]
-                    weeks2 = data.numbers[1]
-                    weeks3 = data.numbers[2]
-                    weeks4 = data.numbers[3]
-                    weeks5 = data.numbers[4]
-                    weeks6 = data.numbers[5]
+                    lastWeeks = data.numbers
                     alert('저번주 당첨번호의 추첨 확률이 적용되었습니다.')
+                    $('.percent33').show()
                 })
             // $.each(data, function (i, item) {  //each(매개변수, 함수)
             //     $('#result').append(`<h3>${item.title}</h3><p>${item.body}</p>`)
@@ -108,25 +139,25 @@
             const lottoNumbers = []
             // 로또번호 여섯개가 다 안뽑혔다면 게속해라!
             while(lottoNumbers.length < 6){
-                var randomNumber = Math.floor(Math.random() * 45) + 1
+                let randomNumber = Math.floor(Math.random() * 45) + 1
                 if(lottoNumbers.indexOf(randomNumber) === -1){
                     if(Math.floor(Math.random() * 3) + 1 == 1) {
-                        if(randomNumber != weeks1
-                        && randomNumber != weeks2
-                        && randomNumber != weeks3
-                        && randomNumber != weeks4
-                        && randomNumber != weeks5
-                        && randomNumber != weeks6){
+                        if(randomNumber != lastWeeks[0]
+                        && randomNumber != lastWeeks[1]
+                        && randomNumber != lastWeeks[2]
+                        && randomNumber != lastWeeks[3]
+                        && randomNumber != lastWeeks[4]
+                        && randomNumber != lastWeeks[5]){
                         lottoNumbers.push(randomNumber)
                         console.log('50% 확률로 입력한 번호 안나옴', randomNumber)
                         }
                     }else if(Math.floor(Math.random() * 10) + 1 == 1){
-                        if(randomNumber != weeks7
-                        && randomNumber != weeks8
-                        && randomNumber != weeks9
-                        && randomNumber != weeks10
-                        && randomNumber != weeks11
-                        && randomNumber != weeks12){
+                        if(randomNumber != last2Weeks[0]
+                        && randomNumber != last2Weeks[1]
+                        && randomNumber != last2Weeks[2]
+                        && randomNumber != last2Weeks[3]
+                        && randomNumber != last2Weeks[4]
+                        && randomNumber != last2Weeks[5]){
                         lottoNumbers.push(randomNumber)
                         console.log('10% 확률로 입력한 번호 안나옴', randomNumber)
                         }
@@ -135,14 +166,6 @@
                         console.log('확률 false 떠서 나옴', randomNumber)
                     }
                 }
-                // if(lottoNumbers.indexOf(randomNumber) === -1 && randomNumber != weeks1
-                // && randomNumber != weeks2
-                // && randomNumber != weeks3
-                // && randomNumber != weeks4
-                // && randomNumber != weeks5
-                // && randomNumber != weeks6){
-                //     lottoNumbers.push(randomNumber)
-                // }
                 //오름차순으로 숫자 정렬
                 lottoNumbers.sort(function(a,b){
                     return a - b;
@@ -156,18 +179,57 @@
         $('.btn.type2').click(function(){
             $.ajax({
             method: 'GET',                             // HTTP 요청 방식(GET, POST)
-            url: 'https://smok95.github.io/lotto/results/1080.json',   // 서버의 URL 주소
+            url: `https://smok95.github.io/lotto/results/${lastDrawNo-1}.json`,   // 서버의 URL 주소
             dataType: 'json'                             // 서버에서 보내줄 데이터의 타입
             }).done(function (data) {       // HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
-                console.log(data, weeks7);
-                weeks7 = data.numbers[0]
-                weeks8 = data.numbers[1]
-                weeks9 = data.numbers[2]
-                weeks10 = data.numbers[3]
-                weeks11 = data.numbers[4]
-                weeks12 = data.numbers[5]
+                last2Weeks = data.numbers
             });
             alert('저저번주 당첨번호의 추첨 확률이 적용되었습니다.')
+            $('.percent10').show()
+        })
+        $('.reset').click(function(){
+            lastWeeks = []
+            last2Weeks = []
+            $('.percent33').hide()
+            $('.percent10').hide()
+        })
+        $('.drawSearch').click(function(){
+            $('.layerPupop').fadeIn()
+        })
+        $('.layerContent .close').click(function(){
+            $('.layerPupop').fadeOut()
+            $('.searchBox h2').fadeIn()
+            $('.resultBox').fadeOut()
+            $('.searchBox .drawForm').val('')
+        })
+        $('.searchBox .search').click(function(){
+            let searchDraw = $('.searchBox .drawForm').val()
+            if(searchDraw > lastDrawNo){
+                alert(`가장 최신 회차는 ${lastDrawNo}회 입니다.`)
+            }else{
+                $('.resultBox').show()
+            $.ajax({
+            method: 'GET',                             // HTTP 요청 방식(GET, POST)
+            url: `https://smok95.github.io/lotto/results/${searchDraw}.json`,   // 서버의 URL 주소
+            dataType: 'json'                             // 서버에서 보내줄 데이터의 타입
+            }).done(function (data) {       // HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
+                $('.resultBox h2').append(`<span>${data.date.substr(0, 10)}</span>`)
+                $(".numbers ul").empty();
+                for(let b=0; b<6; b++){
+                    $('.numbers ul').append(`<li>${data.numbers[b]}</li>`)
+                }
+                $('.bonusNo span').text(data.bonus_no)
+                $('.divisionsP span').text(`${data.divisions[0].prize.toLocaleString()}원`)
+                $('.divisionsW span').text(`${data.divisions[0].winners}명`)
+                if(typeof data.winners_combination.auto === 'undefined'){
+                    $('.combination span').text('자동 : 조회불가 수동 : 조회불가')
+                }else{
+                    $('.combination span').text(`자동 : ${data.winners_combination.auto}명 수동 : ${data.winners_combination.manual}명`)
+                }
+            });
+            $('.resultBox h2').text(`${searchDraw} 회`)
+            $('.searchBox h2').hide()
+            }
         })
 
     </script>
