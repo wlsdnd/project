@@ -148,6 +148,10 @@ input.text::placeholder {
     text-align: center;
     margin-top: 10px;
 }
+.tip em{
+    font-style: normal;
+    display: none;
+}
 .lastWeeksNo{
     font-size: 18px;
     text-align: center;
@@ -304,4 +308,9 @@ input.text::placeholder {
     bottom: 10px;
     right: 10px;
     color: #c0c0c0;
+}
+.combination em{
+    font-style: normal;
+    display: block;
+    text-align: right;
 }

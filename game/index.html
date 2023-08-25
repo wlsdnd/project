@@ -33,7 +33,7 @@
                 
                 <p class="lastWeeksNo">저번주 1등 당첨 번호 (<span class="drawNo"></span>회)</p>
                 <ul class="lastWeeksList"></ul>
-                <p class="tip">자동 : <span class="first"></span>, 수동 : <span class="last"></span></p>
+                <p class="tip">자동 : <span class="first"></span>, 수동 : <span class="last"></span><em>, 반자동 : <span class="semiAuto">0</span></em></p>
                 <ul class="percent">
                     <li class="percent33">33% 적용중</li>
                     <li class="percent10">10% 적용중</li>
@@ -78,7 +78,7 @@
                 </div>
             </div>
             <button class="reset" title="초기화"></button>
-            <span class="version">v0.3 developer woong</span>
+            <span class="version">v0.4 developer woong</span>
         </div>
     </div>
     <script>
@@ -107,6 +107,10 @@
                 $('.drawNo').text(data.draw_no)
                 $('.tip .first').text(data.winners_combination.auto)
                 $('.tip .last').text(data.winners_combination.manual)
+                if(typeof data.winners_combination.semi_auto !== 'undefined'){
+                    $('.tip em').show()
+                    $('.tip .semiAuto').text(data.winners_combination.semi_auto)
+                }
                 lastDrawNo = data.draw_no
             }
                 $(".btn.type1").click(function(){
@@ -226,6 +230,7 @@
             url: `https://smok95.github.io/lotto/results/${searchDraw}.json`,   // 서버의 URL 주소
             dataType: 'json'                             // 서버에서 보내줄 데이터의 타입
             }).done(function (data) {       // HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
+                console.log(data)
                 $('.resultBox h2').append(`<span>${data.date.substr(0, 10)}</span>`)
                 $(".numbers ul").empty();
                 for(let b=0; b<6; b++){
@@ -234,10 +239,15 @@
                 $('.bonusNo span').text(data.bonus_no)
                 $('.divisionsP span').text(`${data.divisions[0].prize.toLocaleString()}원`)
                 $('.divisionsW span').text(`${data.divisions[0].winners}명`)
-                if(typeof data.winners_combination.auto === 'undefined' || typeof data.winners_combination.manual === 'undefined'){
-                    $('.combination span').text('자동 : 조회불가 수동 : 조회불가')
+                if(typeof data.winners_combination.auto === 'undefined'){
+                    $('.combination span').text(`자동 : 조회불가, 수동 : ${data.winners_combination.manual}명`)
+                }else if(typeof data.winners_combination.manual === 'undefined'){
+                    $('.combination span').text(`자동 : ${data.winners_combination.auto}명, 수동 : 조회불가`)
                 }else{
-                    $('.combination span').text(`자동 : ${data.winners_combination.auto}명 수동 : ${data.winners_combination.manual}명`)
+                    $('.combination span').text(`자동 : ${data.winners_combination.auto}명, 수동 : ${data.winners_combination.manual}명`)
+                }
+                if(typeof data.winners_combination.semi_auto !== 'undefined'){
+                    $('.combination span').append(`<em>반자동 : ${data.winners_combination.semi_auto}명</em>`)
                 }
             });
             $('.resultBox h2').text(`${searchDraw} 회`)
