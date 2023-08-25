@@ -234,7 +234,7 @@
                 $('.bonusNo span').text(data.bonus_no)
                 $('.divisionsP span').text(`${data.divisions[0].prize.toLocaleString()}원`)
                 $('.divisionsW span').text(`${data.divisions[0].winners}명`)
-                if(typeof data.winners_combination.auto === 'undefined'){
+                if(typeof data.winners_combination.auto === 'undefined' || typeof data.winners_combination.manual === 'undefined'){
                     $('.combination span').text('자동 : 조회불가 수동 : 조회불가')
                 }else{
                     $('.combination span').text(`자동 : ${data.winners_combination.auto}명 수동 : ${data.winners_combination.manual}명`)
