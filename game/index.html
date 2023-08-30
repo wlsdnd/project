@@ -62,17 +62,22 @@
                                 </li>
                                 <li class="divisionsW">
                                     <strong>당첨게임 수</strong>
-                                    <span></span>
+                                    <span>
+                                    </span>
                                 </li>
                                 <li class="combination">
                                     <strong>비고</strong>
-                                    <span></span>
+                                    <span>
+                                        <span class="auto"></span>
+                                        <span class="menual"></span>
+                                        <span class="semi"></span>
+                                    </span>
                                 </li>
                             </ul>
                         </div>
                         <div class="searchBox">
                             <h2>회차별 조회하기</h2>
-                            <input class="drawForm" type="text" title="회차를 입력하세요." placeholder="검색하실 회차를 입력하세요.">
+                            <input class="drawForm" type="text" title="회차를 입력하세요." placeholder="검색할 회차를 입력하세요.">
                             <button class="search">검색</button>
                         </div>
                         <div class="percentBox">
@@ -92,6 +97,10 @@
         </div>
     </div>
     <script>
+        let isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
+            if(!isMobile) {
+                $('#wrap').remove()
+            }
         $('.result').hide()
         let lastWeeks = []
         let last2Weeks = []
@@ -331,39 +340,53 @@
 
         // 조회하기
         $('.searchBox .search').click(function(){
+            $('.combination > span em').remove()
             let searchDraw = $('.searchBox .drawForm').val()
-            if(searchDraw > lastDrawNo){
-                alert(`가장 최신 회차는 ${lastDrawNo}회 입니다.`)
-            }else{
-                $('.resultBox').show()
-            $.ajax({
-            method: 'GET',                             // HTTP 요청 방식(GET, POST)
-            url: `https://smok95.github.io/lotto/results/${searchDraw}.json`,   // 서버의 URL 주소
-            dataType: 'json'                             // 서버에서 보내줄 데이터의 타입
-            }).done(function (data) {       // HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
-                console.log(data)
-                $('.resultBox h2').append(`<span>${data.date.substr(0, 10)}</span>`)
-                $(".numbers ul").empty();
-                for(let b=0; b<6; b++){
-                    $('.numbers ul').append(`<li>${data.numbers[b]}</li>`)
-                }
-                $('.bonusNo span').text(data.bonus_no)
-                $('.divisionsP span').text(`${data.divisions[0].prize.toLocaleString()}원`)
-                $('.divisionsW span').text(`${data.divisions[0].winners}명`)
-                if(typeof data.winners_combination.auto === 'undefined'){
-                    $('.combination span').text(`자동 : 조회불가, 수동 : ${data.winners_combination.manual}명`)
-                }else if(typeof data.winners_combination.manual === 'undefined'){
-                    $('.combination span').text(`자동 : ${data.winners_combination.auto}명, 수동 : 조회불가`)
+            if(!isNaN(searchDraw)){
+                if(searchDraw == ''){
+                    alert('검색할 회차를 입력하세요')
                 }else{
-                    $('.combination span').text(`자동 : ${data.winners_combination.auto}명, 수동 : ${data.winners_combination.manual}명`)
+                    if(searchDraw > lastDrawNo){
+                        alert(`가장 최신 회차는 ${lastDrawNo}회 입니다.`)
+                    }else {
+                        $('.resultBox').show()
+                        $.ajax({
+                        method: 'GET',                             // HTTP 요청 방식(GET, POST)
+                        url: `https://smok95.github.io/lotto/results/${searchDraw}.json`,   // 서버의 URL 주소
+                        dataType: 'json'                             // 서버에서 보내줄 데이터의 타입
+                        }).done(function (data) {       // HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
+                            console.log(data)
+                            $('.resultBox h2').append(`<span>${data.date.substr(0, 10)}</span>`)
+                            $(".numbers ul").empty();
+                            for(let b=0; b<6; b++){
+                                $('.numbers ul').append(`<li>${data.numbers[b]}</li>`)
+                            }
+                            $('.bonusNo span').text(data.bonus_no)
+                            $('.divisionsP span').text(`${data.divisions[0].prize.toLocaleString()}원`)
+                            $('.divisionsW span').text(`${data.divisions[0].winners}명`)
+                            Object.keys(data.winners_combination).includes('auto') ? 
+                            $('.combination span .auto').text(`자동 : ${data.winners_combination.auto}명,`) : 
+                            $('.combination span .auto').text('자동 : 조회불가,')
+
+
+                            Object.keys(data.winners_combination).includes('manual') ? 
+                            $('.combination span .menual').text(`수동 : ${data.winners_combination.manual}명`) : 
+                            $('.combination span .menual').text('수동 : 조회불가')
+
+
+                            Object.keys(data.winners_combination).includes('semi_auto') ? 
+                            $('.combination > span').append(`<em>반자동 : ${data.winners_combination.semi_auto}명</em>`) : ''
+
+                        });
+                        $('.resultBox h2').text(`${searchDraw} 회`)
+                        $('.searchBox h2').hide()
+                    }
                 }
-                if(typeof data.winners_combination.semi_auto !== 'undefined'){
-                    $('.combination span').append(`<em>반자동 : ${data.winners_combination.semi_auto}명</em>`)
-                }
-            });
-            $('.resultBox h2').text(`${searchDraw} 회`)
-            $('.searchBox h2').hide()
+            }else{
+                alert('검색할 회차를 숫자로 입력하세요')
             }
+
+            
         })
         // 확률 수정 팝업
         $('.edit').click(function(){
