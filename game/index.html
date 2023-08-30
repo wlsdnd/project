@@ -20,23 +20,25 @@
                 
                 <ul class="btnFlex">
                     <li>
-                        <button class="btn type1">저번 주 <br>33%</button>
-                        <p class="subText">저번 주 당첨 번호가 33% 확률로 추첨되지 않음</p>
+                        <button class="btn type1">지난주 <br><span class="weekText1">10</span>%</button>
+                        <p class="subText">최근 당첨 번호가 <span class="weekText1">10</span>% 확률로 <br>추첨되지 않음</p>
+                        <button class="edit week1" title="확률 수정"></button>
                     </li>
                     <li>
-                        <button class="btn type2">2주 전 <br>10%</button>
-                        <p class="subText">2주 전 당첨 번호가 10% 확률로 추첨되지 않음</p>
+                        <button class="btn type2">2주 전 <br><span class="weekText2">5</span>%</button>
+                        <p class="subText">2주 전 당첨 번호가 <span class="weekText2">5</span>% 확률로 <br>추첨되지 않음</p>
+                        <button class="edit week2" title="확률 수정"></button>
                     </li>
                 </ul>
                 
                 
                 
-                <p class="lastWeeksNo">저번주 1등 당첨 번호 (<span class="drawNo"></span>회)</p>
+                <p class="lastWeeksNo">지난주 1등 당첨 번호 (<span class="drawNo"></span>회)</p>
                 <ul class="lastWeeksList"></ul>
                 <p class="tip">자동 : <span class="first"></span>, 수동 : <span class="last"></span><em>, 반자동 : <span class="semiAuto">0</span></em></p>
                 <ul class="percent">
-                    <li class="percent33">33% 적용중</li>
-                    <li class="percent10">10% 적용중</li>
+                    <li class="percent33">지난주 <span class="weekText1">10</span>% 적용중</li>
+                    <li class="percent10">2주 전 <span class="weekText2">5</span>% 적용중</li>
                 </ul>
                 <button class="drawSearch">회차별 조회하기</button>
             </div>
@@ -73,19 +75,32 @@
                             <input class="drawForm" type="text" title="회차를 입력하세요." placeholder="검색하실 회차를 입력하세요.">
                             <button class="search">검색</button>
                         </div>
+                        <div class="percentBox">
+                            <div>
+                                <input class="percentForm" type="text" placeholder="10">
+                                <span>/ 1</span>
+                            </div>
+                            <span id="percentText">10%</span>
+                            <button class="apply">적용</button>
+                        </div>
                         <button class="close" title="닫기"></button>
                     </div>
                 </div>
             </div>
             <button class="reset" title="초기화"></button>
-            <span class="version">v0.4 developer woong</span>
+            <span class="version">v0.5 developer woong</span>
         </div>
     </div>
     <script>
         $('.result').hide()
         let lastWeeks = []
         let last2Weeks = []
-        let lastDrawNo
+        let lastDrawNo 
+        let weeksPercent = 10
+        let weeksPercent2 = 20
+        let weekP
+        let weekP2
+        //저번주 데이터 가져오기
         $.ajax({
             method: 'GET',                             // HTTP 요청 방식(GET, POST)
             url: 'https://smok95.github.io/lotto/results/latest.json',   // 서버의 URL 주소
@@ -113,15 +128,68 @@
                 }
                 lastDrawNo = data.draw_no
             }
-                $(".btn.type1").click(function(){
-                    lastWeeks = data.numbers
-                    alert('저번주 당첨번호의 추첨 확률이 적용되었습니다.')
-                    $('.percent33').show()
-                })
+            $(".btn.type1").click(function(){
+                lastWeeks = data.numbers
+                alert('지난주 당첨번호 추첨확률이 적용되었습니다.')
+                $('.percent33').show()
+            })
+            $('.percentBox .percentForm').on("propertychange change paste input", function() {
+                weekP = (1/$('.percentBox .percentForm').val()*100).toString().slice(0, 4)
+                $('#percentText').text(weekP+'%')
+            });
+            $('.percentBox .apply').click(function(){
+                if($(this).hasClass('week1')){
+                    if($('.percentBox .percentForm').val() != ''){
+                        weeksPercent = $('.percentBox .percentForm').val()
+                        $('.layerPupop').fadeOut()
+                        $('.percentBox').fadeOut()
+                        $('.percent33').show()
+                        $('.weekText1').text(weekP)
+                        $('.percentBox .apply').removeClass('week1')
+                        lastWeeks = data.numbers
+                    }else{
+                        alert('적용할 값을 입력하세요.')
+                    }
+                }
+            })
             // $.each(data, function (i, item) {  //each(매개변수, 함수)
             //     $('#result').append(`<h3>${item.title}</h3><p>${item.body}</p>`)
             // });
         });
+
+        // 저저번주 데이터 가져오기
+        
+        $('.btn.type2').click(function(){// HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
+            lastWeek()
+            alert('2주 전 당첨번호 추첨확률이 적용되었습니다.')
+            $('.percent10').show()
+            
+        })
+        $('.percentBox .apply').click(function(){// HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
+            if($(this).hasClass('week2')){
+                lastWeek()
+                if($('.percentBox .percentForm').val() != ''){
+                    weeksPercent2 = $('.percentBox .percentForm').val()
+                    $('.layerPupop').fadeOut()
+                    $('.percentBox').fadeOut()
+                    $('.percent10').show()
+                    $('.weekText2').text(weekP)
+                    $('.percentBox .apply').removeClass('week2')
+                }else{
+                    alert('적용할 값을 입력하세요.')
+                }
+            }
+        })
+        
+        function lastWeek(){
+            $.ajax({
+                method: 'GET',                             // HTTP 요청 방식(GET, POST)
+                url: `https://smok95.github.io/lotto/results/${lastDrawNo-1}.json`,   // 서버의 URL 주소
+                dataType: 'json'                             // 서버에서 보내줄 데이터의 타입
+            }).done(function (data) {       
+                last2Weeks = data.numbers
+            });
+        }
         function getColor(number){
             let color = "#fbc400"; // 10 미만
             if(number >=10 && number < 20){
@@ -154,31 +222,64 @@
             const lottoNumbers = []
             // 로또번호 여섯개가 다 안뽑혔다면 게속해라!
             while(lottoNumbers.length < 6){
-                let randomNumber = Math.floor(Math.random() * 45) + 1
-                if(lottoNumbers.indexOf(randomNumber) === -1){
-                    if(Math.floor(Math.random() * 3) + 1 == 1) {
-                        if(randomNumber != lastWeeks[0]
-                        && randomNumber != lastWeeks[1]
-                        && randomNumber != lastWeeks[2]
-                        && randomNumber != lastWeeks[3]
-                        && randomNumber != lastWeeks[4]
-                        && randomNumber != lastWeeks[5]){
+                let randomNumber = Math.floor(Math.random() * 8) + 1
+                if(lastWeeks.length == 0 && last2Weeks.length == 0){
+                    if(lottoNumbers.indexOf(randomNumber) === -1){
                         lottoNumbers.push(randomNumber)
-                        console.log('50% 확률로 입력한 번호 안나옴', randomNumber)
+                    }
+                }else if(lastWeeks.length != 0 && last2Weeks.length == 0){
+                    if(lottoNumbers.indexOf(randomNumber) === -1){
+                        if(Math.floor(Math.random() * weeksPercent) + 1 == 1) {
+                            if(randomNumber != lastWeeks[0]
+                            && randomNumber != lastWeeks[1]
+                            && randomNumber != lastWeeks[2]
+                            && randomNumber != lastWeeks[3]
+                            && randomNumber != lastWeeks[4]
+                            && randomNumber != lastWeeks[5]){
+                                lottoNumbers.push(randomNumber)
+                            }
+                        }else {
+                            lottoNumbers.push(randomNumber)
                         }
-                    }else if(Math.floor(Math.random() * 10) + 1 == 1){
-                        if(randomNumber != last2Weeks[0]
-                        && randomNumber != last2Weeks[1]
-                        && randomNumber != last2Weeks[2]
-                        && randomNumber != last2Weeks[3]
-                        && randomNumber != last2Weeks[4]
-                        && randomNumber != last2Weeks[5]){
-                        lottoNumbers.push(randomNumber)
-                        console.log('10% 확률로 입력한 번호 안나옴', randomNumber)
+                    }
+                }else if(lastWeeks.length == 0 && last2Weeks.length != 0){
+                    if(lottoNumbers.indexOf(randomNumber) === -1){
+                        if(Math.floor(Math.random() * weeksPercent2) + 1 == 1) {
+                            if(randomNumber != last2Weeks[0]
+                            && randomNumber != last2Weeks[1]
+                            && randomNumber != last2Weeks[2]
+                            && randomNumber != last2Weeks[3]
+                            && randomNumber != last2Weeks[4]
+                            && randomNumber != last2Weeks[5]){
+                                lottoNumbers.push(randomNumber)
+                            }
+                        }else {
+                            lottoNumbers.push(randomNumber)
                         }
-                    }else{
-                        lottoNumbers.push(randomNumber)
-                        console.log('확률 false 떠서 나옴', randomNumber)
+                    }
+                }else if(lastWeeks.length != 0 && last2Weeks.length != 0){
+                    if(lottoNumbers.indexOf(randomNumber) === -1){
+                        if(Math.floor(Math.random() * weeksPercent) + 1 == 1) {
+                            if(randomNumber != lastWeeks[0]
+                            && randomNumber != lastWeeks[1]
+                            && randomNumber != lastWeeks[2]
+                            && randomNumber != lastWeeks[3]
+                            && randomNumber != lastWeeks[4]
+                            && randomNumber != lastWeeks[5]){
+                                if(Math.floor(Math.random() * weeksPercent2) + 1 == 1) {
+                                    if(randomNumber != last2Weeks[0]
+                                    && randomNumber != last2Weeks[1]
+                                    && randomNumber != last2Weeks[2]
+                                    && randomNumber != last2Weeks[3]
+                                    && randomNumber != last2Weeks[4]
+                                    && randomNumber != last2Weeks[5]){
+                                        lottoNumbers.push(randomNumber)
+                                    }
+                                }
+                            }
+                        }else {
+                            lottoNumbers.push(randomNumber)
+                        }
                     }
                 }
                 //오름차순으로 숫자 정렬
@@ -192,33 +293,33 @@
         $(".create").click(function(){
             createNumbers()
         })
-        $('.btn.type2').click(function(){
-            $.ajax({
-            method: 'GET',                             // HTTP 요청 방식(GET, POST)
-            url: `https://smok95.github.io/lotto/results/${lastDrawNo-1}.json`,   // 서버의 URL 주소
-            dataType: 'json'                             // 서버에서 보내줄 데이터의 타입
-            }).done(function (data) {       // HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
-                last2Weeks = data.numbers
-            });
-            alert('저저번주 당첨번호의 추첨 확률이 적용되었습니다.')
-            $('.percent10').show()
-        })
+        
         $('.reset').click(function(){
             lastWeeks = []
             last2Weeks = []
+            weeksPercent = 10
+            weeksPercent2 = 20
             $('.percent33').hide()
             $('.percent10').hide()
+            $('.weekText1').text('10')
+            $('.weekText2').text('5')
             $('.result').hide()
         })
         $('.drawSearch').click(function(){
             $('.layerPupop').fadeIn()
+            $('.searchBox').fadeIn()
         })
         $('.layerContent .close').click(function(){
             $('.layerPupop').fadeOut()
             $('.searchBox h2').fadeIn()
             $('.resultBox').fadeOut()
             $('.searchBox .drawForm').val('')
+            $('.searchBox').fadeOut()
+            $('.percentBox').fadeOut()
+            $('.percentBox .apply').removeClass('week1 week2')
         })
+
+        // 조회하기
         $('.searchBox .search').click(function(){
             let searchDraw = $('.searchBox .drawForm').val()
             if(searchDraw > lastDrawNo){
@@ -254,6 +355,19 @@
             $('.searchBox h2').hide()
             }
         })
+        // 확률 수정 팝업
+        $('.edit').click(function(){
+            $('#percentText').text('10%')
+            $('.percentBox .percentForm').val('')
+            if($(this).hasClass('week1')){
+                $('.percentBox .apply').addClass('week1')
+            }else{
+                $('.percentBox .apply').addClass('week2')
+            }
+            $('.layerPupop').fadeIn()
+            $('.percentBox').fadeIn()
+        })
+        
 
     </script>
 </body>
