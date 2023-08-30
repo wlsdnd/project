@@ -21,12 +21,12 @@
                 <ul class="btnFlex">
                     <li>
                         <button class="btn type1">지난주 <br><span class="weekText1">10</span>%</button>
-                        <p class="subText">최근 당첨 번호가 <span class="weekText1">10</span>% 확률로 <br>추첨되지 않음</p>
+                        <p class="subText">최근 당첨 번호가 <span class="weekText1">10</span>% 확률로 추첨되지 않음</p>
                         <button class="edit week1" title="확률 수정"></button>
                     </li>
                     <li>
                         <button class="btn type2">2주 전 <br><span class="weekText2">5</span>%</button>
-                        <p class="subText">2주 전 당첨 번호가 <span class="weekText2">5</span>% 확률로 <br>추첨되지 않음</p>
+                        <p class="subText">2주 전 당첨 번호가 <span class="weekText2">5</span>% 확률로 추첨되지 않음</p>
                         <button class="edit week2" title="확률 수정"></button>
                     </li>
                 </ul>
@@ -88,7 +88,7 @@
                 </div>
             </div>
             <button class="reset" title="초기화"></button>
-            <span class="version">v0.5 developer woong</span>
+            <span class="version">v0.6 developer woong</span>
         </div>
     </div>
     <script>
@@ -140,13 +140,18 @@
             $('.percentBox .apply').click(function(){
                 if($(this).hasClass('week1')){
                     if($('.percentBox .percentForm').val() != ''){
-                        weeksPercent = $('.percentBox .percentForm').val()
-                        $('.layerPupop').fadeOut()
-                        $('.percentBox').fadeOut()
-                        $('.percent33').show()
-                        $('.weekText1').text(weekP)
-                        $('.percentBox .apply').removeClass('week1')
-                        lastWeeks = data.numbers
+                        if(!isNaN($('.percentBox .percentForm').val())){
+                            weeksPercent = $('.percentBox .percentForm').val()
+                            $('.layerPupop').fadeOut()
+                            $('.percentBox').fadeOut()
+                            $('.percent33').show()
+                            $('.weekText1').text(weekP)
+                            $('.percentBox .apply').removeClass('week1')
+                            lastWeeks = data.numbers
+                        }else{
+                            alert('적용할 값을 숫자로 입력하세요.')
+                        }
+                        
                     }else{
                         alert('적용할 값을 입력하세요.')
                     }
@@ -169,12 +174,17 @@
             if($(this).hasClass('week2')){
                 lastWeek()
                 if($('.percentBox .percentForm').val() != ''){
-                    weeksPercent2 = $('.percentBox .percentForm').val()
-                    $('.layerPupop').fadeOut()
-                    $('.percentBox').fadeOut()
-                    $('.percent10').show()
-                    $('.weekText2').text(weekP)
-                    $('.percentBox .apply').removeClass('week2')
+                    if(!isNaN($('.percentBox .percentForm').val())){
+                        weeksPercent2 = $('.percentBox .percentForm').val()
+                        $('.layerPupop').fadeOut()
+                        $('.percentBox').fadeOut()
+                        $('.percent10').show()
+                        $('.weekText2').text(weekP)
+                        $('.percentBox .apply').removeClass('week2')
+                    }else{
+                        alert('적용할 값을 숫자로 입력하세요.')
+                    }
+                    
                 }else{
                     alert('적용할 값을 입력하세요.')
                 }
@@ -222,7 +232,7 @@
             const lottoNumbers = []
             // 로또번호 여섯개가 다 안뽑혔다면 게속해라!
             while(lottoNumbers.length < 6){
-                let randomNumber = Math.floor(Math.random() * 8) + 1
+                let randomNumber = Math.floor(Math.random() * 45) + 1
                 if(lastWeeks.length == 0 && last2Weeks.length == 0){
                     if(lottoNumbers.indexOf(randomNumber) === -1){
                         lottoNumbers.push(randomNumber)
