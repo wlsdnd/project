@@ -93,10 +93,17 @@
                 </div>
             </div>
             <button class="reset" title="초기화"></button>
-            <span class="version">v0.6 developer woong</span>
+            <span class="version">v0.7 developer woong</span>
         </div>
     </div>
     <script>
+            // let d
+            // let n
+            // for(let x=0; x<100; x++){
+            //     n = 1.81
+            //     d = n * x
+            //     console.log(d, x)
+            // }
         let isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
             if(!isMobile) {
                 $('#wrap').remove()
@@ -292,12 +299,29 @@
                                     && randomNumber != last2Weeks[3]
                                     && randomNumber != last2Weeks[4]
                                     && randomNumber != last2Weeks[5]){
+                                        console.log(randomNumber , last2Weeks[0], '1111')
                                         lottoNumbers.push(randomNumber)
                                     }
+                                }else {
+                                    lottoNumbers.push(randomNumber)
+                                        console.log(randomNumber , last2Weeks[0], '2222')
                                 }
                             }
                         }else {
-                            lottoNumbers.push(randomNumber)
+                            if(Math.floor(Math.random() * weeksPercent2) + 1 == 1) {
+                                if(randomNumber != last2Weeks[0]
+                                && randomNumber != last2Weeks[1]
+                                && randomNumber != last2Weeks[2]
+                                && randomNumber != last2Weeks[3]
+                                && randomNumber != last2Weeks[4]
+                                && randomNumber != last2Weeks[5]){
+                                    console.log(randomNumber , last2Weeks[0], '3333')
+                                    lottoNumbers.push(randomNumber)
+                                }
+                            }else {
+                                lottoNumbers.push(randomNumber)
+                                    console.log(randomNumber , last2Weeks[0], '4444')
+                            }
                         }
                     }
                 }
