@@ -211,7 +211,7 @@ input.text::placeholder {
     border-radius: 12px;
     font-size: 18px;
 }
-.layerPupop{
+.layerPupop, .testLayer{
     background: rgba(0, 0, 0, 0.4);
     position: absolute;
     top: 0;
@@ -222,12 +222,12 @@ input.text::placeholder {
     display: none;
     z-index: 10;
 }
-.layerContainer{
+.layerContainer, .testLayerContainer{
     position: relative;
     width: 100%;
     height: 100%;
 }
-.layerContent{
+.layerContent, .testLayerContent{
     background-color: #f4f4f4;
     position: absolute;
     top: 50%;
@@ -245,6 +245,50 @@ input.text::placeholder {
     font-size: 14px;
     display: block;
     margin: 10px 0;
+}
+.testBox .testReset{
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color: #08857e;
+    border: 1px solid #0a857e;
+    color: #fff;
+    border-radius: 12px;
+    display: flex;
+    margin: 30px auto 0;
+}
+.testList{
+    height: 240px;
+    overflow-y: scroll;
+}
+.testList li{
+    display: flex;
+    margin-top: 15px;
+    justify-content: space-evenly;
+}
+.testList li:first-child{
+    margin-top: 0;
+}
+.testList li span{
+    display: block;
+    width: 25px;
+    height: 25px;
+    background-color: gray;
+    color: #fff;
+    border-radius: 100%;
+    text-align: center;
+    line-height: 25px;
+    margin-right: 3px;
+    font-size: 14px;
+}
+.testList li span.active{
+    background-color: red;
+}
+
+.test{
+    width: 50px;
+    height: 20px;
+    background-color: transparent;
+    color: transparent;
 }
 .searchBox{
     display: none;
@@ -274,6 +318,15 @@ input.text::placeholder {
 .layerContent .close {
     position: absolute;
     top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    background: url(close.png);
+    background-size: 30px;
+}
+.testClose {
+    position: absolute;
+    top: 10px;
     right: 20px;
     width: 30px;
     height: 30px;
