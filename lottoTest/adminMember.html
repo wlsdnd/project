@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes, target-densitydpi=medium-dpi">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="admin.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>admin Member</title>
+</head>
+<body>
+    <div id="admin">
+        <div class="adminContainer">
+            <div class="header">
+                <ul class="managementNav">
+                    <li><a class="active" href="">관리하기</a></li>
+                    <li><a href="">데이터</a></li>
+                </ul>
+                <div class="adminUser">
+                    <span><em>Admin</em> 님 환영합니다.</span>
+                    <button class="logoutBtn">로그아웃</button>
+                </div>
+            </div>
+            <div class="adminSection">
+                <button class="menuBtn">메뉴바</button>
+                <div class="adminNav">
+                    <div class="navDepth">
+                        <h2 class="navTitle">설정</h2>
+                        <ul>
+                            <li><a href="">로또번호 설정</a></li>
+                            <li><a href="">포인트 설정</a></li>
+                        </ul>
+                    </div>
+                    <div class="navDepth">
+                        <h2 class="navTitle">리스트</h2>
+                        <ul>
+                            <li><a href="">가입자</a></li>
+                            <li><a href="">고객별 보유포인트</a></li>
+                            <li><a href="">포인트 충전요청</a></li>
+                            <li><a class="active" href="">고객별 추첨번호</a></li>
+                            <li><a href="">환불신청</a></li>
+                            <li><a href="">문의하기</a></li>
+                            <li><a href="">현금영수증 신청</a></li>
+                        </ul>
+                    </div>
+                    <a class="numberCheck" href="">당첨번호 확인</a>
+                </div>
+                <div class="adminContent">
+                    <div class="contentHead">
+                        <div class="titleArea">
+                            <h3>가입자</h3>
+                        </div>
+                        <div class="searchArea">
+                            <select name="" id="">
+                                <option value="id">아이디</option>
+                                <option value="id">아이디</option>
+                                <option value="id">아이디</option>
+                            </select>
+                            <div class="searchBox">
+                                <input type="text" name="" id="">
+                                <button class="searchBtn">검색</button>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="managementTable">
+                        <caption>테이블</caption>
+                        <colgroup>
+                            <col width="20%" />
+                            <col width="20%" />
+                            <col width="auto" />
+                            <col width="20%" />
+                            <col width="10%" />
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>아이디</th>
+                                <th>이름</th>
+                                <th>이메일</th>
+                                <th>가입일자</th>
+                                <th>상태</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>dlwodydwkdwkdwkd</td>
+                                <td>이재용</td>
+                                <td>dlwodyddlek@naver.com</td>
+                                <td>2023.09.07</td>
+                                <td>O</td>
+                            </tr>
+                            <tr>
+                                <td>${아이디}</td>
+                                <td>${이름}</td>
+                                <td>${이메일}</td>
+                                <td>${가입일자}</td>
+                                <td>탈퇴</td>
+                            </tr>
+                            <tr>
+                                <td>${아이디}</td>
+                                <td>${이름}</td>
+                                <td>${이메일}</td>
+                                <td>${가입일자}</td>
+                                <td>탈퇴</td>
+                            </tr>
+                            <tr>
+                                <td>${아이디}</td>
+                                <td>${이름}</td>
+                                <td>${이메일}</td>
+                                <td>${가입일자}</td>
+                                <td>탈퇴</td>
+                            </tr>
+                            <tr>
+                                <td>${아이디}</td>
+                                <td>${이름}</td>
+                                <td>${이메일}</td>
+                                <td>${가입일자}</td>
+                                <td>탈퇴</td>
+                            </tr>
+                            <tr>
+                                <td>${아이디}</td>
+                                <td>${이름}</td>
+                                <td>${이메일}</td>
+                                <td>${가입일자}</td>
+                                <td>탈퇴</td>
+                            </tr>
+                            <tr>
+                                <td>${아이디}</td>
+                                <td>${이름}</td>
+                                <td>${이메일}</td>
+                                <td>${가입일자}</td>
+                                <td>탈퇴</td>
+                            </tr>
+                            <tr>
+                                <td>${아이디}</td>
+                                <td>${이름}</td>
+                                <td>${이메일}</td>
+                                <td>${가입일자}</td>
+                                <td>탈퇴</td>
+                            </tr>
+                            <tr>
+                                <td>${아이디}</td>
+                                <td>${이름}</td>
+                                <td>${이메일}</td>
+                                <td>${가입일자}</td>
+                                <td>탈퇴</td>
+                            </tr>
+                            <tr>
+                                <td>${아이디}</td>
+                                <td>${이름}</td>
+                                <td>${이메일}</td>
+                                <td>${가입일자}</td>
+                                <td>탈퇴</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <ul class="pagenation">
+                        <li><a href="#" class="active"><span>1</span></a></li>
+                        <li><a href="#"><span>2</span></a></li>
+                        <li><a href="#"><span>3</span></a></li>
+                        <li><a href="#"><span>4</span></a></li>
+                        <li><a href="#"><span>5</span></a></li>
+                        <li><a href="#"><span>6</span></a></li>
+                        <li><a href="#"><span>7</span></a></li>
+                        <li><a href="#"><span>8</span></a></li>
+                        <li><a href="#"><span>9</span></a></li>
+                        <li><a href="#"><span>10</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $('.menuBtn').click(function(){
+        $(this).toggleClass('hidden')
+        $('.adminNav').toggleClass('hidden')
+        $('.adminContent').toggleClass('full')
+    })
+</script>
+</html>

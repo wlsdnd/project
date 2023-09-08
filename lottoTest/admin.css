@@ -1,0 +1,394 @@
+@charset 'utf-8';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600;900&display=swap');
+/* base */
+html {
+    overflow-y: auto;
+    height: 100%;
+    background-color: #f4f4f4;
+}
+body {
+    font-family: 'Inter', sans-serif;
+    font-size:18px;
+    color:#222;
+    margin:0;
+    padding:0;
+    position:relative;
+    height: 100%;
+}
+a {
+    color: #222;
+}
+a,
+a:hover,
+a:focus{
+    text-decoration:none;
+}
+em{
+    font-style: normal;
+}
+div {
+    word-break: break-word;
+}
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+strong{font-weight: 600;}
+input, 
+button {
+    border: none;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+}
+button {
+    cursor: pointer;
+}
+h1, h2, h3, p {
+    margin: 0;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.test{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: url(2.png) no-repeat top center;
+    opacity: .3;
+}
+#admin{
+    background-color: #404040;
+    height: 100%;
+    position: relative;
+}
+.adminContainer{
+    overflow: hidden;
+    position: relative;
+    z-index: 100;
+    max-width: 1280px;
+    padding: 0 20px;
+    height: 100%;
+    margin: 0 auto;
+}
+.logoImg{
+    margin: 0 auto 50px;
+    display: block;
+    width: 100px;
+}
+.loginBox{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.loginBox input{
+    display: block;
+    margin-bottom: 20px;
+    font-size: 20px;
+    border-radius: 12px;
+    padding: 10px 20px;
+    width: 300px;
+    height: 50px;
+}
+.loginBox button{
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+    background-color: #179a6c;
+    color: #fff;
+    border-radius: 12px;
+    height: 50px;
+}
+.header{
+    padding: 45px 0 60px;
+    position: relative;
+}
+.managementNav{
+    display: flex;
+}
+.managementNav li:last-child{
+    margin-left: -20px;
+}
+.managementNav li a{
+    display: block;
+    width: 175px;
+    height: 65px;
+    line-height: 65px;
+    border-radius: 65px;
+    text-align: center;
+    font-size: 30px;
+    color: #fff;
+}
+.managementNav li a.active{
+    background-color: #fff;
+    color: #222;
+    font-weight: bold;
+}
+.adminUser{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+.adminUser .logoutBtn{
+    color: #fff;
+    font-size: 13px;
+    background-color: #80808B;
+    border-radius: 13px;
+    padding: 5px 10px;
+}
+.adminUser span{
+    padding-right: 12px;
+}
+.adminUser span em{
+    text-decoration: underline;
+}
+.adminSection{
+    position: relative;
+}
+.menuBtn{
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    z-index: 10;
+    width: 50px;
+    height: 50px;
+    transition: all .4s;
+}
+.menuBtn.hidden{
+    left: 0;
+    transition: all .4s ease .4s;
+}
+.adminNav.hidden{
+    left: -310px;
+}
+.adminNav{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 290px;
+    background-color: #c4c4c4;
+    border-radius: 12px;
+    padding: 80px 20px 50px;
+    box-sizing: border-box;
+    transition: all .4s;
+}
+.navDepth {
+    margin-top: 80px;
+}
+.navDepth:first-child{
+    margin-top: 0;
+} 
+.navDepth ul li a{
+    font-size: 20px;
+    display: block;
+    padding: 12px 25px;
+    border-radius: 25px;
+    width: calc(100% - 15px);
+    color: #444;
+    box-sizing: border-box;
+}
+.navDepth ul li a.active,
+.navDepth ul li a:hover,
+.navDepth ul li a:active{
+    color: #fff;
+    background-color: #404040;
+    font-weight: bold;
+}
+.navTitle{
+    padding-left: 20px;
+    margin-bottom: 12px;
+}
+.numberCheck{
+    font-size: 20px;
+    display: block;
+    padding: 12px 25px;
+    border-radius: 25px;
+    width: calc(100% - 15px);
+    box-sizing: border-box;
+    font-weight: bold;
+    color: #179a6c;
+    margin-top: 30px;
+}
+.numberCheck:hover,
+.numberCheck:active{
+    color: #26f2aa;
+    background-color: #404040;
+}
+
+.adminContent{
+    transition: all .4s;
+    padding-left: 350px;
+    margin-right: 10px;
+}
+.adminContent.full{
+    padding-left: 70px;
+    transition: all .4s ease .4s;
+}
+.contentHead{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15px;
+}
+.titleArea{
+    display: flex;
+}
+.titleArea h3{
+    font-size: 30px;
+    color: #fff;
+}
+.titleArea .pointInput{
+    border-radius: 10px;
+    margin-left: 75px;
+    width: 160px;
+    font-size: 20px;
+    padding: 0 20px;
+    font-weight: bold;
+}
+.titleArea .titBtn{
+    border-radius: 15px;
+    padding: 0 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #23b983;
+    margin-left: 10px;
+}
+.searchArea{
+    display: flex;
+}
+.searchArea select{
+    border: none;
+    background-color: transparent;
+    font-size: 20px;
+    color: #fff;
+    font-weight: bold;
+}
+.searchBox{
+    position: relative;
+}
+.searchBox .searchBtn{
+    text-indent: -9999px;
+    background: url(search.png) transparent no-repeat center;
+    background-size: contain;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    padding: 0;
+}
+.searchBox input{
+    width: 240px;
+    border-radius: 10px;
+    padding:10px 50px 10px 20px;
+    font-size: 18px;
+    margin-left: 20px;
+}
+.managementTable caption{
+    display: none;
+}
+.managementTable{
+    margin-top: 40px;
+}
+.managementTable th,
+.managementTable td{
+    text-align: center;
+    color: #fff;
+}
+.managementTable th:first-child,
+.managementTable td:first-child{
+    text-align: left;
+    padding-left: 0;
+}
+.managementTable th{
+    font-size: 26px;
+    padding: 0 10px 12px;
+    border-bottom: 3px solid #fff;
+}
+.managementTable tbody tr{
+    border-bottom: 2px dashed #fff;
+}
+.managementTable td{
+    font-weight: bold;
+    font-size: 20px;
+    padding: 19px 10px;
+}
+.managementTable .alignL{
+    text-align: left;
+}
+.pagenation{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.pagenation li{
+    text-align: center;
+}
+.pagenation li a{
+    display: block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+}
+.pagenation li a.active{
+    width: 60px;
+    background-color: #26f2aa;
+    border-radius: 20px;
+}
+.checkBox{
+    display: flex;
+}
+.checkBox input{
+    position: relative;
+    overflow: hidden;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    width: 0;
+    height: 0;
+    clip: rect(0 0 0 0);
+    z-index: -1;
+    opacity: 0;
+}
+.checkBox input + label{
+    display: inline-block;
+    min-height: 30px;
+    padding: 0 0 0 30px;
+    margin-left: 3px;
+    line-height: 18px;
+    background: url(check_on.png) #fff no-repeat left top;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.checkBox input:checked + label{
+    background: url(check_on.png) #fff no-repeat left top;
+    background-size: contain;
+}
+.checkBox input:disabled + label{
+    background: url(check_on.png) #222 no-repeat left top;
+}
+.history{
+    font-weight: bold;
+    font-size: 14px;
+    padding: 0 18px;
+    height: 32px;
+    border-radius: 16px;
+    color: #fff;
+    background-color: #808080;
+}
