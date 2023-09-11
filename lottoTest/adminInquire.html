@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes, target-densitydpi=medium-dpi">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="admin.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>admin inquire</title>
+</head>
+<body>
+    <div id="admin">
+        <div class="adminContainer">
+            <div class="header">
+                <ul class="managementNav">
+                    <li><a class="active" href="">관리하기</a></li>
+                    <li><a href="">데이터</a></li>
+                </ul>
+                <div class="adminUser">
+                    <span><em>Admin</em> 님 환영합니다.</span>
+                    <button class="logoutBtn">로그아웃</button>
+                </div>
+            </div>
+            <div class="adminSection">
+                <button class="menuBtn"></button>
+                <div class="adminNav">
+                    <div class="navDepth">
+                        <h2 class="navTitle">설정</h2>
+                        <ul>
+                            <li><a href="">로또번호 설정</a></li>
+                            <li><a href="">포인트 설정</a></li>
+                        </ul>
+                    </div>
+                    <div class="navDepth">
+                        <h2 class="navTitle">리스트</h2>
+                        <ul>
+                            <li><a href="adminMember.html">가입자</a></li>
+                            <li><a href="adminHavePoint.html">고객별 보유포인트</a></li>
+                            <li><a href="adninCharging.html">포인트 충전요청</a></li>
+                            <li><a href="adminNumber.html">고객별 추천번호</a></li>
+                            <li><a href="adminRefund.html">환불신청</a></li>
+                            <li><a class="active" href="adminInquire.html">문의하기</a></li>
+                            <li><a href="adminReceipt.html">현금영수증 신청</a></li>
+                        </ul>
+                    </div>
+                    <a class="numberCheck" href="">당첨번호 확인</a>
+                </div>
+                <div class="adminContent">
+                    <div class="contentHead">
+                        <div class="titleArea">
+                            <h3>문의하기</h3>
+                        </div>
+                        <div class="searchArea">
+                            <select name="" id="">
+                                <option value="id">아이디</option>
+                                <option value="id">아이디</option>
+                                <option value="id">아이디</option>
+                            </select>
+                            <div class="searchBox">
+                                <input type="text" name="" id="">
+                                <button class="searchBtn">검색</button>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="managementTitle type1">
+                        <li class="alignL">문의내용</li>
+                        <li>아이디</li>
+                        <li>등록일</li>
+                        <li>답변상태</li>
+                    </ul>
+                    <ul class="managementList type1">
+                        <li class="ready">
+                            <ul class="innerList">
+                                <li class="alignL">
+                                    <button class="inquiryTitle">문의제목</button>
+                                </li>
+                                <li>$아이디</li>
+                                <li>2023.04.30 15:22</li>
+                                <li>
+                                    <span class="unReply">미답변</span>
+                                </li>
+                            </ul>
+                            <div class="moreArea">
+                                <div class="detailArea">
+                                    <strong>문의제목</strong>
+                                    <p>문의내용문의내용문의내용문의내용문의내용문의내용문의내용문의내용문의내용</p>
+                                </div>
+                                <div class="answerArea">
+                                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                                    <button>답변하기</button>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="ready">
+                            <ul class="innerList">
+                                <li class="alignL">
+                                    <button class="inquiryTitle">문의제목</button>
+                                </li>
+                                <li>$아이디</li>
+                                <li>2023.04.30 15:22</li>
+                                <li>
+                                    <span class="unReply">미답변</span>
+                                </li>
+                            </ul>
+                            <div class="moreArea">
+                                <div class="detailArea">
+                                    <strong>문의제목</strong>
+                                    <p>문의내용문의내용문의내용문의내용문의내용문의내용문의내용문의내용문의내용</p>
+                                </div>
+                                <div class="answerArea">
+                                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                                    <button>답변하기</button>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="ready">
+                            <ul class="innerList">
+                                <li class="alignL">
+                                    <button class="inquiryTitle">문의제목</button>
+                                </li>
+                                <li>$아이디</li>
+                                <li>2023.04.30 15:22</li>
+                                <li>
+                                    <span class="unReply">미답변</span>
+                                </li>
+                            </ul>
+                            <div class="moreArea">
+                                <div class="detailArea">
+                                    <strong>문의제목</strong>
+                                    <p>문의내용문의내용문의내용문의내용문의내용문의내용문의내용문의내용문의내용</p>
+                                </div>
+                                <div class="answerArea">
+                                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                                    <button>답변하기</button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <table class="managementTable">
+                        <caption>테이블</caption>
+                        <colgroup>
+                            <col width="auto" />
+                            <col width="20%" />
+                            <col width="20%" />
+                            <col width="15%" />
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th class="alignC">문의내용</th>
+                                <th>아이디</th>
+                                <th>등록일</th>
+                                <th>답변상태</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    
+                                </td>
+                                <td>aassadx</td>
+                                <td>2023.09.07 15:32</td>
+                                <td><span class="unReply">미답변</span></td>
+                            </tr>
+                            <tr>
+                                <td>문의제목</td>
+                                <td>aassadx</td>
+                                <td>2023.09.07 15:32</td>
+                                <td><span class="reply">답변완료</span></td>
+                            </tr>
+                            <tr>
+                                <td>문의제목</td>
+                                <td>aassadx</td>
+                                <td>2023.09.07 15:32</td>
+                                <td><span class="reply">답변완료</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <ul class="pagenation">
+                        <li><a href="#" class="active"><span>1</span></a></li>
+                        <li><a href="#"><span>2</span></a></li>
+                        <li><a href="#"><span>3</span></a></li>
+                        <li><a href="#"><span>4</span></a></li>
+                        <li><a href="#"><span>5</span></a></li>
+                        <li><a href="#"><span>6</span></a></li>
+                        <li><a href="#"><span>7</span></a></li>
+                        <li><a href="#"><span>8</span></a></li>
+                        <li><a href="#"><span>9</span></a></li>
+                        <li><a href="#"><span>10</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $('.menuBtn').click(function(){
+        $(this).toggleClass('hidden')
+        $('.adminNav').toggleClass('hidden')
+        $('.adminContent').toggleClass('full')
+    })  
+
+    $('.innerList > li .inquiryTitle').click(function(idx) {
+        var index = $('.innerList > li .inquiryTitle').index(this);
+
+        for (var i = 0; i < $('.managementList > li').length; i++) {
+            if (i != index) {
+                if($($('.managementList > li')[i]).hasClass('ready')){
+                    $($('.managementList > li')[i]).toggleClass('ready').toggleClass('close')
+                    $($('.managementList > li')[i]).children('.moreArea').stop().slideToggle(200)
+                }
+                
+            }
+        }
+        console.log($(this.parentNode.parentNode.parentNode))
+        $(this.parentNode.parentNode.parentNode).toggleClass('close').toggleClass('ready')
+        $('.managementList > li').children('.moreArea').stop().slideToggle(200)
+        
+	    return false;
+    });
+</script>
+</html>

@@ -1,6 +1,9 @@
 @charset 'utf-8';
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600;900&display=swap');
 /* base */
+*{
+    box-sizing: border-box;
+}
 html {
     overflow-y: auto;
     height: 100%;
@@ -159,12 +162,14 @@ table{
     position: relative;
 }
 .menuBtn{
+    background: url(menu_icon.png) no-repeat center;
     position: absolute;
     top: 20px;
     left: 40px;
     z-index: 10;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
     transition: all .4s;
 }
 .menuBtn.hidden{
@@ -183,7 +188,6 @@ table{
     background-color: #c4c4c4;
     border-radius: 12px;
     padding: 80px 20px 50px;
-    box-sizing: border-box;
     transition: all .4s;
 }
 .navDepth {
@@ -199,7 +203,6 @@ table{
     border-radius: 25px;
     width: calc(100% - 15px);
     color: #444;
-    box-sizing: border-box;
 }
 .navDepth ul li a.active,
 .navDepth ul li a:hover,
@@ -218,7 +221,6 @@ table{
     padding: 12px 25px;
     border-radius: 25px;
     width: calc(100% - 15px);
-    box-sizing: border-box;
     font-weight: bold;
     color: #179a6c;
     margin-top: 30px;
@@ -282,7 +284,7 @@ table{
 }
 .searchBox .searchBtn{
     text-indent: -9999px;
-    background: url(search.png) transparent no-repeat center;
+    background: url(search_icon.png) transparent no-repeat center;
     background-size: contain;
     width: 25px;
     height: 25px;
@@ -304,6 +306,14 @@ table{
 }
 .managementTable{
     margin-top: 40px;
+}
+.alignL{
+    text-align: left !important;
+    justify-content: flex-start !important;
+}
+.alignC{
+    text-align: center !important;
+    justify-content: center !important;
 }
 .managementTable th,
 .managementTable td{
@@ -330,6 +340,19 @@ table{
 }
 .managementTable .alignL{
     text-align: left;
+}
+.numberArea{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.view{
+    height: 25px;
+    padding: 5px 10px;
+    border-radius: 6px;
+    background-color: #808080;
+    color: #fff;
+    margin-left: 15px;
 }
 .pagenation{
     display: flex;
@@ -381,7 +404,7 @@ table{
     background-size: contain;
 }
 .checkBox input:disabled + label{
-    background: url(check_on.png) #222 no-repeat left top;
+    background: url(check_on.png) #999 no-repeat left top;
 }
 .history{
     font-weight: bold;
@@ -391,4 +414,136 @@ table{
     border-radius: 16px;
     color: #fff;
     background-color: #808080;
+}
+.inquiryTitle{
+    padding: 0;
+    background-color: transparent;
+    color: #fff;
+    font-size: 20px;
+}
+.moreArea{
+    display: none;
+}
+.detailArea{
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #999;
+    color: #222;
+    margin-bottom: 15px;
+}
+.detailArea strong{
+    display: block;
+    padding-bottom: 10px;
+}
+.detailArea p{
+
+}
+.answerArea {
+    display: flex;
+}
+.answerArea textarea{
+    width: 100%;
+    border-radius: 10px;
+    height: 100px;
+    overflow-y: auto;
+    resize: none;
+    padding: 15px;
+    font-size: 18px;
+    color: #222;
+    font-family: 'Inter', sans-serif;
+    font-weight: normal;
+}
+.answerArea button{
+    margin-left: 15px;
+    background-color: #23b983;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 10px;
+    width: 120px;
+}
+.unReply{
+    color: red;
+}
+/* new list */
+
+.managementTitle{
+    overflow: hidden;
+    clear: both;
+    border-bottom: 3px solid #fff;
+    display: flex;
+    margin-top: 40px;
+}
+.managementTitle li{
+    float: left;
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+    padding: 12px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.managementList > li{
+    border-bottom: 2px dashed #fff;
+}
+.managementList .innerList{
+    overflow: hidden;
+    clear: both;
+    display: flex;
+}
+.managementList .innerList li{
+    float: left;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    padding: 20px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.managementTitle.type1 li,
+.managementList.type1 .innerList li{
+    width: 20%;
+}
+.managementTitle.type1 li:nth-child(3),
+.managementList.type1 .innerList li:nth-child(3){
+    width: 30%;
+}
+.managementTitle.type1 li:nth-child(5),
+.managementList.type1 .innerList li:nth-child(5){
+    width: 10%;
+}
+
+.managementTitle.type2 li:nth-child(1),
+.managementList.type2 .innerList li:nth-child(1){
+    width: 6%;
+}
+.managementTitle.type2 li:nth-child(2),
+.managementList.type2 .innerList li:nth-child(2){
+    width: 23%;
+}
+.managementTitle.type2 li:nth-child(3),
+.managementList.type2 .innerList li:nth-child(3){
+    width: 30%;
+}
+.managementTitle.type2 li:nth-child(4),
+.managementList.type2 .innerList li:nth-child(4){
+    width: 44%;
+}
+.managementTitle.type2 li:nth-child(5),
+.managementList.type2 .innerList li:nth-child(5){
+    width: 20%;
+}
+
+.managementTitle.type3 li,
+.managementList.type3 .innerList li{
+    width: 20%;
+}
+.managementTitle.type3 li:nth-child(3),
+.managementList.type3 .innerList li:nth-child(3){
+    width: 35%;
+}
+.managementTitle.type3 li:nth-child(4),
+.managementList.type3 .innerList li:nth-child(4){
+    width: 25%;
 }
