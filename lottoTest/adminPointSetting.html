@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes, target-densitydpi=medium-dpi">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="admin.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>admin inquire</title>
+</head>
+<body>
+    <div id="admin">
+        <div class="adminContainer">
+            <div class="header">
+                <ul class="managementNav">
+                    <li><a class="active" href="adminMember.html">관리하기</a></li>
+                    <li><a href="adminData.html">데이터</a></li>
+                </ul>
+                <div class="adminUser">
+                    <span><em>Admin</em> 님 환영합니다.</span>
+                    <button class="logoutBtn">로그아웃</button>
+                </div>
+            </div>
+            <div class="adminSection">
+                <button class="menuBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50px" height="50px"><path d="M 5 8 A 2.0002 2.0002 0 1 0 5 12 L 45 12 A 2.0002 2.0002 0 1 0 45 8 L 5 8 z M 5 23 A 2.0002 2.0002 0 1 0 5 27 L 45 27 A 2.0002 2.0002 0 1 0 45 23 L 5 23 z M 5 38 A 2.0002 2.0002 0 1 0 5 42 L 45 42 A 2.0002 2.0002 0 1 0 45 38 L 5 38 z"/></svg>
+                </button>
+                <div class="adminNav">
+                    <div class="depthSection">
+                        <div class="navDepth">
+                            <h2 class="navTitle">설정</h2>
+                            <ul>
+                                <li><a href="adminNumberSetting.html">로또번호 설정</a></li>
+                                <li><a class="active" href="adminPointSetting.html">포인트 설정</a></li>
+                            </ul>
+                        </div>
+                        <div class="navDepth">
+                            <h2 class="navTitle">리스트</h2>
+                            <ul>
+                                <li><a href="adminMember.html">가입자</a></li>
+                                <li><a href="adminHavePoint.html">고객별 보유포인트</a></li>
+                                <li><a href="adninCharging.html">포인트 충전요청</a></li>
+                                <li><a href="adminNumber.html">고객별 추천번호</a></li>
+                                <li><a href="adminRefund.html">환불신청</a></li>
+                                <li><a href="adminInquire.html">문의하기</a></li>
+                                <li><a href="adminReceipt.html">현금영수증 신청</a></li>
+                            </ul>
+                        </div>
+                        <a class="numberCheck" href="adminNumberCheck.html">당첨번호 확인</a>
+                    </div>
+                </div>
+                <div class="adminContent pointSection">
+                    <div class="contentHead">
+                        <div class="titleArea">
+                            <h3>포인트 설정</h3>
+                        </div>
+                        <div class="buttonArea">
+                            <button class="backBtn">되돌리기</button>
+                            <button class="saveBtn">저장</button>
+                        </div>
+                    </div>
+                    <ul class="managementTitle type5">
+                        <li>포인트</li>
+                        <li>추가지급</li>
+                        <li>지급포인트</li>
+                    </ul>
+                    <ul class="managementList type5">
+                        <li>
+                            <ul class="innerList">
+                                <li value="5000">5,000</li>
+                                <li>
+                                    <select class="pointPercent" name="" id="">
+                                        <option value="0">0</option>
+                                        <option value="5">5%</option>
+                                        <option value="10">10%</option>
+                                        <option value="15">15%</option>
+                                        <option value="20">20%</option>
+                                    </select>
+                                </li>
+                                <li>
+                                    <span class="amount">5,000</span>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <ul class="innerList">
+                                <li value="10000">10,000</li>
+                                <li>
+                                    <select class="pointPercent" name="" id="">
+                                        <option value="0">0</option>
+                                        <option value="5">5%</option>
+                                        <option value="10">10%</option>
+                                        <option value="15">15%</option>
+                                        <option value="20">20%</option>
+                                    </select>
+                                </li>
+                                <li>
+                                    <span class="amount">10,000</span>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <ul class="innerList">
+                                <li value="20000">20,000</li>
+                                <li>
+                                    <select class="pointPercent" name="" id="">
+                                        <option value="0">0</option>
+                                        <option value="5">5%</option>
+                                        <option value="10">10%</option>
+                                        <option value="15">15%</option>
+                                        <option value="20">20%</option>
+                                    </select>
+                                </li>
+                                <li>
+                                    <span class="amount">20,000</span>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <ul class="innerList">
+                                <li value="30000">30,000</li>
+                                <li>
+                                    <select class="pointPercent" name="" id="">
+                                        <option value="0">0</option>
+                                        <option value="5">5%</option>
+                                        <option value="10">10%</option>
+                                        <option value="15">15%</option>
+                                        <option value="20">20%</option>
+                                    </select>
+                                </li>
+                                <li>
+                                    <span class="amount">30,000</span>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <ul class="innerList">
+                                <li value="50000">50,000</li>
+                                <li>
+                                    <select class="pointPercent" name="" id="">
+                                        <option value="0">0</option>
+                                        <option value="5">5%</option>
+                                        <option value="10">10%</option>
+                                        <option value="15">15%</option>
+                                        <option value="20">20%</option>
+                                    </select>
+                                </li>
+                                <li>
+                                    <span class="amount">50,000</span>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <ul class="innerList">
+                                <li value="100000">100,000</li>
+                                <li>
+                                    <select class="pointPercent" name="" id="">
+                                        <option value="0">0</option>
+                                        <option value="5">5%</option>
+                                        <option value="10">10%</option>
+                                        <option value="15">15%</option>
+                                        <option value="20">20%</option>
+                                    </select>
+                                </li>
+                                <li>
+                                    <span class="amount">100,000</span>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $('.menuBtn').click(function(){
+        $(this).toggleClass('hidden')
+        $('.adminNav').toggleClass('hidden')
+        $('.adminContent').toggleClass('full')
+    })
+    $(".pointPercent").change(function(){
+        let point = $(this).parent().prev().val() * 1
+        let addPoint = point*$(this).val()/100
+        let plusPoint = addPoint+point+""
+        let result = plusPoint.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        $(this).parent().next().text(result)
+    });
+</script>
+</html>

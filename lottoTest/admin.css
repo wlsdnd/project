@@ -64,8 +64,8 @@ table{
     height: 100%;
     top: 0;
     left: 0;
-    background: url(2.png) no-repeat top center;
-    opacity: .3;
+    background: url(8.png) no-repeat top center;
+    color: #fff;
 }
 #admin{
     background-color: #404040;
@@ -135,12 +135,22 @@ table{
     background-color: #fff;
     color: #222;
     font-weight: bold;
+    width: 175px;
+    padding-right: 0;
+}
+.managementNav li:first-child a{
+    width: auto;
+    padding-right: 40px;
+}
+.managementNav li:first-child a.active{
+    width: 175px;
+    padding-right: 0;
 }
 .adminUser{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    right: 10px;
+    right: 0;
     display: flex;
     align-items: center;
     color: #fff;
@@ -162,7 +172,7 @@ table{
     position: relative;
 }
 .menuBtn{
-    background: url(menu_icon.png) no-repeat center;
+    background: none;
     position: absolute;
     top: 20px;
     left: 40px;
@@ -171,6 +181,10 @@ table{
     height: 40px;
     padding: 0;
     transition: all .4s;
+}
+.menuBtn svg{
+    width: 40px;
+    height: 40px;
 }
 .menuBtn.hidden{
     left: 0;
@@ -189,6 +203,10 @@ table{
     border-radius: 12px;
     padding: 80px 20px 50px;
     transition: all .4s;
+}
+.depthSection{
+    overflow-y: auto;
+    height: 100%;
 }
 .navDepth {
     margin-top: 80px;
@@ -226,7 +244,8 @@ table{
     margin-top: 30px;
 }
 .numberCheck:hover,
-.numberCheck:active{
+.numberCheck:active,
+.numberCheck.active{
     color: #26f2aa;
     background-color: #404040;
 }
@@ -234,16 +253,24 @@ table{
 .adminContent{
     transition: all .4s;
     padding-left: 350px;
-    margin-right: 10px;
 }
 .adminContent.full{
     padding-left: 70px;
     transition: all .4s ease .4s;
 }
+.adminContent.pointSection{
+    width: 70%;
+}
+.adminContent.pointSection.full{
+    width: 100%;
+}
+.adminContent.dataSection{
+    padding-left: 0;
+}
 .contentHead{
     display: flex;
     justify-content: space-between;
-    padding-top: 15px;
+    padding-top: 20px;
 }
 .titleArea{
     display: flex;
@@ -251,6 +278,9 @@ table{
 .titleArea h3{
     font-size: 30px;
     color: #fff;
+}
+.titleArea h3.colorGreen{
+    color: #26f2aa;
 }
 .titleArea .pointInput{
     border-radius: 10px;
@@ -261,7 +291,7 @@ table{
     font-weight: bold;
 }
 .titleArea .titBtn{
-    border-radius: 15px;
+    border-radius: 10px;
     padding: 0 20px;
     font-size: 20px;
     font-weight: bold;
@@ -371,7 +401,7 @@ table{
 }
 .pagenation li a.active{
     width: 60px;
-    background-color: #26f2aa;
+    background-color: #23b983;
     border-radius: 20px;
 }
 .checkBox{
@@ -391,9 +421,8 @@ table{
 }
 .checkBox input + label{
     display: inline-block;
-    min-height: 30px;
-    padding: 0 0 0 30px;
-    margin-left: 3px;
+    min-height: 28px;
+    padding: 0 0 0 28px;
     line-height: 18px;
     background: url(check_on.png) #fff no-repeat left top;
     border-radius: 5px;
@@ -440,6 +469,7 @@ table{
 }
 .answerArea {
     display: flex;
+    margin-bottom: 15px;
 }
 .answerArea textarea{
     width: 100%;
@@ -462,7 +492,7 @@ table{
     width: 120px;
 }
 .unReply{
-    color: red;
+    color: #ff6969;
 }
 /* new list */
 
@@ -471,7 +501,7 @@ table{
     clear: both;
     border-bottom: 3px solid #fff;
     display: flex;
-    margin-top: 40px;
+    margin-top: 30px;
 }
 .managementTitle li{
     float: left;
@@ -501,9 +531,181 @@ table{
     justify-content: center;
     align-items: center;
 }
-.managementTitle.type1 li,
-.managementList.type1 .innerList li{
-    width: 20%;
+.buttonArea button{
+    color: #fff;
+    font-size: 20px;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+.backBtn{
+    background-color: #808080
+}
+.saveBtn{
+    background-color: #23b983;
+    margin-left: 10px;
+}
+.pointPercent{
+    border: none;
+    font-size: 20px;
+    color: #222;
+    width: 80px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.account span{
+    display: block;
+    font-size: 16px;
+}
+.state{
+    border: none;
+    font-size: 16px;
+    color: #222;
+    width: 90px;
+    padding: 5px 5px;
+    border-radius: 10px;
+}
+.settingNumber{
+    margin-top: 30px;
+}
+.settingNumber > div strong{
+    color: #fff;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+.settingNumber > div input{
+    height: 42px;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+}
+.settingNumber > div button{
+    background-color: #23b983;
+    color: #fff;
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    height: 42px;
+    margin-left: 10px;
+}
+.winnerCheck{
+    margin-top: 10px;
+}
+.winnerCheck .roundChoice{
+    height: 42px;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+}
+.winnerCheck button{
+    background-color: #23b983;
+    color: #fff;
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    height: 42px;
+    margin-left: 10px;
+}
+.winnerArea{
+    display: flex;
+    margin-top: 30px;
+}
+.winnerArea > li{
+    width: 50%;
+}
+.winnerList li{
+    margin-bottom: 25px;
+}
+.winnerList .winnerTitle{
+    color: #fff;
+    font-size: 20px;
+    display: block;
+    margin-bottom: 20px;
+}
+.winnerList .winnerTitle span{
+    color: #26f2aa;
+}
+.winnerList .innerWinner li{
+    color: #fff;
+    margin-bottom: 15px;
+}
+.tabMenu{
+    display: flex;
+}
+.tabMenu li{
+    margin-right: 20px;
+}
+.tabMenu li button{
+    color: #fff;
+    font-size: 20px;
+    background-color: transparent;
+    padding: 0;
+    position: relative;
+}
+.tabMenu li.active button{
+    color: #26f2aa;
+    padding-bottom: 10px;
+}
+.tabMenu li.active button::before{
+    content:'';
+    width: 30px;
+    height: 3px;
+    background-color: #26f2aa;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.tabContent{
+    margin-top: 30px;
+}
+.numberItem li{
+    display: flex;
+    justify-content: space-between;
+}
+.numberItem li .active{
+    color: #fff;
+    background-color: #23b983;
+}
+.numberItem span{
+    width: 26px;
+    height: 26px;
+    display: block;
+    background-color: #dddddd;
+    text-align: center;
+    line-height: 26px;
+    border-radius: 100%;
+    font-size: 14px;
+}
+.numberItem span:first-child{
+    margin-left: 0;
+}
+.winnerList .innerWinner li:last-child{
+    margin-bottom: 0;
+}
+.winnerList .innerWinner li .winNumber{
+    margin-left: 10px;
+}
+.settingNumber .exceptNumber{
+    margin-top: 30px;
+}
+.settingNumber .winNumber input{
+    width: 280px;
+}
+.settingNumber .exceptNumber input{
+    width: 600px;
+}
+.managementList .innerList li span.time{
+    margin-left: 5px;
+}
+.managementTitle.type1 li:nth-child(1),
+.managementList.type1 .innerList li:nth-child(1){
+    width: 25%;
+}
+.managementTitle.type1 li:nth-child(2),
+.managementList.type1 .innerList li:nth-child(2){
+    width: 15%;
 }
 .managementTitle.type1 li:nth-child(3),
 .managementList.type1 .innerList li:nth-child(3){
@@ -516,19 +718,19 @@ table{
 
 .managementTitle.type2 li:nth-child(1),
 .managementList.type2 .innerList li:nth-child(1){
-    width: 6%;
+    width: 5%;
 }
 .managementTitle.type2 li:nth-child(2),
 .managementList.type2 .innerList li:nth-child(2){
-    width: 23%;
+    width: 30%;
 }
 .managementTitle.type2 li:nth-child(3),
 .managementList.type2 .innerList li:nth-child(3){
-    width: 30%;
+    width: 15%;
 }
 .managementTitle.type2 li:nth-child(4),
 .managementList.type2 .innerList li:nth-child(4){
-    width: 44%;
+    width: 30%;
 }
 .managementTitle.type2 li:nth-child(5),
 .managementList.type2 .innerList li:nth-child(5){
@@ -546,4 +748,93 @@ table{
 .managementTitle.type3 li:nth-child(4),
 .managementList.type3 .innerList li:nth-child(4){
     width: 25%;
+}
+
+.managementTitle.type4 li:nth-child(1),
+.managementList.type4 .innerList li:nth-child(1){
+    width: 35%;
+}
+.managementTitle.type4 li:nth-child(2),
+.managementList.type4 .innerList li:nth-child(2){
+    width: 25%;
+}
+.managementTitle.type4 li:nth-child(3),
+.managementList.type4 .innerList li:nth-child(3){
+    width: 25%;
+}
+.managementTitle.type4 li:nth-child(4),
+.managementList.type4 .innerList li:nth-child(4){
+    width: 15%;
+}
+
+.managementTitle.type5 li,
+.managementList.type5 .innerList li{
+    width: 33%;
+}
+
+.managementTitle.type6 li:nth-child(1),
+.managementList.type6 .innerList li:nth-child(1){
+    width: 5%;
+}
+.managementTitle.type6 li:nth-child(2),
+.managementList.type6 .innerList li:nth-child(2){
+    width: 25%;
+}
+.managementTitle.type6 li:nth-child(3),
+.managementList.type6 .innerList li:nth-child(3){
+    width: 15%;
+}
+.managementTitle.type6 li:nth-child(4),
+.managementList.type6 .innerList li:nth-child(4){
+    width: 15%;
+}
+.managementTitle.type6 li:nth-child(5),
+.managementList.type6 .innerList li:nth-child(5){
+    width: 25%;
+}
+.managementTitle.type6 li:nth-child(6),
+.managementList.type6 .innerList li:nth-child(6){
+    width: 15%;
+}
+
+.managementTitle.type7 li:nth-child(1),
+.managementList.type7 .innerList li:nth-child(1){
+    width: 5%;
+}
+.managementTitle.type7 li:nth-child(2),
+.managementList.type7 .innerList li:nth-child(2){
+    width: 15%;
+}
+.managementTitle.type7 li:nth-child(3),
+.managementList.type7 .innerList li:nth-child(3){
+    width: 13%;
+}
+.managementTitle.type7 li:nth-child(4),
+.managementList.type7 .innerList li:nth-child(4){
+    width: 12%;
+}
+.managementTitle.type7 li:nth-child(5),
+.managementList.type7 .innerList li:nth-child(5){
+    width: 20%;
+}
+.managementTitle.type7 li:nth-child(6),
+.managementList.type7 .innerList li:nth-child(6){
+    width: 23%;
+}
+.managementTitle.type7 li:nth-child(7),
+.managementList.type7 .innerList li:nth-child(7){
+    width: 12%;
+}
+
+@media all and (max-width:1180px){
+    .adminNav{
+        height: 100%;
+    }
+    .adminSection{
+        height: calc(100% - 240px);
+    }
+    .adminContent{
+        height: 100%;
+        overflow-y: auto;
+    }
 }

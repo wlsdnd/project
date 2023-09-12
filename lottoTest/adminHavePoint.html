@@ -14,8 +14,8 @@
         <div class="adminContainer">
             <div class="header">
                 <ul class="managementNav">
-                    <li><a class="active" href="">관리하기</a></li>
-                    <li><a href="">데이터</a></li>
+                    <li><a class="active" href="adminMember.html">관리하기</a></li>
+                    <li><a href="adminData.html">데이터</a></li>
                 </ul>
                 <div class="adminUser">
                     <span><em>Admin</em> 님 환영합니다.</span>
@@ -23,28 +23,32 @@
                 </div>
             </div>
             <div class="adminSection">
-                <button class="menuBtn"></button>
+                <button class="menuBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50px" height="50px"><path d="M 5 8 A 2.0002 2.0002 0 1 0 5 12 L 45 12 A 2.0002 2.0002 0 1 0 45 8 L 5 8 z M 5 23 A 2.0002 2.0002 0 1 0 5 27 L 45 27 A 2.0002 2.0002 0 1 0 45 23 L 5 23 z M 5 38 A 2.0002 2.0002 0 1 0 5 42 L 45 42 A 2.0002 2.0002 0 1 0 45 38 L 5 38 z"/></svg>
+                </button>
                 <div class="adminNav">
-                    <div class="navDepth">
-                        <h2 class="navTitle">설정</h2>
-                        <ul>
-                            <li><a href="">로또번호 설정</a></li>
-                            <li><a href="">포인트 설정</a></li>
-                        </ul>
+                    <div class="depthSection">
+                        <div class="navDepth">
+                            <h2 class="navTitle">설정</h2>
+                            <ul>
+                                <li><a href="adminNumberSetting.html">로또번호 설정</a></li>
+                                <li><a href="adminPointSetting.html">포인트 설정</a></li>
+                            </ul>
+                        </div>
+                        <div class="navDepth">
+                            <h2 class="navTitle">리스트</h2>
+                            <ul>
+                                <li><a href="adminMember.html">가입자</a></li>
+                                <li><a class="active" href="adminHavePoint.html">고객별 보유포인트</a></li>
+                                <li><a href="adninCharging.html">포인트 충전요청</a></li>
+                                <li><a href="adminNumber.html">고객별 추천번호</a></li>
+                                <li><a href="adminRefund.html">환불신청</a></li>
+                                <li><a href="adminInquire.html">문의하기</a></li>
+                                <li><a href="adminReceipt.html">현금영수증 신청</a></li>
+                            </ul>
+                        </div>
+                        <a class="numberCheck" href="adminNumberCheck.html">당첨번호 확인</a>
                     </div>
-                    <div class="navDepth">
-                        <h2 class="navTitle">리스트</h2>
-                        <ul>
-                            <li><a href="adminMember.html">가입자</a></li>
-                            <li><a class="active" href="adminHavePoint.html">고객별 보유포인트</a></li>
-                            <li><a href="adninCharging.html">포인트 충전요청</a></li>
-                            <li><a href="adminNumber.html">고객별 추천번호</a></li>
-                            <li><a href="adminRefund.html">환불신청</a></li>
-                            <li><a href="adminInquire.html">문의하기</a></li>
-                            <li><a href="adminReceipt.html">현금영수증 신청</a></li>
-                        </ul>
-                    </div>
-                    <a class="numberCheck" href="">당첨번호 확인</a>
                 </div>
                 <div class="adminContent">
                     <div class="contentHead">
@@ -71,8 +75,8 @@
                                 <input type="checkbox" name="checkAll" id="checkAll"><label for="checkAll" class=""></label>
                             </div>
                         </li>
-                        <li>아이디</li>
-                        <li>이름</li>
+                        <li class="alignL">아이디</li>
+                        <li class="alignL">이름</li>
                         <li>보유포인트</li>
                         <li>내역</li>
                     </ul>
@@ -84,8 +88,8 @@
                                         <input type="checkbox" name="check1" id="check1" disabled><label for="check1"></label>
                                     </div>
                                 </li>
-                                <li>dlwodyd</li>
-                                <li>이재용</li>
+                                <li class="alignL">dlwodyd</li>
+                                <li class="alignL">이재용</li>
                                 <li>10,000</li>
                                 <li>
                                     <button class="history">내역보기</button>
@@ -99,8 +103,8 @@
                                         <input type="checkbox" name="check2" id="check2"><label for="check2"></label>
                                     </div>
                                 </li>
-                                <li>dlwodyd</li>
-                                <li>이재용</li>
+                                <li class="alignL">dlwodyd</li>
+                                <li class="alignL">이재용</li>
                                 <li>10,000</li>
                                 <li>
                                     <button class="history">내역보기</button>

@@ -7,7 +7,7 @@
     <meta name="format-detection" content="telephone=no">
     <link rel="stylesheet" type="text/css" href="admin.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <title>admin inquire</title>
+    <title>admin have point</title>
 </head>
 <body>
     <div id="admin">
@@ -42,8 +42,8 @@
                                 <li><a href="adminHavePoint.html">고객별 보유포인트</a></li>
                                 <li><a href="adninCharging.html">포인트 충전요청</a></li>
                                 <li><a href="adminNumber.html">고객별 추천번호</a></li>
-                                <li><a href="adminRefund.html">환불신청</a></li>
-                                <li><a class="active" href="adminInquire.html">문의하기</a></li>
+                                <li><a class="active" href="adminRefund.html">환불신청</a></li>
+                                <li><a href="adminInquire.html">문의하기</a></li>
                                 <li><a href="adminReceipt.html">현금영수증 신청</a></li>
                             </ul>
                         </div>
@@ -53,7 +53,8 @@
                 <div class="adminContent">
                     <div class="contentHead">
                         <div class="titleArea">
-                            <h3>문의하기</h3>
+                            <h3>환불신청</h3>
+                            <button class="titBtn">저장</button>
                         </div>
                         <div class="searchArea">
                             <select name="" id="">
@@ -67,78 +68,73 @@
                             </div>
                         </div>
                     </div>
-                    <ul class="managementTitle type4">
-                        <li class="alignC">문의내용</li>
-                        <li>아이디</li>
-                        <li>등록일</li>
-                        <li>답변상태</li>
+                    <ul class="managementTitle type7">
+                        <li>
+                            <div class="checkBox">
+                                <input type="checkbox" name="checkAll" id="checkAll"><label for="checkAll" class=""></label>
+                            </div>
+                        </li>
+                        <li class="alignL">아이디</li>
+                        <li>이름</li>
+                        <li>환불금액</li>
+                        <li>환불계좌</li>
+                        <li>요청일자</li>
+                        <li>환불상태</li>
                     </ul>
-                    <ul class="managementList type4">
+                    <ul class="managementList type7">
                         <li>
                             <ul class="innerList">
-                                <li class="alignL">
-                                    <button class="inquiryTitle">문의제목</button>
-                                </li>
-                                <li>$아이디</li>
-                                <li><span class="date">2023.04.30</span> <span class="time">15:22</span></li>
                                 <li>
-                                    <span class="unReply">미답변</span>
+                                    <div class="checkBox">
+                                        <input type="checkbox" name="check1" id="check1"><label for="check1"></label>
+                                    </div>
+                                </li>
+                                <li class="alignL">dlwodyd</li>
+                                <li>이재용</li>
+                                <li>10,000</li>
+                                <li>
+                                    <div class="account">
+                                        <span class="accountBank">국민은행</span>
+                                        <span class="accountNumber">333-3333-333333</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="date">2023.04.22</span>
+                                    <span class="time">13:32</span>
+                                </li>
+                                <li>
+                                    <select class="state" name="" id="">
+                                        <option value="1">미처리</option>
+                                        <option value="2">취소</option>
+                                        <option value="3">환불완료</option>
+                                    </select>
                                 </li>
                             </ul>
-                            <div class="moreArea">
-                                <div class="detailArea">
-                                    <strong>문의제목</strong>
-                                    <p>문의내용문의내용문의내용문의내용문의내용문의내용문의내용문의내용문의내용</p>
-                                </div>
-                                <div class="answerArea">
-                                    <textarea name="" id="" cols="30" rows="10"></textarea>
-                                    <button>답변하기</button>
-                                </div>
-                            </div>
                         </li>
                         <li>
                             <ul class="innerList">
-                                <li class="alignL">
-                                    <button class="inquiryTitle">문의제목</button>
-                                </li>
-                                <li>$아이디</li>
-                                <li><span class="date">2023.04.30</span> <span class="time">15:22</span></li>
                                 <li>
-                                    <span class="unReply">미답변</span>
+                                    <div class="checkBox">
+                                        <input type="checkbox" name="check2" id="check2" disabled><label for="check2"></label>
+                                    </div>
+                                </li>
+                                <li class="alignL">dlwodyd</li>
+                                <li>이재용</li>
+                                <li>10,000</li>
+                                <li>
+                                    <div class="account">
+                                        <span class="accountBank">국민은행</span>
+                                        <span class="accountNumber">111-1111-111111</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="date">2023.04.22</span>
+                                    <span class="time">13:32</span>
+                                </li>
+                                <li>
+                                    <span class="reply">취소</span>
                                 </li>
                             </ul>
-                            <div class="moreArea">
-                                <div class="detailArea">
-                                    <strong>문의제목</strong>
-                                    <p>문의내용문의내용문의내용문의내용문의내용문의내용문의내용문의내용문의내용</p>
-                                </div>
-                                <div class="answerArea">
-                                    <textarea name="" id="" cols="30" rows="10"></textarea>
-                                    <button>답변하기</button>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <ul class="innerList">
-                                <li class="alignL">
-                                    <button class="inquiryTitle">문의제목</button>
-                                </li>
-                                <li>$아이디</li>
-                                <li><span class="date">2023.04.30</span> <span class="time">15:22</span></li>
-                                <li>
-                                    <span class="reply">답변완료</span>
-                                </li>
-                            </ul>
-                            <div class="moreArea">
-                                <div class="detailArea">
-                                    <strong>문의제목</strong>
-                                    <p>문의내용문의내용문의내용문의내용문의내용문의내용문의내용문의내용문의내용</p>
-                                </div>
-                                <div class="answerArea">
-                                    <textarea name="" id="" cols="30" rows="10"></textarea>
-                                    <button>답변하기</button>
-                                </div>
-                            </div>
                         </li>
                     </ul>
                     <ul class="pagenation">
@@ -163,17 +159,6 @@
         $(this).toggleClass('hidden')
         $('.adminNav').toggleClass('hidden')
         $('.adminContent').toggleClass('full')
-    })  
-
-    $('.innerList > li .inquiryTitle').click(function(idx) {
-        var index = $('.innerList > li .inquiryTitle').index(this);
-
-        for (var i = 0; i < $('.managementList > li').length; i++) {
-            if (i == index) {
-                $($('.managementList > li')[i]).children('.moreArea').stop().slideToggle(200)
-            }
-        }
-	    return false;
-    });
+    })
 </script>
 </html>

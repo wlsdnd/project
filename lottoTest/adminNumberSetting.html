@@ -7,7 +7,7 @@
     <meta name="format-detection" content="telephone=no">
     <link rel="stylesheet" type="text/css" href="admin.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <title>admin number</title>
+    <title>admin have point</title>
 </head>
 <body>
     <div id="admin">
@@ -31,7 +31,7 @@
                         <div class="navDepth">
                             <h2 class="navTitle">설정</h2>
                             <ul>
-                                <li><a href="adminNumberSetting.html">로또번호 설정</a></li>
+                                <li><a class="active" href="adminNumberSetting.html">로또번호 설정</a></li>
                                 <li><a href="adminPointSetting.html">포인트 설정</a></li>
                             </ul>
                         </div>
@@ -41,7 +41,7 @@
                                 <li><a href="adminMember.html">가입자</a></li>
                                 <li><a href="adminHavePoint.html">고객별 보유포인트</a></li>
                                 <li><a href="adninCharging.html">포인트 충전요청</a></li>
-                                <li><a class="active" href="adminNumber.html">고객별 추천번호</a></li>
+                                <li><a href="adminNumber.html">고객별 추천번호</a></li>
                                 <li><a href="adminRefund.html">환불신청</a></li>
                                 <li><a href="adminInquire.html">문의하기</a></li>
                                 <li><a href="adminReceipt.html">현금영수증 신청</a></li>
@@ -53,57 +53,21 @@
                 <div class="adminContent">
                     <div class="contentHead">
                         <div class="titleArea">
-                            <h3>고객별 추천번호</h3>
-                        </div>
-                        <div class="searchArea">
-                            <select name="" id="">
-                                <option value="id">아이디</option>
-                                <option value="id">아이디</option>
-                                <option value="id">아이디</option>
-                            </select>
-                            <div class="searchBox">
-                                <input type="text" name="" id="">
-                                <button class="searchBtn">검색</button>
-                            </div>
+                            <h3>로또번호 설정</h3>
                         </div>
                     </div>
-                    <ul class="managementTitle type3">
-                        <li class="alignL">아이디</li>
-                        <li>이름</li>
-                        <li>추천번호</li>
-                        <li>발급일자</li>
-                    </ul>
-                    <ul class="managementList type3">
-                        <li>
-                            <ul class="innerList">
-                                <li class="alignL">dlwodyd</li>
-                                <li>이재용</li>
-                                <li>
-                                    <div>
-                                        <p>1, 5, 15, 36, 37, 42</p>
-                                        <p>2, 9, 18, 22, 23, 24</p>
-                                        <p>1, 5, 6, 8, 37, 42</p>
-                                        <p>1, 5, 15, 19, 37, 42</p>
-                                        <p>1, 2, 3, 4, 5, 6</p>
-                                    </div>
-                                    <button class="view">보가</button>
-                                </li>
-                                <li><span class="date">2023.09.23</span><span class="time">15:32</span></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <ul class="pagenation">
-                        <li><a href="#" class="active"><span>1</span></a></li>
-                        <li><a href="#"><span>2</span></a></li>
-                        <li><a href="#"><span>3</span></a></li>
-                        <li><a href="#"><span>4</span></a></li>
-                        <li><a href="#"><span>5</span></a></li>
-                        <li><a href="#"><span>6</span></a></li>
-                        <li><a href="#"><span>7</span></a></li>
-                        <li><a href="#"><span>8</span></a></li>
-                        <li><a href="#"><span>9</span></a></li>
-                        <li><a href="#"><span>10</span></a></li>
-                    </ul>
+                    <div class="settingNumber">
+                        <div class="winNumber">
+                            <strong>당첨번호 입력</strong>
+                            <input type="text" name="" id="">
+                            <button>저장</button>
+                        </div>
+                        <div class="exceptNumber">
+                            <strong>제외번호 입력</strong>
+                            <input type="text" name="" id="">
+                            <button>저장</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

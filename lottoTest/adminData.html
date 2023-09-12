@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes, target-densitydpi=medium-dpi">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="admin.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>admin have point</title>
+</head>
+<body>
+    <div id="admin">
+        <div class="adminContainer">
+            <div class="header">
+                <ul class="managementNav">
+                    <li><a href="adminMember.html">관리하기</a></li>
+                    <li><a class="active" href="adminData.html">데이터</a></li>
+                </ul>
+                <div class="adminUser">
+                    <span><em>Admin</em> 님 환영합니다.</span>
+                    <button class="logoutBtn">로그아웃</button>
+                </div>
+            </div>
+            <div class="adminSection">
+                <div class="adminContent dataSection">
+                    <ul class="tabMenu">
+                        <li class="active"><button>1등번호</button></li>
+                        <li><button>기타데이터</button></li>
+                    </ul>
+                    <div class="tabContent">
+                        <div class="tabItem" id="tabItem0" style="display:block">
+                            <ul class="numberItem">
+                                <li>
+                                    <span>1</span>
+                                    <span>2</span>
+                                    <span>3</span>
+                                    <span class="active">4</span>
+                                    <span>5</span>
+                                    <span>6</span>
+                                    <span>7</span>
+                                    <span>8</span>
+                                    <span>9</span>
+                                    <span>10</span>
+                                    <span>11</span>
+                                    <span>12</span>
+                                    <span>13</span>
+                                    <span>14</span>
+                                    <span class="active">15</span>
+                                    <span>16</span>
+                                    <span>17</span>
+                                    <span>18</span>
+                                    <span>19</span>
+                                    <span>20</span>
+                                    <span>21</span>
+                                    <span class="active">22</span>
+                                    <span>23</span>
+                                    <span class="active">24</span>
+                                    <span>25</span>
+                                    <span>26</span>
+                                    <span>27</span>
+                                    <span>28</span>
+                                    <span>29</span>
+                                    <span>30</span>
+                                    <span>31</span>
+                                    <span class="active">32</span>
+                                    <span>33</span>
+                                    <span>34</span>
+                                    <span>35</span>
+                                    <span>36</span>
+                                    <span>37</span>
+                                    <span class="active">38</span>
+                                    <span>39</span>
+                                    <span>40</span>
+                                    <span>41</span>
+                                    <span>42</span>
+                                    <span>43</span>
+                                    <span>44</span>
+                                    <span>45</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tabItem" id="tabItem1" style="display:none">
+                            기타 데이터 section
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $('.tabMenu li button').click(function() {
+        $('.tabContent .tabItem').hide();
+        $('.tabMenu li').removeClass('active');
+        $('#tabItem'+ $(this.parentNode).index()).show();
+        $(this.parentNode).addClass('active');
+
+        return false;
+    });
+
+</script>
+</html>
