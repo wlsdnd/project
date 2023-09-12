@@ -1050,7 +1050,7 @@ table{
         font-size: 18px;
     }
     .settingNumber .winNumber input{
-        width: calc(100% - 300px);
+        width: 50%;
         height: 40px;
         font-size: 18px;
         padding: 5px 10px;
