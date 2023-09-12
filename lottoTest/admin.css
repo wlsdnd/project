@@ -3,11 +3,11 @@
 /* base */
 *{
     box-sizing: border-box;
+    letter-spacing: -2px;
 }
 html {
     overflow-y: auto;
     height: 100%;
-    background-color: #f4f4f4;
 }
 body {
     font-family: 'Inter', sans-serif;
@@ -64,21 +64,19 @@ table{
     height: 100%;
     top: 0;
     left: 0;
-    background: url(8.png) no-repeat top center;
+    background: url(7.png) no-repeat top 72px left 0;
     color: #fff;
 }
 #admin{
     background-color: #404040;
-    height: 100%;
     position: relative;
+    padding: 45px 0;
 }
 .adminContainer{
-    overflow: hidden;
     position: relative;
     z-index: 100;
     max-width: 1280px;
     padding: 0 20px;
-    height: 100%;
     margin: 0 auto;
 }
 .logoImg{
@@ -112,7 +110,6 @@ table{
     height: 50px;
 }
 .header{
-    padding: 45px 0 60px;
     position: relative;
 }
 .managementNav{
@@ -133,7 +130,7 @@ table{
 }
 .managementNav li a.active{
     background-color: #fff;
-    color: #222;
+    color: #404040;
     font-weight: bold;
     width: 175px;
     padding-right: 0;
@@ -157,24 +154,30 @@ table{
 }
 .adminUser .logoutBtn{
     color: #fff;
-    font-size: 13px;
-    background-color: #80808B;
-    border-radius: 13px;
-    padding: 5px 10px;
+    font-size: 12px;
+    background-color: #808080;
+    border-radius: 12px;
+    padding: 5px 15px;
 }
 .adminUser span{
+    font-size: 16px;
+    font-weight: bold;
     padding-right: 12px;
+    letter-spacing: -1px;
 }
 .adminUser span em{
     text-decoration: underline;
+    letter-spacing: -1px;
+    font-weight: normal;
 }
 .adminSection{
+    margin-top: 60px;
     position: relative;
 }
 .menuBtn{
     background: none;
     position: absolute;
-    top: 20px;
+    top: 23px;
     left: 40px;
     z-index: 10;
     width: 40px;
@@ -217,21 +220,22 @@ table{
 .navDepth ul li a{
     font-size: 20px;
     display: block;
-    padding: 12px 25px;
+    padding: 12px 20px;
     border-radius: 25px;
     width: calc(100% - 15px);
-    color: #444;
+    color: #404040;
 }
 .navDepth ul li a.active,
 .navDepth ul li a:hover,
 .navDepth ul li a:active{
     color: #fff;
     background-color: #404040;
-    font-weight: bold;
 }
 .navTitle{
     padding-left: 20px;
     margin-bottom: 12px;
+    font-size: 24px;
+    color: #404040;
 }
 .numberCheck{
     font-size: 20px;
@@ -253,13 +257,14 @@ table{
 .adminContent{
     transition: all .4s;
     padding-left: 350px;
+    min-height: 900px;
 }
 .adminContent.full{
     padding-left: 70px;
     transition: all .4s ease .4s;
 }
 .adminContent.pointSection{
-    width: 70%;
+    width: 66%;
 }
 .adminContent.pointSection.full{
     width: 100%;
@@ -270,7 +275,7 @@ table{
 .contentHead{
     display: flex;
     justify-content: space-between;
-    padding-top: 20px;
+    padding-top: 15px;
 }
 .titleArea{
     display: flex;
@@ -278,11 +283,13 @@ table{
 .titleArea h3{
     font-size: 30px;
     color: #fff;
+    line-height: 42px;
 }
 .titleArea h3.colorGreen{
     color: #26f2aa;
 }
 .titleArea .pointInput{
+    letter-spacing: -1px;
     border-radius: 10px;
     margin-left: 75px;
     width: 160px;
@@ -308,6 +315,24 @@ table{
     font-size: 20px;
     color: #fff;
     font-weight: bold;
+    -webkit-appearance: none;
+    -moz-appearance: none; 
+    appearance: none;
+    background: url(select_arrow.png) no-repeat center right 5px;
+    padding-right: 26px;
+    
+}
+.formBox.createForm select {
+    position: relative;
+    flex: 1;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0px 4px 4px 0px rgba(170, 170, 170, 0.25);
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 18px;
+    padding: 10px 15px;
+    
 }
 .searchBox{
     position: relative;
@@ -325,7 +350,7 @@ table{
     padding: 0;
 }
 .searchBox input{
-    width: 240px;
+    width: 230px;
     border-radius: 10px;
     padding:10px 50px 10px 20px;
     font-size: 18px;
@@ -377,12 +402,15 @@ table{
     justify-content: center;
 }
 .view{
-    height: 25px;
+    width: 55px;
+    height: 34px;
     padding: 5px 10px;
-    border-radius: 6px;
+    border-radius: 8px;
     background-color: #808080;
     color: #fff;
     margin-left: 15px;
+    font-size: 14px;
+    font-weight: bold;
 }
 .pagenation{
     display: flex;
@@ -398,6 +426,9 @@ table{
     height: 40px;
     line-height: 40px;
     color: #fff;
+}
+.pagenation li a span{
+    letter-spacing: -1px;
 }
 .pagenation li a.active{
     width: 60px;
@@ -424,7 +455,7 @@ table{
     min-height: 28px;
     padding: 0 0 0 28px;
     line-height: 18px;
-    background: url(check_on.png) #fff no-repeat left top;
+    background: #fff;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -433,9 +464,10 @@ table{
     background-size: contain;
 }
 .checkBox input:disabled + label{
-    background: url(check_on.png) #999 no-repeat left top;
+    background: #808080;
 }
 .history{
+    letter-spacing: -1px;
     font-weight: bold;
     font-size: 14px;
     padding: 0 18px;
@@ -453,10 +485,13 @@ table{
 .moreArea{
     display: none;
 }
+.detailArea *{
+    letter-spacing: -1px;
+}
 .detailArea{
     padding: 15px;
     border-radius: 10px;
-    background-color: #999;
+    background-color: #d9d9d9;
     color: #222;
     margin-bottom: 15px;
 }
@@ -464,14 +499,12 @@ table{
     display: block;
     padding-bottom: 10px;
 }
-.detailArea p{
-
-}
 .answerArea {
     display: flex;
     margin-bottom: 15px;
 }
 .answerArea textarea{
+    border: none;
     width: 100%;
     border-radius: 10px;
     height: 100px;
@@ -482,14 +515,16 @@ table{
     color: #222;
     font-family: 'Inter', sans-serif;
     font-weight: normal;
+    letter-spacing: -1px;
 }
 .answerArea button{
     margin-left: 15px;
     background-color: #23b983;
     color: #fff;
-    font-size: 20px;
-    border-radius: 10px;
-    width: 120px;
+    font-size: 24px;
+    border-radius: 12px;
+    width: 130px;
+    font-weight: bold;
 }
 .unReply{
     color: #ff6969;
@@ -506,12 +541,13 @@ table{
 .managementTitle li{
     float: left;
     text-align: center;
-    font-size: 20px;
     color: #fff;
     padding: 12px 10px;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 22px;
+    font-weight: bold;
 }
 .managementList > li{
     border-bottom: 2px dashed #fff;
@@ -521,7 +557,11 @@ table{
     clear: both;
     display: flex;
 }
+.managementList .innerList li *{
+    letter-spacing: -1px;
+}
 .managementList .innerList li{
+    letter-spacing: -1px;
     float: left;
     text-align: center;
     color: #fff;
@@ -533,78 +573,117 @@ table{
 }
 .buttonArea button{
     color: #fff;
-    font-size: 20px;
-    padding: 10px 15px;
-    border-radius: 10px;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 12px;
 }
-.backBtn{
-    background-color: #808080
+.buttonArea button.backBtn{
+    background-color: #808080;
 }
-.saveBtn{
+.buttonArea button.saveBtn{
     background-color: #23b983;
-    margin-left: 10px;
+    padding: 8px 20px;
+    margin-left: 15px;
 }
 .pointPercent{
     border: none;
     font-size: 20px;
     color: #222;
     width: 80px;
+    height: 42px;
     padding: 5px 10px;
     border-radius: 10px;
     font-weight: bold;
+    -webkit-appearance: none;
+    -moz-appearance: none; 
+    appearance: none;
+    background: url(select_arrow_black.png) #fff no-repeat center right 5px;
+    background-size: 12px;
+    padding-right: 26px;
 }
 .account span{
     display: block;
     font-size: 16px;
 }
 .state{
+    width: 100px;
+    height: 38px;
     border: none;
     font-size: 16px;
-    color: #222;
+    color: red;
     width: 90px;
     padding: 5px 5px;
     border-radius: 10px;
+    -webkit-appearance: none;
+    -moz-appearance: none; 
+    appearance: none;
+    background: url(select_arrow_black.png) #fff no-repeat center right 10px;
+    background-size: 12px;
+    padding-right: 26px;
+}
+.state .othersBlack {
+    color: #222;
 }
 .settingNumber{
-    margin-top: 30px;
+    margin-top: 35px;
 }
 .settingNumber > div strong{
     color: #fff;
     display: block;
-    margin-bottom: 10px;
-    font-size: 22px;
+    margin-bottom: 20px;
+    font-size: 26px;
 }
 .settingNumber > div input{
-    height: 42px;
+    height: 55px;
     border-radius: 10px;
     padding: 10px 20px;
     font-size: 18px;
+    letter-spacing: -1px;
+    color: #000;
+    font-weight: bold;
+    font-size: 24px;
 }
 .settingNumber > div button{
     background-color: #23b983;
     color: #fff;
-    font-size: 20px;
+    font-size: 24px;
+    font-weight: bold;
     padding: 10px 20px;
     border-radius: 10px;
-    height: 42px;
+    height: 55px;
+    width: 90px;
     margin-left: 10px;
 }
 .winnerCheck{
-    margin-top: 10px;
+    margin-top: 15px;
+    display: flex;
 }
 .winnerCheck .roundChoice{
-    height: 42px;
+    border: none;
+    height: 55px;
+    width: 280px;
     border-radius: 10px;
     padding: 10px 20px;
     font-size: 18px;
+    -webkit-appearance: none;
+    -moz-appearance: none; 
+    appearance: none;
+    background: url(select_arrow_black.png) #fff no-repeat center right 10px;
+    padding-right: 26px;
+    letter-spacing: -1px;
+    font-size: 24px;
+    font-weight: bold;
 }
 .winnerCheck button{
     background-color: #23b983;
+    width: 90px;
     color: #fff;
-    font-size: 20px;
+    font-size: 24px;
+    font-weight: bold;
     padding: 10px 20px;
     border-radius: 10px;
-    height: 42px;
+    height: 55px;
     margin-left: 10px;
 }
 .winnerArea{
@@ -619,16 +698,22 @@ table{
 }
 .winnerList .winnerTitle{
     color: #fff;
-    font-size: 20px;
+    font-size: 24px;
     display: block;
     margin-bottom: 20px;
 }
 .winnerList .winnerTitle span{
     color: #26f2aa;
+    margin-left: 10px;
+}
+.winnerList .innerWinner li *{
+    letter-spacing: -1px;
 }
 .winnerList .innerWinner li{
     color: #fff;
     margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: bold;
 }
 .tabMenu{
     display: flex;
@@ -646,6 +731,7 @@ table{
 .tabMenu li.active button{
     color: #26f2aa;
     padding-bottom: 10px;
+    letter-spacing: -1px;
 }
 .tabMenu li.active button::before{
     content:'';
@@ -656,6 +742,9 @@ table{
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+}
+.tabContent *{
+    letter-spacing: -1px;
 }
 .tabContent{
     margin-top: 30px;
@@ -677,6 +766,7 @@ table{
     line-height: 26px;
     border-radius: 100%;
     font-size: 14px;
+    letter-spacing: 0;
 }
 .numberItem span:first-child{
     margin-left: 0;
@@ -691,10 +781,10 @@ table{
     margin-top: 30px;
 }
 .settingNumber .winNumber input{
-    width: 280px;
+    width: 310px;
 }
 .settingNumber .exceptNumber input{
-    width: 600px;
+    width: 680px;
 }
 .managementList .innerList li span.time{
     margin-left: 5px;
@@ -710,6 +800,10 @@ table{
 .managementTitle.type1 li:nth-child(3),
 .managementList.type1 .innerList li:nth-child(3){
     width: 30%;
+}
+.managementTitle.type1 li:nth-child(4),
+.managementList.type1 .innerList li:nth-child(4){
+    width: 20%;
 }
 .managementTitle.type1 li:nth-child(5),
 .managementList.type1 .innerList li:nth-child(5){
@@ -826,15 +920,169 @@ table{
     width: 12%;
 }
 
-@media all and (max-width:1180px){
-    .adminNav{
-        height: 100%;
+@media all and (min-width:768px) and (max-width:1280px){
+    /* nav */
+    .menuBtn{
+        width: 20px;
+        height: 20px;
+        left: 20px;
     }
-    .adminSection{
-        height: calc(100% - 240px);
+    .menuBtn svg{
+        width: 20px;
+        height: 20px;
+    }
+    .navTitle{
+        font-size: 22px;
+        padding-left: 12px;
+        margin-bottom: 8px;
+    }
+    .adminNav{
+        width: 210px;
+        padding: 50px 10px 20px;
+    }
+    .navDepth ul li a{
+        font-size: 18px;
+        padding: 8px 12px;
+    }
+    .numberCheck{
+        font-size: 18px;
+        padding: 8px 12px;
+    }
+    .adminContent.full{
+        padding-left: 35px;
+    }
+    /* title */
+    .titleArea h3{
+        font-size: 20px;
+    }
+    .searchBox input{
+        width: 160px;
+        height: 40px;
+        padding: 10px 40px 10px 10px;
+    }
+    .searchBox .searchBtn{
+        background-size: 20px;
+        width: 20px;
+        height: 20px;
+    }
+    .titleArea .pointInput{
+        width: 120px;
+        height: 40px;
+        margin-left: 20px;
+        font-size: 18px;
+        padding: 0 10px;
+    }
+    .titleArea .titBtn{
+        font-size: 18px;
+        padding: 0px 15px;
+        height: 40px;
+    }
+    .searchArea select{
+        font-size: 18px;
     }
     .adminContent{
-        height: 100%;
-        overflow-y: auto;
+        min-height: 650px;
+        padding-left: 230px;
+    }
+    .buttonArea button{
+        height: 40px;
+        font-size: 18px;
+    }
+    .buttonArea button.saveBtn{
+        margin-left: 5px;
+    }
+    .contentHead{
+        padding-top: 0;
+    }
+
+    /* header */
+    .managementNav li a{
+        width: 125px;
+        font-size: 24px;
+        height: 50px;
+        line-height: 50px;
+        border-radius: 50px;
+    }
+    .managementNav li:first-child a.active{
+        width: 125px;
+    }
+    .managementNav li a.active{
+        width: 125px;
+    }
+
+    /* content */
+    .adminSection {
+        margin-top: 30px;
+    }
+
+    /* list */
+    .managementTitle{
+        border-bottom-width: 2px;
+        margin-top: 15px;
+    }
+    .checkBox input + label{
+        padding: 0 0 0 20px;
+        min-height: 20px;
+    }
+    .managementTitle li, .managementList .innerList li{
+        font-size: 18px;
+    }
+
+    .managementList.type7 .innerList li:nth-child(6),
+    .managementList.type6 .innerList li:nth-child(5),
+    .managementList.type3 .innerList li:nth-child(4){
+        flex-direction: column;
+    }
+    .state{
+        font-size: 14px;
+    }
+    .adminContent.pointSection{
+        width: 100%;
+    }
+    .pointPercent{
+        font-size: 18px;
+        height: 40px;
+    }
+    .settingNumber > div strong{
+        font-size: 18px;
+    }
+    .settingNumber .winNumber input{
+        width: calc(100% - 300px);
+        height: 40px;
+        font-size: 18px;
+        padding: 5px 10px;
+    }
+    .settingNumber .exceptNumber input{
+        width: calc(100% - 90px);
+        height: 40px;
+        font-size: 18px;
+        padding: 5px 10px;
+    }
+    .settingNumber > div button{
+        font-size: 18px;
+        width: 70px;
+        height: 40px;
+        padding: 5px 10px;
+    }
+    .numberItem span{
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+    }
+    .managementList .innerList li{
+        padding: 15px 10px;
+    }
+    .account span{
+        font-size: 14px;
+    }
+
+    /* pagenation */
+    .pagenation li a{
+        height: 30px;
+        line-height: 30px;
+        font-size: 16px;
+    }
+    .pagenation li a.active{
+        width: 40px;
     }
 }
