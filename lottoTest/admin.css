@@ -173,11 +173,12 @@ table{
 .adminSection{
     margin-top: 60px;
     position: relative;
+    overflow: hidden;
 }
 .menuBtn{
     background: none;
     position: absolute;
-    top: 23px;
+    top: 15px;
     left: 40px;
     z-index: 10;
     width: 40px;
@@ -522,7 +523,7 @@ table{
     background-color: #23b983;
     color: #fff;
     font-size: 24px;
-    border-radius: 12px;
+    border-radius: 10px;
     width: 130px;
     font-weight: bold;
 }
@@ -926,6 +927,7 @@ table{
         width: 20px;
         height: 20px;
         left: 20px;
+        top: 10px;
     }
     .menuBtn svg{
         width: 20px;
@@ -1074,6 +1076,9 @@ table{
     }
     .account span{
         font-size: 14px;
+    }
+    .answerArea button{
+        font-size: 20px;
     }
 
     /* pagenation */
