@@ -662,6 +662,7 @@ table{
 }
 .winnerCheck .roundChoice{
     border: none;
+    color: #222;
     height: 55px;
     width: 280px;
     border-radius: 10px;
@@ -1079,6 +1080,19 @@ table{
     }
     .answerArea button{
         font-size: 20px;
+    }
+    .winnerCheck .roundChoice{
+        height: 40px;
+        width: 220px;
+        padding: 5px 10px;
+        font-size: 18px;
+        background-size: 12px;
+    }
+    .winnerCheck button{
+        height: 40px;
+        width: 70px;
+        padding: 5px 10px;
+        font-size: 18px;
     }
 
     /* pagenation */
