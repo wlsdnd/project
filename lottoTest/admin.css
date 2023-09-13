@@ -482,6 +482,7 @@ table{
     background-color: transparent;
     color: #fff;
     font-size: 20px;
+    text-align: left;
 }
 .moreArea{
     display: none;
