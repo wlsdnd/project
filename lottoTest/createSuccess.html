@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes, target-densitydpi=medium-dpi">
     <link rel="stylesheet" type="text/css" href="lotto.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <title>Create</title>
+    <title>create success</title>
 </head>
 <body>
     <div id="wrap">
-        <div class="container">
+        <div class="container" style=" overflow-y: auto; overflow-x: hidden;">
             <div class="header">
                 <h1>
                     <img src="logo.png" alt="Lotto Logo">
@@ -42,8 +42,53 @@
                     <a href="chargePoint.html" class="grayBtn">충전하기</a>
                 </div>
             </div>
-            <div class="contentArea">
+            <div class="contentArea scroll">
                 <section class="content">
+                    <div class="numberList">
+                        <ul>
+                            <li>
+                                <span>7</span>
+                                <span>10</span>
+                                <span>18</span>
+                                <span>22</span>
+                                <span>32</span>
+                                <span>45</span>
+                            </li>
+                            <li>
+                                <span>3</span>
+                                <span>11</span>
+                                <span>19</span>
+                                <span>24</span>
+                                <span>25</span>
+                                <span>31</span>
+                            </li>
+                            <li>
+                                <span>2</span>
+                                <span>9</span>
+                                <span>18</span>
+                                <span>25</span>
+                                <span>26</span>
+                                <span>35</span>
+                            </li>
+                            <li>
+                                <span>2</span>
+                                <span>9</span>
+                                <span>18</span>
+                                <span>25</span>
+                                <span>26</span>
+                                <span>35</span>
+                            </li>
+                            <li>
+                                <span>2</span>
+                                <span>9</span>
+                                <span>18</span>
+                                <span>25</span>
+                                <span>26</span>
+                                <span>35</span>
+                            </li>
+                        </ul>
+                        <button class="saveBtn">이미지로 저장하기</button>
+                    </div>
                     <div class="formBox createForm">
                         <select name="" id="">
                             <option value="1">1줄</option>
@@ -65,7 +110,7 @@
                         </p>
                         <div class="formBox duble">
                             <button class="grayBtn close">닫기</button>
-                            <button class="greenBtn ok" onclick="location.href='/createSuccess.html'">사용하기</button>
+                            <button class="greenBtn ok">사용하기</button>
                         </div>
                     </div>
                 </div>
@@ -96,6 +141,23 @@
         $('.ok').click(function(){
             $('.layerPupop').hide()
         });
+        for(let a = 0; a < $('.numberList li').length; a++){
+            for(let b = 0; b < $(`.numberList li:eq(${a}) span`).length; b++){
+                console.log()
+                if($(`.numberList li:eq(${a}) span:eq(${b})`).text() < 10){
+                    $(`.numberList li:eq(${a}) span:eq(${b})`).addClass('colorYellow')
+                }else if($(`.numberList li:eq(${a}) span:eq(${b})`).text() >=10 && $(`.numberList li:eq(${a}) span:eq(${b})`).text() < 20){
+                    $(`.numberList li:eq(${a}) span:eq(${b})`).addClass('colorBlue')
+                }else if($(`.numberList li:eq(${a}) span:eq(${b})`).text() >=20 && $(`.numberList li:eq(${a}) span:eq(${b})`).text() < 30){
+                    $(`.numberList li:eq(${a}) span:eq(${b})`).addClass('colorRed')
+                }else if($(`.numberList li:eq(${a}) span:eq(${b})`).text() >=30 && $(`.numberList li:eq(${a}) span:eq(${b})`).text() < 40){
+                    $(`.numberList li:eq(${a}) span:eq(${b})`).addClass('colorGray')
+                }else if($(`.numberList li:eq(${a}) span:eq(${b})`).text() >=40 && $(`.numberList li:eq(${a}) span:eq(${b})`).text() < 50){
+                    $(`.numberList li:eq(${a}) span:eq(${b})`).addClass('colorGreen')
+                }
+            }
+        }
+        
     })
 </script>
 </html>
