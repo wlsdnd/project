@@ -30,7 +30,8 @@
             padding: 0;
 	    }
         strong{font-weight: 600;}
-        input, 
+        input[type="text"],
+        input[type="password"],
         button {
             border: none;
             box-sizing: border-box;
@@ -135,6 +136,57 @@
         .numberList ul li span.colorRed{background-color: #f80e0e;}
         .numberList ul li span.colorGray{background-color: #9b9b9b;}
         .numberList ul li span.colorGreen{background-color: #30be19;}
+        .priceList{
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 0 10px;
+        }
+        .priceList input[type="radio"]{
+            padding: 0;
+            width: 25px;
+            height: 25px;
+            appearance: none;
+            border: max(2px, 0.1em) solid #c3c3c3;
+            border-radius: 50%;
+            transition: border 0.2s ease-in-out;
+            display: inline-block;
+            margin: 0;
+            background-color: #fff;
+        }
+        .priceList input[type="radio"]:checked {
+            border: 0.4em solid #1CA162;
+        }
+        .priceList input[type="radio"]:focus-visible {
+            outline-offset: max(2px, 0.1em);
+            outline: max(2px, 0.1em) dotted tomato;
+        }
+          
+        .priceList input[type="radio"]:hover + span {
+            cursor: pointer;
+        }
+          
+        .priceList input[type="radio"]:disabled {
+            box-shadow: none;
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+          
+        .priceList input[type="radio"]:disabled + span {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+        .priceList label{
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            margin: 0 10px 10px;
+        }
+        .priceList label span{
+            padding-left: 10px;
+        }
+        .priceList label:last-child{
+            margin-bottom: 0;
+        }
         .formBox input,
         .formBox button {
             display: block; 
