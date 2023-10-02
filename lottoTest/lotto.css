@@ -179,6 +179,7 @@
             display: flex;
             align-items: center;
             margin: 0 10px 10px;
+            border-radius: 12px;
         }
         .priceList label span{
             padding-left: 10px;
