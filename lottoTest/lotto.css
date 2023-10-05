@@ -108,7 +108,7 @@
             letter-spacing: -1px;
         }
         .numberList ul li {
-            border-bottom: 2px solid #b6b6b6;
+            border-bottom: 1px solid #b6b6b6;
             display: flex;
             justify-content: space-between;
             padding-bottom: 15px;
@@ -594,15 +594,21 @@
             transition-timing-function: ease-in;
           }
           .bottomContent .bottomDate{
-            font-size: 18px;
+            font-size: 20px;
+            font-weight: 600;
             margin-bottom: 5px;
           }
           .bottomContent .bottomTitle{
-            font-size: 18px;
+            font-size: 20px;
+            font-weight: 600;
+          }
+          .bottomContent .bottomDate .date1{
+            padding-right: 10px;
           }
           .bottomContent .numberList{
             box-shadow: none;
             margin-bottom: 0;
+            padding-top: 20px;
           }
           @media all and (max-width:440px){
             .numberList ul li span{
@@ -618,14 +624,6 @@
                 height: 40px;
                 line-height: 40px;
                 font-size: 18px;
-            }
-          }
-          @media all and (max-width:376px){
-            .numberList ul li span{
-                width: 35px;
-                height: 35px;
-                line-height: 35px;
-                font-size: 16px;
             }
           }
           .mtm30{
