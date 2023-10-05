@@ -321,7 +321,7 @@
         }
         .layerPupop {
             display: none;
-            position: absolute; 
+            position: fixed; 
             top: 0; 
             left: 0;
             width: 100%; 
@@ -422,7 +422,7 @@
             pointer-events: none;
           }
           #nav-container .bg {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
@@ -508,7 +508,7 @@
             position: absolute;
             top: 90px;
             right: 0;
-            height: calc(100% - 90px);
+            height: 100%;
             background: #ececec;
             pointer-events: auto;
             -webkit-tap-highlight-color: rgba(0,0,0,0);
