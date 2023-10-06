@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes, target-densitydpi=medium-dpi">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, target-densitydpi=medium-dpi">
     <meta name="format-detection" content="telephone=no">
     <link rel="stylesheet" type="text/css" href="common.css">
     <!-- <script src="http://code.jquery.com/jquery-latest.js"></script> -->
@@ -82,10 +82,10 @@
                         </div>
                         <div class="percentBox">
                             <div>
-                                <input class="percentForm" type="text" placeholder="10">
-                                <span>/ 1</span>
+                                <input class="percentForm" type="text" placeholder="ex)10">
+                                <span>%</span>
                             </div>
-                            <span id="percentText">10%</span>
+                            <p><span id="percentText">10%</span> 확률로 번호가 추첨되지않음</p>
                             <button class="apply">적용</button>
                         </div>
                         <button class="close" title="닫기"></button>
@@ -105,7 +105,7 @@
             </div>
             <button class="reset" title="초기화"></button>
             <button class="test" title="Test">테스트</button>
-            <span class="version">v0.8 developer woong</span>
+            <span class="version">v0.9 developer woong</span>
         </div>
     </div>
     <script>
@@ -188,17 +188,17 @@
             })
             $('.percentBox .percentForm').on("propertychange change paste input", function() {
                 weekP = (1/$('.percentBox .percentForm').val()*100).toString().slice(0, 4)
-                $('#percentText').text(weekP+'%')
+                $('#percentText').text($('.percentBox .percentForm').val()+'%')
             });
             $('.percentBox .apply').click(function(){
                 if($(this).hasClass('week1')){
                     if($('.percentBox .percentForm').val() != ''){
                         if(!isNaN($('.percentBox .percentForm').val())){
-                            weeksPercent = $('.percentBox .percentForm').val()
+                            weeksPercent = weekP
                             $('.layerPupop').fadeOut()
                             $('.percentBox').fadeOut()
                             $('.percent33').show()
-                            $('.weekText1').text(weekP)
+                            $('.weekText1').text($('.percentBox .percentForm').val())
                             $('.percentBox .apply').removeClass('week1')
                             lastWeeks = data.numbers
                         }else{
@@ -208,6 +208,7 @@
                     }else{
                         alert('적용할 값을 입력하세요.')
                     }
+                console.log(weeksPercent)
                 }
             })
             sessionStorage.setItem("weekNumber", data.numbers)
@@ -229,11 +230,11 @@
                 lastWeek()
                 if($('.percentBox .percentForm').val() != ''){
                     if(!isNaN($('.percentBox .percentForm').val())){
-                        weeksPercent2 = $('.percentBox .percentForm').val()
+                        weeksPercent2 = weekP
                         $('.layerPupop').fadeOut()
                         $('.percentBox').fadeOut()
                         $('.percent10').show()
-                        $('.weekText2').text(weekP)
+                        $('.weekText2').text($('.percentBox .percentForm').val())
                         $('.percentBox .apply').removeClass('week2')
                     }else{
                         alert('적용할 값을 숫자로 입력하세요.')
@@ -242,6 +243,7 @@
                 }else{
                     alert('적용할 값을 입력하세요.')
                 }
+                console.log(weeksPercent2)
             }
         })
         
