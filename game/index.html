@@ -105,7 +105,7 @@
             </div>
             <button class="reset" title="초기화"></button>
             <button class="test" title="Test">테스트</button>
-            <span class="version">v0.9 developer woong</span>
+            <span class="version">v1.0 developer woong</span>
         </div>
     </div>
     <script>
@@ -128,26 +128,37 @@
         let weekP2
         let count = localStorage.length
 
+        //쿠키의 총 갯수
+        function getAllCookies() {
+            const cookies = document.cookie;
+            if (!cookies) {
+                return [];
+            }
+            
+            return cookies.split(';').map(cookie => cookie.trim()).filter(Boolean);
+        }
+
+        const totalCookies = getAllCookies().length;
+        console.log("쿠키의 개수:", totalCookies);
+
         //로컬스토리지 불러오기
-        if(localStorage.length){
-            let toweek = sessionStorage.getItem('weekNumber').split(',')
-            for(let va=0; va<localStorage.length; va++){
-                let lcv = localStorage.getItem("val"+(va+1))
-                let lcv2 = lcv.split(',')
-                $('.testList').append(`<li>
-                <span class="c${lcv2[0]}">${lcv2[0]}</span>
-                <span class="c${lcv2[1]}">${lcv2[1]}</span>
-                <span class="c${lcv2[2]}">${lcv2[2]}</span>
-                <span class="c${lcv2[3]}">${lcv2[3]}</span>
-                <span class="c${lcv2[4]}">${lcv2[4]}</span>
-                <span class="c${lcv2[5]}">${lcv2[5]}</span>
-                </li>`)
-                for(let aa=0; aa<6; aa++){
-                    let qnf = toweek[aa]
-                    for(let qq=0; qq<6; qq++){
-                        if($(`.c${lcv2[qq]}`).hasClass('c'+qnf)){
-                            $(`.c${lcv2[qq]}`).addClass('active')
-                        }
+        let toweek = sessionStorage.getItem('weekNumber').split(',')
+        for(let va=0; va<totalCookies; va++){
+            let lcv = getCookie('myCookieData'+(va+1))
+            let lcv2 = lcv.split(',')
+            $('.testList').append(`<li>
+            <span class="c${lcv2[0]}">${lcv2[0]}</span>
+            <span class="c${lcv2[1]}">${lcv2[1]}</span>
+            <span class="c${lcv2[2]}">${lcv2[2]}</span>
+            <span class="c${lcv2[3]}">${lcv2[3]}</span>
+            <span class="c${lcv2[4]}">${lcv2[4]}</span>
+            <span class="c${lcv2[5]}">${lcv2[5]}</span>
+            </li>`)
+            for(let aa=0; aa<6; aa++){
+                let qnf = toweek[aa]
+                for(let qq=0; qq<6; qq++){
+                    if($(`.c${lcv2[qq]}`).hasClass('c'+qnf)){
+                        $(`.c${lcv2[qq]}`).addClass('active')
                     }
                 }
             }
@@ -392,12 +403,30 @@
         }
         $(".create").click(function(){
             createNumbers()
-            if(localStorage.length == 100){
-                localStorage.clear()
-                count = localStorage.length
-                $('.testList li').remove()
-            }
+            let localStorageData = localStorage.getItem("val" + count);
+            const expirationDate = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000); // 현재 시간에서 7일 후의 시간까지만 유지
+            document.cookie = `myCookieData${count}=${localStorageData}; expires=${expirationDate.toUTCString()}; path=/`;
+            // if(localStorage.length == 50){
+            //     localStorage.clear()
+            //     cookieClear()
+            //     count = localStorage.length
+            //     $('.testList li').remove()
+            // }
+        let cookieData = getCookie('myCookieData'+count);
+            console.log("Cookie Data:", cookieData);
         })
+        // 쿠키에서 데이터 읽기
+        function getCookie(name) {
+            const cookies = document.cookie.split(';').map(cookie => cookie.trim());
+            for (const cookie of cookies) {
+                const [cookieName, cookieValue] = cookie.split('=');
+                if (cookieName === name) {
+                return cookieValue ? decodeURIComponent(cookieValue) : null;
+                }
+            }
+        return null;
+        }
+
         
         $('.reset').click(function(){
             lastWeeks = []
@@ -405,6 +434,7 @@
             weeksPercent = 10
             weeksPercent2 = 20
             localStorage.clear()
+            cookieClear()
             count = localStorage.length
             $('.percent33').hide()
             $('.percent10').hide()
@@ -500,7 +530,16 @@
             $('.testList li').remove()
             localStorage.clear()
             count = localStorage.length
+            cookieClear()
         })
+        // 쿠키 초기화
+        function cookieClear(){
+            console.log(totalCookies)
+            for(var cookieL=0; cookieL<=totalCookies; cookieL++){
+                const expirationDate = new Date(0); // 1970년 1월 1일로 설정
+                document.cookie = `myCookieData${cookieL}=; expires=${expirationDate.toUTCString()}; path=/`;
+            }
+        }
     </script>
 </body>
 </html>
