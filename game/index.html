@@ -41,6 +41,17 @@
                     <li class="percent10">2주 전 <span class="weekText2">5</span>% 적용중</li>
                 </ul>
                 <button class="drawSearch">회차별 조회하기</button>
+                <button class="totalSearch">100회차 번호 조회하기</button>
+            </div>
+            <div class="testPopup">
+                <div class="layerContainer">
+                    <div class="layerContent">
+                        <button class="close" title="닫기"></button>
+                        <ul style="font-size:10px">
+                            <li>이전 100회차 추첨번호 확률</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <div class="layerPupop">
                 <div class="layerContainer">
@@ -105,7 +116,7 @@
             </div>
             <button class="reset" title="초기화"></button>
             <button class="test" title="Test">테스트</button>
-            <span class="version">v0.9 developer woong</span>
+            <span class="version">v1.0 developer woong</span>
         </div>
     </div>
     <script>
@@ -428,6 +439,42 @@
         })
         $('.testClose').click(function(){
             $('.testLayer').fadeOut()
+        })
+        $('.testPopup .close').click(function(){
+            $('.testPopup').fadeOut()
+            $('.testPopup ul li').remove()
+            $('.testPopup ul').append('<li>이전 100회차 추첨번호 확률</li>')
+        })
+        
+        $('.totalSearch').click(function(){
+            $('.testPopup').fadeIn()
+            for(let ap=1; ap<46; ap++){
+                $('.testPopup ul').append('<li>'+(ap)+'<p><b>0</b></p></li>')
+            }
+            let totalSearch = $('.drawNo').text()
+            let parseIntNumber = parseInt(totalSearch)+1
+            let choiceNumber = 100
+            let parseIntNumberM = parseIntNumber-choiceNumber
+            console.log(parseIntNumberM)
+            for(let xz=0; xz<choiceNumber; xz++){
+                $.ajax({
+                    method: 'GET',                             // HTTP 요청 방식(GET, POST)
+                    url: `https://smok95.github.io/lotto/results/${parseIntNumberM+xz}.json`,   // 서버의 URL 주소
+                    dataType: 'json'                             // 서버에서 보내줄 데이터의 타입
+                }).done(function (data) {  // HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨. 
+                    for(let z=0; z<6; z++){
+                        for(let cn=0; cn<46; cn++){
+                            if(data.numbers[z] == cn){
+                                let plus = $('.testPopup ul li').eq(cn).find('b').text()
+                                let valPlus = parseInt(plus)+1/choiceNumber*100
+                                let valPlus2x = valPlus*5
+                                $('.testPopup ul li').eq(cn).find('b').text(valPlus+'%').css('width', valPlus2x+'%').addClass('ba'+valPlus)
+                            }
+                        }
+                    }
+                });
+            }
+            
         })
 
         // 조회하기

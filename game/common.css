@@ -211,7 +211,17 @@ input.text::placeholder {
     border-radius: 12px;
     font-size: 18px;
 }
-.layerPupop, .testLayer{
+.totalSearch{color: transparent; display: block; position: absolute; top: 0; left: 50%; transform: translateX(-50%);}
+.testPopup .layerContent{height: 80%; overflow-y: scroll;}
+.testPopup li{position: relative; font-size: 12px; margin-bottom: 5px; padding-left: 10px;}
+.testPopup b{display: block; background-color: #1cb0a7; width: 0%; padding-left: 10px; border-radius:0 7px 7px 0}
+.testPopup b.ba5{background-color: rgb(250, 180, 180);}
+.testPopup b.ba10{background-color: rgb(255, 140, 140);}
+.testPopup b.ba15{background-color: rgb(255, 100, 100);}
+.testPopup b.ba20{background-color: rgb(255, 60, 60);}
+.testPopup b.ba25{background: rgb(255, 0, 0);}
+.testPopup p{position: absolute; top: 0; left: 50px; width: calc(100% - 100px); }
+.layerPupop, .testLayer, .testPopup{
     background: rgba(0, 0, 0, 0.4);
     position: absolute;
     top: 0;
