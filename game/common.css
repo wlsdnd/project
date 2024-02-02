@@ -104,6 +104,16 @@ select {
     margin: 20px auto;
     color: #fff;
 }
+.createCreate{
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 12px;
+    background-color: #0a857e;
+    border: 1px solid #0a857e;
+    display: flex;
+    margin: 20px auto;
+    color: #fff;
+}
 .btnFlex{
     display: flex;
     justify-content: space-between;
@@ -214,12 +224,17 @@ input.text::placeholder {
 .totalSearch{color: transparent; display: block; position: absolute; top: 0; left: 50%; transform: translateX(-50%);}
 .testPopup .layerContent{height: 80%; overflow-y: scroll;}
 .testPopup li{position: relative; font-size: 12px; margin-bottom: 5px; padding-left: 10px;}
-.testPopup b{display: block; background-color: #1cb0a7; width: 0%; padding-left: 10px; border-radius:0 7px 7px 0}
-.testPopup b.ba5{background-color: rgb(250, 180, 180);}
-.testPopup b.ba10{background-color: rgb(255, 140, 140);}
-.testPopup b.ba15{background-color: rgb(255, 100, 100);}
-.testPopup b.ba20{background-color: rgb(255, 60, 60);}
-.testPopup b.ba25{background: rgb(255, 0, 0);}
+.testPopup li em{width: 5px; height: 5px; background-color: red; border-radius: 100%; display: inline-block;}
+.testPopup b{display: block; background-color: transparent; width: 0%; padding-left: 10px; border-radius:0 7px 7px 0; transition: all 0.5s; color: transparent;}
+.testPopup b.ba10{background-color: rgba(255,0,0,.2); color: #000;}
+.testPopup b.ba11{background-color: rgba(255,0,0,.3); color: #000;}
+.testPopup b.ba12{background-color: rgba(255,0,0,.4); color: #000;}
+.testPopup b.ba13{background-color: rgba(255,0,0,.5); color: #000;}
+.testPopup b.ba14{background-color: rgba(255,0,0,.6); color: #000;}
+.testPopup b.ba15{background-color: rgba(255,0,0,.7); color: #000;}
+.testPopup b.ba16{background: rgba(255,0,0,.8); color: #000;}
+.testPopup b.ba17{background: rgba(255,0,0,.9); color: #000;}
+.testPopup b.ba18{background: rgba(255,0,0,1); color: #000;}
 .testPopup p{position: absolute; top: 0; left: 50px; width: calc(100% - 100px); }
 .layerPupop, .testLayer, .testPopup{
     background: rgba(0, 0, 0, 0.4);

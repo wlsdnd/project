@@ -16,7 +16,8 @@
             <div class="content">
                 <h1 class="title">로또 추첨</h1>
                 <ul class="result"></ul>
-                <button class="create">Create</button>
+                <button class="create">Create(무)</button>
+                <button class="createCreate">Create(확)</button>
                 
                 <ul class="btnFlex">
                     <li>
@@ -47,8 +48,8 @@
                 <div class="layerContainer">
                     <div class="layerContent">
                         <button class="close" title="닫기"></button>
-                        <ul style="font-size:10px">
-                            <li>이전 100회차 추첨번호 확률</li>
+                        <ul class="versionNumber">
+                            <li>이전 500회차 추첨번호 확률</li>
                         </ul>
                     </div>
                 </div>
@@ -116,7 +117,7 @@
             </div>
             <button class="reset" title="초기화"></button>
             <button class="test" title="Test">테스트</button>
-            <span class="version">v1.0 developer woong</span>
+            <span class="version">v2.0 developer woong</span>
         </div>
     </div>
     <script>
@@ -399,8 +400,76 @@
                     }
                 }
             }
-        $('.result').fadeIn()
+            $('.result').fadeIn()
         }
+
+
+
+
+
+
+
+
+
+        function createNumbers2(){
+            
+            const lottoNumbers = []
+            // 로또번호 여섯개가 다 안뽑혔다면 게속해라!
+            while(lottoNumbers.length < 6){
+                let randomNumber = Math.floor(Math.random() * 45) + 1
+                console.log('처음 추첨된 번호 '+randomNumber)
+                if(lottoNumbers.indexOf(randomNumber) === -1){
+                    for(let nn=1; nn<46; nn++){
+                        let num100 = $('.versionNumber li').eq(nn).attr('title')
+                        if(randomNumber==nn){
+                            if(Math.floor(Math.random() * num100) + 1 == 1) {
+                                lottoNumbers.push(randomNumber)
+                                console.log('추첨된 '+randomNumber+'번은 '+num100+'% 확률로 추첨됨')
+                            }
+                        }
+                    }
+                    
+                }
+                //오름차순으로 숫자 정렬
+                lottoNumbers.sort(function(a,b){
+                    return a - b;
+                });
+                
+            }
+            displayNumbers(lottoNumbers)
+            count++
+            $('.testList').append(`<li>
+            <span class="c${lottoNumbers[0]}">${lottoNumbers[0]}</span>
+            <span class="c${lottoNumbers[1]}">${lottoNumbers[1]}</span>
+            <span class="c${lottoNumbers[2]}">${lottoNumbers[2]}</span>
+            <span class="c${lottoNumbers[3]}">${lottoNumbers[3]}</span>
+            <span class="c${lottoNumbers[4]}">${lottoNumbers[4]}</span>
+            <span class="c${lottoNumbers[5]}">${lottoNumbers[5]}</span>
+            </li>`)
+            localStorage.setItem("val"+count, lottoNumbers)
+            let weekN = sessionStorage.getItem("weekNumber")
+            let week2 = weekN.split(',')
+            for(let tt=0; tt<6; tt++){
+                let fir = lottoNumbers[tt]
+                for(let rr=0; rr<6; rr++){
+                    if($(`.c${lottoNumbers[tt]}`).hasClass('c'+week2[rr])){
+                        $(`.c${lottoNumbers[tt]}`).addClass('active')
+                    }
+                }
+            }
+            $('.result').fadeIn()
+        }
+
+
+
+
+
+
+
+
+
+
+
         $(".create").click(function(){
             createNumbers()
             if(localStorage.length == 100){
@@ -408,6 +477,9 @@
                 count = localStorage.length
                 $('.testList li').remove()
             }
+        })
+        $(".createCreate").click(function(){
+            createNumbers2()
         })
         
         $('.reset').click(function(){
@@ -442,18 +514,19 @@
         })
         $('.testPopup .close').click(function(){
             $('.testPopup').fadeOut()
-            $('.testPopup ul li').remove()
-            $('.testPopup ul').append('<li>이전 100회차 추첨번호 확률</li>')
+            
         })
         
         $('.totalSearch').click(function(){
+            $('.testPopup ul li').remove()
+            $('.testPopup ul').append('<li>이전 500회차의 당첨번호 추산</li>')
             $('.testPopup').fadeIn()
             for(let ap=1; ap<46; ap++){
                 $('.testPopup ul').append('<li>'+(ap)+'<p><b>0</b></p></li>')
             }
             let totalSearch = $('.drawNo').text()
             let parseIntNumber = parseInt(totalSearch)+1
-            let choiceNumber = 100
+            let choiceNumber = 500
             let parseIntNumberM = parseIntNumber-choiceNumber
             console.log(parseIntNumberM)
             for(let xz=0; xz<choiceNumber; xz++){
@@ -466,15 +539,20 @@
                         for(let cn=0; cn<46; cn++){
                             if(data.numbers[z] == cn){
                                 let plus = $('.testPopup ul li').eq(cn).find('b').text()
-                                let valPlus = parseInt(plus)+1/choiceNumber*100
-                                let valPlus2x = valPlus*5
-                                $('.testPopup ul li').eq(cn).find('b').text(valPlus+'%').css('width', valPlus2x+'%').addClass('ba'+valPlus)
+                                let valPlus = parseInt(plus)+1
+                                let valPlus2x = valPlus/choiceNumber*100
+                                let sosuVal = Math.round(valPlus2x)
+                                $('.testPopup ul li').eq(cn).attr('title', sosuVal)
+                                $('.testPopup ul li').eq(cn).find('b').text(valPlus+'번 추첨').css('width', (sosuVal*5)+'%').addClass('ba'+Math.round(valPlus2x))
                             }
                         }
                     }
                 });
             }
-            
+        })
+
+        $(document).on('click', '.versionNumber li', function(){
+            alert($(this).attr('title')+'%')
         })
 
         // 조회하기
