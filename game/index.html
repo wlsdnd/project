@@ -552,7 +552,7 @@
         })
 
         $(document).on('click', '.versionNumber li', function(){
-            alert($(this).attr('title')+'%')
+            alert($(this).index()+'번의 추첨 확률은 '+$(this).attr('title')+'% 입니다.')
         })
 
         // 조회하기
