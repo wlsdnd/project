@@ -16,8 +16,8 @@
             <div class="content">
                 <h1 class="title">로또 추첨</h1>
                 <ul class="result"></ul>
-                <button class="create">Create(무)</button>
-                <button class="createCreate">Create(확)</button>
+                <button class="create">Create</button>
+                <button class="createCreate">Create(%)</button>
                 
                 <ul class="btnFlex">
                     <li>
@@ -42,14 +42,17 @@
                     <li class="percent10">2주 전 <span class="weekText2">5</span>% 적용중</li>
                 </ul>
                 <button class="drawSearch">회차별 조회하기</button>
-                <button class="totalSearch">100회차 번호 조회하기</button>
+                <button class="totalSearch">%</button>
             </div>
-            <div class="testPopup">
+            <div class="percentPopup">
                 <div class="layerContainer">
                     <div class="layerContent">
                         <button class="close" title="닫기"></button>
+                        <div class="percentArea">
+                            <input type="text" class="percentVal">
+                            <button class="percentSelect">회차 확률 구하기</button>
+                        </div>
                         <ul class="versionNumber">
-                            <li>이전 500회차 추첨번호 확률</li>
                         </ul>
                     </div>
                 </div>
@@ -104,11 +107,11 @@
                     </div>
                 </div>
             </div>
-            <div class="testLayer">
-                <div class="testLayerContainer">
-                    <div class="testLayerContent">
+            <div class="prevNumberLayer">
+                <div class="prevNumberLayerContainer">
+                    <div class="prevNumberLayerContent">
                         <div class="testBox">
-                            <ul class="testList"></ul>
+                            <ul class="prevNumber"></ul>
                             <button class="testReset">초기화</button>
                         </div>
                         <button class="testClose" title="닫기"></button>
@@ -117,7 +120,7 @@
             </div>
             <button class="reset" title="초기화"></button>
             <button class="test" title="Test">테스트</button>
-            <span class="version">v2.0 developer woong</span>
+            <span class="version">v2.1 developer woong</span>
         </div>
     </div>
     <script>
@@ -146,7 +149,7 @@
             for(let va=0; va<localStorage.length; va++){
                 let lcv = localStorage.getItem("val"+(va+1))
                 let lcv2 = lcv.split(',')
-                $('.testList').append(`<li>
+                $('.prevNumber').append(`<li>
                 <span class="c${lcv2[0]}">${lcv2[0]}</span>
                 <span class="c${lcv2[1]}">${lcv2[1]}</span>
                 <span class="c${lcv2[2]}">${lcv2[2]}</span>
@@ -381,7 +384,7 @@
             }
             displayNumbers(lottoNumbers)
             count++
-            $('.testList').append(`<li>
+            $('.prevNumber').append(`<li>
             <span class="c${lottoNumbers[0]}">${lottoNumbers[0]}</span>
             <span class="c${lottoNumbers[1]}">${lottoNumbers[1]}</span>
             <span class="c${lottoNumbers[2]}">${lottoNumbers[2]}</span>
@@ -402,80 +405,65 @@
             }
             $('.result').fadeIn()
         }
-
-
-
-
-
-
-
-
 
         function createNumbers2(){
-            
-            const lottoNumbers = []
-            // 로또번호 여섯개가 다 안뽑혔다면 게속해라!
-            while(lottoNumbers.length < 6){
-                let randomNumber = Math.floor(Math.random() * 45) + 1
-                console.log('처음 추첨된 번호 '+randomNumber)
-                if(lottoNumbers.indexOf(randomNumber) === -1){
-                    for(let nn=1; nn<46; nn++){
-                        let num100 = $('.versionNumber li').eq(nn).attr('title')
-                        if(randomNumber==nn){
-                            if(Math.floor(Math.random() * num100) + 1 == 1) {
-                                lottoNumbers.push(randomNumber)
-                                console.log('추첨된 '+randomNumber+'번은 '+num100+'% 확률로 추첨됨')
+            if($('.versionNumber li').length > 1){
+                const lottoNumbers = []
+                // 로또번호 여섯개가 다 안뽑혔다면 게속해라!
+                while(lottoNumbers.length < 6){
+                    let randomNumber = Math.floor(Math.random() * 45) + 1
+                    // console.log('처음 추첨된 번호 '+randomNumber)
+                    if(lottoNumbers.indexOf(randomNumber) === -1){
+                        for(let nn=1; nn<46; nn++){
+                            let num100 = $('.versionNumber li').eq(nn).attr('title')
+                            if(randomNumber==nn){
+                                if(Math.floor(Math.random() * num100) + 1 == 1) {
+                                    lottoNumbers.push(randomNumber)
+                                    // console.log('추첨된 '+randomNumber+'번은 '+num100+'% 확률로 추첨됨')
+                                }
                             }
                         }
+                        
                     }
+                    //오름차순으로 숫자 정렬
+                    lottoNumbers.sort(function(a,b){
+                        return a - b;
+                    });
                     
                 }
-                //오름차순으로 숫자 정렬
-                lottoNumbers.sort(function(a,b){
-                    return a - b;
-                });
-                
-            }
-            displayNumbers(lottoNumbers)
-            count++
-            $('.testList').append(`<li>
-            <span class="c${lottoNumbers[0]}">${lottoNumbers[0]}</span>
-            <span class="c${lottoNumbers[1]}">${lottoNumbers[1]}</span>
-            <span class="c${lottoNumbers[2]}">${lottoNumbers[2]}</span>
-            <span class="c${lottoNumbers[3]}">${lottoNumbers[3]}</span>
-            <span class="c${lottoNumbers[4]}">${lottoNumbers[4]}</span>
-            <span class="c${lottoNumbers[5]}">${lottoNumbers[5]}</span>
-            </li>`)
-            localStorage.setItem("val"+count, lottoNumbers)
-            let weekN = sessionStorage.getItem("weekNumber")
-            let week2 = weekN.split(',')
-            for(let tt=0; tt<6; tt++){
-                let fir = lottoNumbers[tt]
-                for(let rr=0; rr<6; rr++){
-                    if($(`.c${lottoNumbers[tt]}`).hasClass('c'+week2[rr])){
-                        $(`.c${lottoNumbers[tt]}`).addClass('active')
+                displayNumbers(lottoNumbers)
+                count++
+                $('.prevNumber').append(`<li>
+                <span class="c${lottoNumbers[0]}">${lottoNumbers[0]}</span>
+                <span class="c${lottoNumbers[1]}">${lottoNumbers[1]}</span>
+                <span class="c${lottoNumbers[2]}">${lottoNumbers[2]}</span>
+                <span class="c${lottoNumbers[3]}">${lottoNumbers[3]}</span>
+                <span class="c${lottoNumbers[4]}">${lottoNumbers[4]}</span>
+                <span class="c${lottoNumbers[5]}">${lottoNumbers[5]}</span>
+                </li>`)
+                localStorage.setItem("val"+count, lottoNumbers)
+                let weekN = sessionStorage.getItem("weekNumber")
+                let week2 = weekN.split(',')
+                for(let tt=0; tt<6; tt++){
+                    let fir = lottoNumbers[tt]
+                    for(let rr=0; rr<6; rr++){
+                        if($(`.c${lottoNumbers[tt]}`).hasClass('c'+week2[rr])){
+                            $(`.c${lottoNumbers[tt]}`).addClass('active')
+                        }
                     }
                 }
+                $('.result').fadeIn()
+            }else{
+                alert('확률부터 먼저 클릭')
             }
-            $('.result').fadeIn()
         }
-
-
-
-
-
-
-
-
-
-
 
         $(".create").click(function(){
             createNumbers()
             if(localStorage.length == 100){
                 localStorage.clear()
                 count = localStorage.length
-                $('.testList li').remove()
+                $('.prevNumber li').remove()
             }
         })
         $(".createCreate").click(function(){
@@ -494,7 +482,7 @@
             $('.weekText1').text('10')
             $('.weekText2').text('5')
             $('.result').hide()
-            $('.testList li').remove()
+            $('.prevNumber li').remove()
         })
         $('.drawSearch').click(function(){
             $('.layerPupop').fadeIn()
@@ -510,25 +498,28 @@
             $('.percentBox .apply').removeClass('week1 week2')
         })
         $('.testClose').click(function(){
-            $('.testLayer').fadeOut()
+            $('.prevNumberLayer').fadeOut()
         })
-        $('.testPopup .close').click(function(){
-            $('.testPopup').fadeOut()
+        $('.percentPopup .close').click(function(){
+            $('.percentPopup').fadeOut()
+            if(percentTotalVal.val() == ''){
+            $('.percentPopup ul li').remove()
+            }
             
         })
         
-        $('.totalSearch').click(function(){
-            $('.testPopup ul li').remove()
-            $('.testPopup ul').append('<li>이전 500회차의 당첨번호 추산</li>')
-            $('.testPopup').fadeIn()
+        let percentTotalVal = $('.percentArea .percentVal')
+        $('.percentSelect').click(function(){
+            $('.versionNumber').show()
+            $('.percentPopup ul li').remove()
+            $('.percentPopup ul').append(`<li>이전 ${percentTotalVal.val()}회차의 당첨번호 확률</li>`)
             for(let ap=1; ap<46; ap++){
-                $('.testPopup ul').append('<li>'+(ap)+'<p><b>0</b></p></li>')
+                $('.percentPopup ul').append('<li>'+(ap)+'<p><b>0</b></p></li>')
             }
             let totalSearch = $('.drawNo').text()
             let parseIntNumber = parseInt(totalSearch)+1
-            let choiceNumber = 500
+            let choiceNumber = percentTotalVal.val()
             let parseIntNumberM = parseIntNumber-choiceNumber
-            console.log(parseIntNumberM)
             for(let xz=0; xz<choiceNumber; xz++){
                 $.ajax({
                     method: 'GET',                             // HTTP 요청 방식(GET, POST)
@@ -538,12 +529,12 @@
                     for(let z=0; z<6; z++){
                         for(let cn=0; cn<46; cn++){
                             if(data.numbers[z] == cn){
-                                let plus = $('.testPopup ul li').eq(cn).find('b').text()
+                                let plus = $('.percentPopup ul li').eq(cn).find('b').text()
                                 let valPlus = parseInt(plus)+1
                                 let valPlus2x = valPlus/choiceNumber*100
                                 let sosuVal = Math.round(valPlus2x)
-                                $('.testPopup ul li').eq(cn).attr('title', sosuVal)
-                                $('.testPopup ul li').eq(cn).find('b').text(valPlus+'번 추첨').css('width', (sosuVal*5)+'%').addClass('ba'+Math.round(valPlus2x))
+                                $('.percentPopup ul li').eq(cn).attr('title', sosuVal)
+                                $('.percentPopup ul li').eq(cn).find('b').text(valPlus+'번 추첨').css('width', (sosuVal)+'%').addClass('ba'+Math.round(valPlus2x))
                             }
                         }
                     }
@@ -551,8 +542,18 @@
             }
         })
 
+        $('.totalSearch').click(function(){
+            $('.percentPopup').fadeIn()
+            percentTotalVal.val('')
+            $('.percentPopup ul li').remove()
+            $('.percentPopup ul').append(`<li>이전 ${percentTotalVal.val()}회차의 당첨번호 확률</li>`)
+            for(let ap=1; ap<46; ap++){
+                $('.percentPopup ul').append('<li>'+(ap)+'<p><b>0</b></p></li>')
+            }
+        })
+
         $(document).on('click', '.versionNumber li', function(){
-            alert($(this).index()+'번의 추첨 확률은 '+$(this).attr('title')+'% 입니다.')
+            alert('번호 '+$(this).index()+'번은 '+percentTotalVal.val()+'회차 동안 총 '+$(this).find('b').text()+'되었고 확률은'+$(this).attr('title')+'% 입니다.')
         })
 
         // 조회하기
@@ -619,10 +620,10 @@
         })
         
         $('.test').click(function(){
-            $('.testLayer').fadeIn()
+            $('.prevNumberLayer').fadeIn()
         })
         $('.testReset').click(function(){
-            $('.testList li').remove()
+            $('.prevNumber li').remove()
             localStorage.clear()
             count = localStorage.length
         })

@@ -59,17 +59,12 @@ select {
     position: relative; 
     max-width: 500px;
     margin: 0 auto; 
-    height: 100%;
     overflow: hidden;
 }
 .content {
-    position: absolute;
     width: 100%;
-    top: 50%;
-    left: 0;
-    padding: 20px;
+    padding: 60px 20px 40px;
     box-sizing: border-box;
-    transform: translateY(-50%);
 }
 .title {
     font-size: 24px;
@@ -182,7 +177,7 @@ input.text::placeholder {
 }
 .percent{
     position: absolute;
-    top: 0;
+    top: 30px;
     left: 30px;
     display: flex;
 }
@@ -221,38 +216,36 @@ input.text::placeholder {
     border-radius: 12px;
     font-size: 18px;
 }
-.totalSearch{color: transparent; display: block; position: absolute; top: 0; left: 50%; transform: translateX(-50%);}
-.testPopup .layerContent{height: 80%; overflow-y: scroll;}
-.testPopup li{position: relative; font-size: 12px; margin-bottom: 5px; padding-left: 10px;}
-.testPopup li em{width: 5px; height: 5px; background-color: red; border-radius: 100%; display: inline-block;}
-.testPopup b{display: block; background-color: transparent; width: 0%; padding-left: 10px; border-radius:0 7px 7px 0; transition: all 0.5s; color: transparent;}
-.testPopup b.ba10{background-color: rgba(255,0,0,.2); color: #000;}
-.testPopup b.ba11{background-color: rgba(255,0,0,.3); color: #000;}
-.testPopup b.ba12{background-color: rgba(255,0,0,.4); color: #000;}
-.testPopup b.ba13{background-color: rgba(255,0,0,.5); color: #000;}
-.testPopup b.ba14{background-color: rgba(255,0,0,.6); color: #000;}
-.testPopup b.ba15{background-color: rgba(255,0,0,.7); color: #000;}
-.testPopup b.ba16{background: rgba(255,0,0,.8); color: #000;}
-.testPopup b.ba17{background: rgba(255,0,0,.9); color: #000;}
-.testPopup b.ba18{background: rgba(255,0,0,1); color: #000;}
-.testPopup p{position: absolute; top: 0; left: 50px; width: calc(100% - 100px); }
-.layerPupop, .testLayer, .testPopup{
-    background: rgba(0, 0, 0, 0.4);
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    padding: 30px;
-    display: none;
-    z-index: 10;
+.totalSearch{width: 30px; height: 30px; background-size: 30px; color: #fff; font-size: 14px; border-radius: 100%; padding: 5px 10px; position: absolute; top: 65px; right: 30px; background-color: #0e857e;}
+.percentPopup .layerContent{height: 100%;}
+.percentPopup .layerContent .versionNumber{height: calc(100% - 40px); overflow-y: scroll; margin-top: 10px;}
+.percentPopup li:first-child{margin-bottom: 15px;}
+.percentPopup li{position: relative; font-size: 12px; margin-bottom: 5px; padding-left: 10px;}
+.percentPopup li em{width: 5px; height: 5px; background-color: red; border-radius: 100%; display: inline-block;}
+.percentPopup b{display: block; background-color: rgba(255,0,0,.1); color: #000;; width: 0%; padding-left: 10px; border-radius:0 7px 7px 0; transition: all 0.5s; color: #000; text-indent: -65px;}
+.percentPopup b.ba10{background-color: rgba(255,0,0,.2); color: #000;}
+.percentPopup b.ba11{background-color: rgba(255,0,0,.3); color: #000;}
+.percentPopup b.ba12{background-color: rgba(255,0,0,.4); color: #000;}
+.percentPopup b.ba13{background-color: rgba(255,0,0,.5); color: #000;}
+.percentPopup b.ba14{background-color: rgba(255,0,0,.6); color: #000;}
+.percentPopup b.ba15{background-color: rgba(255,0,0,.7); color: #000;}
+.percentPopup b.ba16{background: rgba(255,0,0,.8); color: #000;}
+.percentPopup b.ba17{background: rgba(255,0,0,.9); color: #000;}
+.percentPopup b.ba18{background: rgba(255,0,0,1); color: #000;}
+.percentPopup p{position: absolute; top: 0; left: 90px; width: calc(100% - 100px); }
+.layerPupop, 
+.prevNumberLayer, 
+.percentPopup{ background: rgba(0, 0, 0, 0.4); position: absolute; top: 0; right: 0; width: 100%; height: 100%; padding: 30px; display: none; z-index: 10;
 }
-.layerContainer, .testLayerContainer{
+.percentArea{display: flex;}
+.percentVal{display: block; width: 80px; box-shadow: 0px 4px 4px 0px rgba(170, 170, 170, 0.25); padding: 10px 15px; border-radius: 4px; font-size: 18px; text-align: center;
+}
+.layerContainer, .prevNumberLayerContainer{
     position: relative;
     width: 100%;
     height: 100%;
 }
-.layerContent, .testLayerContent{
+.layerContent, .prevNumberLayerContent{
     background-color: #f4f4f4;
     position: absolute;
     top: 50%;
@@ -281,19 +274,19 @@ input.text::placeholder {
     display: flex;
     margin: 30px auto 0;
 }
-.testList{
+.prevNumber{
     height: 240px;
     overflow-y: scroll;
 }
-.testList li{
+.prevNumber li{
     display: flex;
     margin-top: 15px;
     justify-content: space-evenly;
 }
-.testList li:first-child{
+.prevNumber li:first-child{
     margin-top: 0;
 }
-.testList li span{
+.prevNumber li span{
     display: block;
     width: 25px;
     height: 25px;
@@ -305,15 +298,17 @@ input.text::placeholder {
     margin-right: 3px;
     font-size: 14px;
 }
-.testList li span.active{
+.prevNumber li span.active{
     background-color: red;
 }
-
 .test{
     width: 50px;
     height: 20px;
     background-color: transparent;
     color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 .searchBox{
     display: none;
