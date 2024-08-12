@@ -11,6 +11,7 @@ button{
     padding: 0;
     margin: 0;
     border: 0;
+    cursor: pointer;
 }
 p{
     margin: 0;
@@ -25,41 +26,42 @@ ul{
 }
 .content{
     height: 100%;
-    width: 356px;
-    margin: 0 auto;
 }
 .contentArea{
     background-size: contain;
     height: 100%;
+    max-width: 1170px;
+    padding: 0 15px;
+    margin: 0 auto;
     background-position:top center;
     background-repeat:  no-repeat;
     position: relative;
 }
 .area1{
-    background-image: url('/img/img_01.jpeg');
+    background-image: url('../img/img_01.jpeg');
 }
 .area2{
-    background-image: url('/img/img_02.jpeg');
+    background-image: url('../img/img_02.jpeg');
 }
 .area3{
-    background-image: url('/img/img_03.jpeg');
+    background-image: url('../img/img_03.jpeg');
 }
 .area4{
-    background-image: url('/img/img_04.jpeg');
+    background-image: url('../img/img_04.jpeg');
 }
 .area5{
-    background-image: url('/img/img_05.jpeg');
+    background-image: url('../img/img_05.jpeg');
 }
 .area6{
-    background-image: url('/img/img_06.jpeg');
+    background-image: url('../img/img_06.jpeg');
 }
 .area7{
-    background-image: url('/img/img_07.jpeg');
+    background-image: url('../img/img_07.jpeg');
 }
 .firstBox{
     position: absolute;
     bottom: 50px;
-    width: 100%;
+    width: calc(100% - 30px);
     text-align: center;
 }
 .firstBox .buttonArea{
@@ -69,17 +71,19 @@ ul{
 .firstBox .buttonArea button{
     border-radius: 15px;
     padding: 20px 15px;
-    font-size: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    width: 160px;
 }
 .firstBox button span{
-    border-radius: 19px;
+    border-radius: 12px;
     padding: 8px;
 }
 .disagree{
     background-color: #c2c2c2;
     color: #fff;
     box-shadow: 0px 3px #909090;
-    margin-right: 20px;
+    margin-right: 15px;
 }
 .disagree span{
     background-color: #fff;
@@ -106,12 +110,11 @@ ul{
 .policyView{
     background-color: #fff;
     display: none;
-    width: calc(100% - 50px);
-    margin: 0 auto;
+    box-sizing: border-box;
     border: 1px solid #333;
     border-radius: 3px;
-    margin-bottom: 20px;
     padding: 10px;
+    margin-bottom: 20px;
 }
 
 .slectBox{
@@ -124,6 +127,7 @@ ul{
     clear: both;
     overflow: hidden;
     display: none;
+    width: calc(100% - 30px);
 }
 .slectBox .selectItem li{
     float: left;
@@ -172,4 +176,10 @@ ul{
 }
 .textareaBox{
     vertical-align: middle;
+}
+
+@media all and (max-width:767px){
+    .slectBox{
+        top: 55%;
+    }
 }
