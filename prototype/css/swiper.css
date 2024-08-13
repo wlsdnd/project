@@ -1,0 +1,102 @@
+html,
+body {
+    position: relative;
+    height: 100%;
+}
+ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+body {
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f9fb;
+}
+.swiperArea{
+    max-width: 700px;
+    margin: 0 auto;
+}
+.swiperContainer{
+    max-width: 600px;
+    height: 600px;
+    margin: 0 auto;
+}
+.swiper {
+    width: 100%;
+    height: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+    background: #fff;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.innerSwiper{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+}
+.innerSwiper .subTitle{
+    
+}
+.innerSwiper .state{
+    padding: 9px 5px;
+    border-radius: 15px;
+    width: 80px;
+    line-height: 15px;
+    font-size: 1em;
+}
+.innerSwiper .application{
+    background-color: #ebebeb;
+    color: #000;
+}
+.innerSwiper .complete{
+    background-color: #0084ff;
+    color: #fff;
+}
+strong{
+    text-align: center;
+    font-size: 28px;
+    display: block;
+    padding: 20px 0;
+}
+
+/* 반응형 media query */
+
+@media all and (max-width:640px){ 
+    .innerSwiper{
+        font-size: 16px;
+    }
+}
+@media all and (max-width:500px){
+    .innerSwiper{
+        font-size: 14px;
+    }
+    .innerSwiper .state{
+        width: 70px;
+        padding: 7px 4px;
+    }
+}
+@media all and (max-width:430px){
+    .innerSwiper{
+        font-size: 12px;
+    }
+    .innerSwiper .state{
+        width: 60px;
+        padding: 6px 3px;
+    }
+}
