@@ -1,6 +1,10 @@
 $(function(){
     let countClass = 1
     let arrVal = [];
+    for(let img=1; img<=7; img++){
+        $('.content img').attr('src', 'img/img_0'+img+'.jpeg')
+    }
+    $('.content img').attr('src', 'img/img_01.jpeg')
     let firstSize = $('.content img').height()
     $('.contentArea').css('height', firstSize+'px')
     $(window).resize(function (){

@@ -23,8 +23,9 @@ ul{
     padding: 0;
     margin: 0;
 }
-#container{
-
+input,
+textarea{
+    outline: transparent;
 }
 .content{
     max-width: 1200px;
@@ -71,9 +72,10 @@ ul{
 } */
 .firstBox{
     position: absolute;
-    bottom: 50px;
+    top: 80%;
     width: 100%;
     text-align: center;
+    padding-bottom: 20px;
 }
 .firstBox .buttonArea{
     display: flex;
@@ -89,6 +91,7 @@ ul{
 .firstBox button span{
     border-radius: 12px;
     padding: 8px;
+    margin-left: 5px;
 }
 .disagree{
     background-color: #c2c2c2;
@@ -117,6 +120,7 @@ ul{
 .policy button{
     background: none;
     font-size: 16px;
+    color: #000;
 }
 .policyView{
     background-color: #fff;
@@ -182,7 +186,7 @@ ul{
     font-size: 20px;
     padding: 20px 10px;
     color: #eee3e4;
-    text-align: center;
+    text-align: left;
 }
 .selectItem input::placeholder,
 .selectItem textarea::placeholder{
