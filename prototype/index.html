@@ -27,39 +27,39 @@
                     </div>
                     <div class="slectBox">
                         <ul class="selectItem item1">
-                            <li><button>굵기&크기</button></li>
-                            <li><button>시간</button></li>
-                            <li><button>만족도</button></li>
-                            <li><button>상담 후 결정</button></li>
+                            <li><button class="item">굵기&크기</button></li>
+                            <li><button class="item">시간</button></li>
+                            <li><button class="item">만족도</button></li>
+                            <li><button class="item">상담 후 결정</button></li>
                         </ul>
                         <ul class="selectItem item2">
-                            <li><button>예</button></li>
-                            <li><button>아니오</button></li>
+                            <li><button class="item">예</button></li>
+                            <li><button class="item">아니오</button></li>
                         </ul>
                         <ul class="selectItem item3">
-                            <li><button>예</button></li>
-                            <li><button>아니오</button></li>
+                            <li><button class="item">예</button></li>
+                            <li><button class="item">아니오</button></li>
                         </ul>
                         <ul class="selectItem item4">
-                            <li><button>서울</button></li>
-                            <li><button>경기</button></li>
-                            <li><button>인천</button></li>
-                            <li><button>강원도</button></li>
-                            <li><button>충남</button></li>
-                            <li><button>충북</button></li>
-                            <li><button>세종</button></li>
-                            <li><button>대전</button></li>
+                            <li><button class="item">서울</button></li>
+                            <li><button class="item">경기</button></li>
+                            <li><button class="item">인천</button></li>
+                            <li><button class="item">강원도</button></li>
+                            <li><button class="item">충남</button></li>
+                            <li><button class="item">충북</button></li>
+                            <li><button class="item">세종</button></li>
+                            <li><button class="item">대전</button></li>
                         </ul>
                         <ul class="selectItem item5">
-                            <li><button>30대</button></li>
-                            <li><button>40대</button></li>
-                            <li><button>50대</button></li>
-                            <li><button>60대</button></li>
+                            <li><button class="item">30대</button></li>
+                            <li><button class="item">40대</button></li>
+                            <li><button class="item">50대</button></li>
+                            <li><button class="item">60대</button></li>
                         </ul>
                         <div class="selectItem item6">
                             <div class="inputBox">
-                                <input type="text" placeholder="이름">
-                            <input type="text" placeholder="전화번호" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                                <input class="nameType" type="text" placeholder="이름">
+                                <input class="numberType" type="text" placeholder="전화번호" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
                             </div>
                             <div class="textareaBox">
                                 <div><textarea name="content" placeholder="불편한 점 (선택사항)"></textarea></div>
@@ -71,42 +71,5 @@
             </div>
         </div>
     </div>
-    <script>
-        $(function(){
-            let countClass = 1
-            let arrVal = [];
-            let firstSize = $('.content img').height()
-            $('.contentArea').css('height', firstSize+'px')
-            $(window).resize(function (){
-                let resize = $('.content img').height()
-                $('.contentArea').css('height', resize+'px')
-            })
-            $('.agree').click(function(){
-                $('.firstBox').hide()
-                $('.slectBox').show()
-                $('.item1').show()
-                
-                $('.content img').attr('src', 'img/img_02.jpeg')
-            })
-            $('.detail').click(function(){
-                $('.policyView').stop().slideToggle()
-            })
-            $('.slectBox button').click(function(){
-                console.log('img/img_0'+countClass+'.jpeg')
-                arrVal.push($(this).text())
-                countClass++
-                $('.selectItem').hide()
-                $('.item'+countClass).show()
-                $('.content img').attr('src', 'img/img_0'+(countClass+1)+'.jpeg')
-                // if($('.contentArea').hasClass('area'+countClass) && countClass<=6){
-                //     $('.area'+countClass).addClass('area'+(countClass+1))
-                //     $('.area'+countClass).toggleClass('area'+countClass)
-                // }else{
-                //     alert('마지막임')
-                // }
-                console.log(arrVal)
-            })
-        })
-    </script>
 </body>
 </html>
