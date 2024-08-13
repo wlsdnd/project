@@ -12,58 +12,101 @@
 <body>
     <div id="container">
         <div class="content">
-            <div class="contentArea area1">
-                <div class="firstBox">
-                    <p class="policy">개인정보처리방침 <button class="detail">[자세히보기]</button></p>
-                    <div class="policyView">
-                        asdasdas
+            <img src="img/img_01.jpeg" alt="">
+            <div class="contentArea">
+                <div class="innerContent">
+                    <div class="firstBox">
+                        <p class="policy">개인정보처리방침 <button class="detail">[자세히보기]</button></p>
+                        <div class="policyView">
+                            asdasdas
+                        </div>
+                        <div class="buttonArea">
+                            <button class="disagree">미동의 <span>나가기</span></button>
+                            <button class="agree">동의 <span>설문시작</span></button>
+                        </div>
                     </div>
-                    <div class="buttonArea">
-                        <button class="disagree">미동의 <span>나가기</span></button>
-                        <button class="agree">동의 <span>설문시작</span></button>
-                    </div>
-                </div>
-                <div class="slectBox">
-                    <ul class="selectItem item1">
-                        <li><button>굵기&크기</button></li>
-                        <li><button>시간</button></li>
-                        <li><button>만족도</button></li>
-                        <li><button>상담 후 결정</button></li>
-                    </ul>
-                    <ul class="selectItem item2">
-                        <li><button>예</button></li>
-                        <li><button>아니오</button></li>
-                    </ul>
-                    <ul class="selectItem item3">
-                        <li><button>예</button></li>
-                        <li><button>아니오</button></li>
-                    </ul>
-                    <ul class="selectItem item4">
-                        <li><button>서울</button></li>
-                        <li><button>경기</button></li>
-                        <li><button>인천</button></li>
-                        <li><button>강원도</button></li>
-                        <li><button>충남</button></li>
-                        <li><button>충북</button></li>
-                        <li><button>세종</button></li>
-                        <li><button>대전</button></li>
-                    </ul>
-                    <ul class="selectItem item5">
-                        <li><button>30대</button></li>
-                        <li><button>40대</button></li>
-                        <li><button>50대</button></li>
-                        <li><button>60대</button></li>
-                    </ul>
-                    <div class="selectItem item6">
-                        <input type="text" placeholder="이름">
-                        <input type="number" placeholder="전화번호">
-                        <div class="textareaBox">
-                            <div><textarea name="content" placeholder="불편한 점 (선택사항)"></textarea></div>
+                    <div class="slectBox">
+                        <ul class="selectItem item1">
+                            <li><button>굵기&크기</button></li>
+                            <li><button>시간</button></li>
+                            <li><button>만족도</button></li>
+                            <li><button>상담 후 결정</button></li>
+                        </ul>
+                        <ul class="selectItem item2">
+                            <li><button>예</button></li>
+                            <li><button>아니오</button></li>
+                        </ul>
+                        <ul class="selectItem item3">
+                            <li><button>예</button></li>
+                            <li><button>아니오</button></li>
+                        </ul>
+                        <ul class="selectItem item4">
+                            <li><button>서울</button></li>
+                            <li><button>경기</button></li>
+                            <li><button>인천</button></li>
+                            <li><button>강원도</button></li>
+                            <li><button>충남</button></li>
+                            <li><button>충북</button></li>
+                            <li><button>세종</button></li>
+                            <li><button>대전</button></li>
+                        </ul>
+                        <ul class="selectItem item5">
+                            <li><button>30대</button></li>
+                            <li><button>40대</button></li>
+                            <li><button>50대</button></li>
+                            <li><button>60대</button></li>
+                        </ul>
+                        <div class="selectItem item6">
+                            <div class="inputBox">
+                                <input type="text" placeholder="이름">
+                            <input type="text" placeholder="전화번호" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                            </div>
+                            <div class="textareaBox">
+                                <div><textarea name="content" placeholder="불편한 점 (선택사항)"></textarea></div>
+                            </div>
+                            <button class="complete">신청완료</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        $(function(){
+            let countClass = 1
+            let arrVal = [];
+            let firstSize = $('.content img').height()
+            $('.contentArea').css('height', firstSize+'px')
+            $(window).resize(function (){
+                let resize = $('.content img').height()
+                $('.contentArea').css('height', resize+'px')
+            })
+            $('.agree').click(function(){
+                $('.firstBox').hide()
+                $('.slectBox').show()
+                $('.item1').show()
+                
+                $('.content img').attr('src', 'img/img_02.jpeg')
+            })
+            $('.detail').click(function(){
+                $('.policyView').stop().slideToggle()
+            })
+            $('.slectBox button').click(function(){
+                console.log('img/img_0'+countClass+'.jpeg')
+                arrVal.push($(this).text())
+                countClass++
+                $('.selectItem').hide()
+                $('.item'+countClass).show()
+                $('.content img').attr('src', 'img/img_0'+(countClass+1)+'.jpeg')
+                // if($('.contentArea').hasClass('area'+countClass) && countClass<=6){
+                //     $('.area'+countClass).addClass('area'+(countClass+1))
+                //     $('.area'+countClass).toggleClass('area'+countClass)
+                // }else{
+                //     alert('마지막임')
+                // }
+                console.log(arrVal)
+            })
+        })
+    </script>
 </body>
 </html>
