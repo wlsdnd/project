@@ -574,7 +574,6 @@
 
             let percentTotalVal = $('.percentArea .percentVal')
             $('.percentSelect').click(function () {
-                $('.createCreate').show()
                 $('.versionNumber').show()
                 $('.percentPopup ul li').remove()
                 $('.percentPopup ul').append(`<li>이전 ${percentTotalVal.val()}회차의 당첨번호 확률</li>`)
@@ -591,6 +590,7 @@
                         url: `https://smok95.github.io/lotto/results/${parseIntNumberM + xz}.json`,   // 서버의 URL 주소
                         dataType: 'json'                             // 서버에서 보내줄 데이터의 타입
                     }).done(function (data) {   
+                        $('.createCreate').show()
                         for (let z = 0; z < 6; z++) {
                             for (let cn = 0; cn < 46; cn++) {
                                 if (data.numbers[z] == cn) {
