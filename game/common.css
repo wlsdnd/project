@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    touch-action: manipulation;
 }
 html {
     overflow-y: auto;
@@ -343,8 +344,6 @@ input.text::placeholder {
     background-color: gray;
     color: #fff;
     border-radius: 100%;
-    line-height: 25px;
-    margin-right: 3px;
     font-size: 14px;
 }
 .prevNumber li span.active{
@@ -488,7 +487,7 @@ input.text::placeholder {
 .testBtn{
     padding: 10px;
     position: absolute;
-    bottom: 0;
+    bottom: 45px;
     left: 0;
     background-color: transparent;
 }
