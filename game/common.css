@@ -124,11 +124,12 @@ select {
     font-size: 14px;
 }
 .btnFlex{
-    display: flex;
+    display: grid;
     justify-content: space-between;
+    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
 }
 .btnFlex li{
-    width: 48%;
     position: relative;
 }
 .btnFlex li button.edit{
@@ -196,7 +197,7 @@ input.text::placeholder {
     display: flex;
 }
 .percent li{
-    font-size: 14px;
+    font-size: 12px;
     padding: 5px 10px;
     background-color: #2d3092;
     border: 1px solid #1a1c5d;
@@ -204,8 +205,11 @@ input.text::placeholder {
     color: #fff;
     display: none;
 }
-.percent li.percent33{
-    margin-right: 10px;
+.percent li{
+    margin-left: 5px;
+}
+.percent li:first-child{
+    margin-left: 0;
 }
 .reset{
     background: url(reset.png);
@@ -231,6 +235,21 @@ input.text::placeholder {
     font-size: 18px;
 }
 .totalSearch{width: 30px; height: 30px; background-size: 30px; color: #fff; font-size: 14px; border-radius: 100%; padding: 5px 10px; position: absolute; top: 65px; right: 30px; background-color: #0e857e;}
+.myNumber{
+    width: 30px; 
+    height: 30px; 
+    background-color: transparent;
+    position: absolute;
+    top: 100px; 
+    right: 30px;
+    background-color: #0e857e;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: bold;
+}
 .percentPopup .layerContent{height: 100%;}
 .percentPopup .layerContent .versionNumber{height: calc(100% - 40px); overflow-y: scroll; margin-top: 10px;}
 .percentPopup li:first-child{margin-bottom: 15px;}
@@ -298,15 +317,22 @@ input.text::placeholder {
 }
 .prevNumber{
     height: 240px;
+    padding: 10px 0;
     overflow-y: scroll;
 }
 .prevNumber li{
     display: flex;
     margin-top: 15px;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 10px;
 }
 .prevNumber li:first-child{
     margin-top: 0;
+}
+.prevNumber li em{
+    font-size: 14px;
+    font-style: normal;
 }
 .prevNumber li span{
     display: flex;
@@ -324,15 +350,6 @@ input.text::placeholder {
 .prevNumber li span.active{
     background-color: #4759c5;
     border: 1px solid #07199f;
-}
-.myNumber{
-    width: 50px;
-    height: 20px;
-    background-color: transparent;
-    color: transparent;
-    position: absolute;
-    top: 0;
-    left: 0;
 }
 .searchBox{
     display: none;
@@ -468,9 +485,10 @@ input.text::placeholder {
     align-items: center;
     gap: 20px;
 }
-.testCreate{
-    padding: 20px;
+.testBtn{
+    padding: 10px;
     position: absolute;
     bottom: 0;
-    left: 20px;
+    left: 0;
+    background-color: transparent;
 }
